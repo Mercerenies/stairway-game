@@ -1,0 +1,61 @@
+
+Three attacks
+ * Physical attack deals ATK damage
+ * Magical attack oscillates (sinusoidal) between ATK/2 and 3*ATK/2 damage, advancing each time it's used
+ * Final attack uses 50% energy meter but deals 2*ATK damage
+
+Costs 50% energy meter to skip a space, using the faded advance icon
+
+Scrolls that get more powerful the longer you wait to get them
+
+Hm... what about an underwater space which sets you to being "underwater"
+ * As long as you are "underwater", fading is more expensive and ATK is halved
+ * Can only resurface and cease to be "underwater" by landing on a neutral space
+ * We could have an era where most (all?) of the neutral spaces are underwater spaces
+Ooh! Maybe a fire space that increases ATK as long as on fire but decreases HP every turn.
+ * Only way to extinguish fire is to step on a water space
+What if each era had an era-specific space that it introduced?
+ * Then that space is used in all the later era, just not as often
+ * Spiders could have a spider web space which decreases your energy
+
+///// Next up, other spaces (and bosses)
+
+== Improvable Stats ==
+ * Health        - Max HP
+ * Energy        - Energy capacity
+ * Luck          - Luck
+ * Strength      - ATK (bosses only)
+ * Perserverence - Apple effect
+ * Vitality      - Orange effect
+ * Metabolism    - Melon effect
+ * Mercantilism  - Fruit/item prices
+ * Stamina       - Energy restore rate
+ * Discipline    - Energy cost to fade
+ * Rage          - Energy cost to special attack
+ * Chaos         - Effect of karma on luck (bosses only)
+ * Tax           - Percentage paid at tax spaces (might also go up after certain bosses)
+ * Fortune       - Chance of critical hit
+ * Force         - Special attack multiplier
+ * Resilience    - HP restore rate (bosses only)
+ * Evasion       - Chance of dodging enemy attack
+ - Alignment     - Period of magic attack cycle (TBA)
+
+Ratticus Finch
+Count Arachula
+Joan of Lark
+Genghis Kone
+Robert E Tree
+William Shakes Pear
+Pablo Pig Casso
+Andy Werehol
+
+Albert Einspine
+Elon Muskox
+Spruce Wayne
+Napoleon Bone Apart
+Ben Jammin' Franklin
+
+== ERA I ==
+ * Boss: Ratticus Finch
+ * Length: 30
+

@@ -2,10 +2,12 @@
 package com.mercerenies.stairway.enemy
 
 import com.mercerenies.stairway.game.{Player, StandardGame}
+import com.mercerenies.stairway.util
 import com.mercerenies.stairway.util.Rectangle
 import java.awt.{Graphics2D, Font, Color}
 
 trait BossEnemy extends Enemy {
+  import util.GraphicsImplicits._
 
   private var textShow = 0
   private val textRate = 30 // Show a new character every 30 steps (or 2 per second)
@@ -37,7 +39,7 @@ trait BossEnemy extends Enemy {
     val xPos = this.rect.centerX - metrics.stringWidth(bossName) / 2
     val yPos = this.rect.ymin - 4
 
-    graph.drawString(bossNameDisplay, xPos.toFloat, yPos.toFloat)
+    graph.drawString(bossNameDisplay, xPos, yPos)
 
   }
 

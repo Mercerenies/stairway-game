@@ -2,7 +2,7 @@
 package com.mercerenies.stairway.game.content
 
 import com.mercerenies.stairway.ui.{Drawable, SizedDrawable}
-import com.mercerenies.stairway.util.Rectangle
+import com.mercerenies.stairway.util.{Rectangle, GraphicsImplicits}
 import com.mercerenies.stairway.product.{Purchasable, Captioned}
 import java.awt._
 
@@ -12,6 +12,7 @@ class PurchaseContentSlot[+T <: PurchaseContentSlot.Element](
   xy: (Double, Double),
   val font: Option[Font] = Some(PurchaseContentSlot.DefaultFont))
     extends Drawable {
+  import GraphicsImplicits._
 
   val xPos = xy._1
   val yPos = xy._2
@@ -33,8 +34,8 @@ class PurchaseContentSlot[+T <: PurchaseContentSlot.Element](
         graph.setFont(font)
         val text = if (value.canBuy(owner.master.player)) "$" + value.price(owner.master.player) else "N/A"
         val metrics = graph.getFontMetrics()
-        val xPos = rect.centerX.toFloat - metrics.stringWidth(text) / 2
-        val yPos = (rect.ymax + metrics.getHeight).toFloat
+        val xPos = rect.centerX - metrics.stringWidth(text) / 2
+        val yPos = rect.ymax + metrics.getHeight
         graph.drawString(text, xPos, yPos)
       }
     }

@@ -1,10 +1,12 @@
 
 package com.mercerenies.stairway.game.content
 
+import com.mercerenies.stairway.util
 import com.mercerenies.stairway.util.Rectangle
 import java.awt._
 
 trait ContentHeader {
+  import util.GraphicsImplicits._
 
   def headerText: String
 
@@ -14,7 +16,7 @@ trait ContentHeader {
     val metrics = graph.getFontMetrics()
     val text = headerText
     val xPos = rect.centerX - metrics.stringWidth(text) / 2
-    graph.drawString(text, xPos.toFloat, rect.y.toFloat + 32)
+    graph.drawString(text, xPos, rect.y + 32)
   }
 
 }

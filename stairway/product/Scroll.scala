@@ -9,6 +9,7 @@ import java.awt.{Graphics2D, Font, Color}
 
 class Scroll(val effects: Scroll.Effect*)
     extends SizedDrawable {
+  import util.GraphicsImplicits._
 
   private var _age = 1
   private var _used = false
@@ -40,8 +41,8 @@ class Scroll(val effects: Scroll.Effect*)
     graph.setFont(Scroll.DefaultFont)
     graph.drawString(
       effect.caption,
-      util.lerp(rect.xmin, rect.xmax, 0.10).toFloat,
-      util.lerp(rect.ymin, rect.ymax, 0.50).toFloat
+      util.lerp(rect.xmin, rect.xmax, 0.10),
+      util.lerp(rect.ymin, rect.ymax, 0.50)
     )
 
   }

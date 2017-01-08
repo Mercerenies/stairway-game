@@ -11,6 +11,7 @@ import java.awt.{List => _, _}
 
 class DojoContent(contentArea: ContentArea, _stats: Seq[ImprovableStats.UpgradeSlot[Any]])
     extends PurchaseContent(contentArea) with ContentHeader {
+  import util.GraphicsImplicits._
 
   class CaptionedUpgradeSlot[+T](val slot: ImprovableStats.UpgradeSlot[T])
       extends Purchasable with SizedDrawable {
@@ -31,8 +32,8 @@ class DojoContent(contentArea: ContentArea, _stats: Seq[ImprovableStats.UpgradeS
       graph.setFont(DojoContent.DefaultFont)
       graph.drawString(
         s"Train ${slot.stat.name} ($$${price(master.player)}) - ${slot.stat.description}",
-        (rect.xmin + 16).toFloat,
-        (rect.ymax - 16).toFloat
+        rect.xmin + 16,
+        rect.ymax - 16
       )
 
     }

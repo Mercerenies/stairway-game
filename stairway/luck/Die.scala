@@ -14,6 +14,7 @@ class Die(
   private var yPos: Double)
     extends Drawable {
   import util.RandomImplicits._
+  import util.GraphicsImplicits._
 
   private var imageIndex: Either[Int, DiceValue] = Left(0)
   private var timer = util.rand.nextInt(60, 150)
@@ -48,14 +49,7 @@ class Die(
   }
 
   override def draw(graph: Graphics2D, rect: Rectangle): Unit = {
-    graph.drawImage(
-      image,
-      rect.x.toInt,
-      rect.y.toInt,
-      rect.width.toInt,
-      rect.height.toInt,
-      null
-    )
+    graph.drawImage(image, rect)
   }
 
 }

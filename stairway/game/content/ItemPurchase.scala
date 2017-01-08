@@ -3,7 +3,7 @@ package com.mercerenies.stairway.game.content
 
 import com.mercerenies.stairway.ui.Drawable
 import com.mercerenies.stairway.util
-import com.mercerenies.stairway.util.{Rectangle, PointImplicits}
+import com.mercerenies.stairway.util.{Rectangle, PointImplicits, GraphicsImplicits}
 import com.mercerenies.stairway.image.ItemsImage
 import com.mercerenies.stairway.game.Inventory
 import com.mercerenies.stairway.product.item.{Item, ItemSlot}
@@ -11,6 +11,7 @@ import java.awt.{List => _, _}
 
 class ItemPurchase(contentArea: ContentArea, private val _items: Seq[Item]) extends PurchaseContent(contentArea) {
   import PointImplicits._
+  import GraphicsImplicits._
 
   override val items: Seq[PurchaseContentSlot[ItemSlot]] = {
     val rect = contentArea.rect
@@ -37,7 +38,7 @@ class ItemPurchase(contentArea: ContentArea, private val _items: Seq[Item]) exte
     val metrics = graph.getFontMetrics()
     val xText = util.lerp(rect.xmin, rect.xmax, 0.25)
     val yText = util.lerp(rect.ymin, rect.ymax, 0.75)
-    graph.drawString(description, xText.toFloat, yText.toFloat)
+    graph.drawString(description, xText, yText)
 
   }
 

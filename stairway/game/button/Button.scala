@@ -6,14 +6,14 @@ import com.mercerenies.stairway.image.ButtonsImage
 import com.mercerenies.stairway.event.StepEvent
 import com.mercerenies.stairway.action.KeyboardKey
 import com.mercerenies.stairway.ui.Drawable
-import com.mercerenies.stairway.util.Rectangle
 import com.mercerenies.stairway.util
+import com.mercerenies.stairway.util.Rectangle
 import java.awt.Graphics2D
 
 class Button(val pad: ButtonPad, val bbox: Rectangle, val imageIndex: Int, val hotkeys: Seq[KeyboardKey] = Nil)
     extends Drawable
     with StepEvent {
-
+  import util.GraphicsImplicits._
   import util.PointImplicits._
 
   private var lastPressState = false
@@ -47,14 +47,7 @@ class Button(val pad: ButtonPad, val bbox: Rectangle, val imageIndex: Int, val h
   }
 
   override def draw(graph: Graphics2D, rect: Rectangle): Unit = {
-    graph.drawImage(
-      pad.imageResource.button(isPressed, imageIndex),
-      rect.x.toInt,
-      rect.y.toInt,
-      rect.width.toInt,
-      rect.height.toInt,
-      null
-    )
+    graph.drawImage(pad.imageResource.button(isPressed, imageIndex), rect)
   }
 
 }

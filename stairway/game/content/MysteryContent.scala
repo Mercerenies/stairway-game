@@ -12,6 +12,7 @@ import java.awt.{List => _, _}
 class MysteryContent(contentArea: ContentArea, val count: Int) extends AbstractContent(contentArea) {
   import util.PointImplicits._
   import util.RandomImplicits._
+  import util.GraphicsImplicits._
 
   class MysteryBox(val xPos: Double, val yPos: Double) extends Drawable {
 
@@ -27,11 +28,7 @@ class MysteryContent(contentArea: ContentArea, val count: Int) extends AbstractC
             case None => Fruits.image.mystery
             case Some(x) => x.image
           },
-          rect.x.toInt,
-          rect.y.toInt,
-          rect.width.toInt,
-          rect.height.toInt,
-          null
+          rect
         )
       }
     }

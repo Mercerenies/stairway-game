@@ -8,8 +8,8 @@ import java.awt.{Graphics2D, Color, Font}
 
 class ParticleText(master: StandardGame.Master, val font: Font = ParticleText.DefaultFont)
     extends GameEntity[StandardGame.Master](master) {
-
   import util.RandomImplicits._
+  import util.GraphicsImplicits._
 
   private class Particle(
     val text: String,
@@ -37,7 +37,7 @@ class ParticleText(master: StandardGame.Master, val font: Font = ParticleText.De
       val metrics = graph.getFontMetrics()
       val width = metrics.stringWidth(text)
       val height = metrics.getHeight()
-      graph.drawString(text, (xPos - width / 2).toFloat, (yPos + height / 2).toFloat)
+      graph.drawString(text, xPos - width / 2, yPos + height / 2)
     }
 
   }

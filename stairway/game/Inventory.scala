@@ -12,6 +12,7 @@ import java.awt.{Graphics2D, Color, Font}
 class Inventory(master: StandardGame.Master, val xPos: Double, val yPos: Double)
     extends GameEntity[StandardGame.Master](master) {
   import util.PointImplicits._
+  import util.GraphicsImplicits._
 
   private object UseItem extends AbstractClickEvent {
 
@@ -48,8 +49,8 @@ class Inventory(master: StandardGame.Master, val xPos: Double, val yPos: Double)
     Rectangle(xCurr, yCurr, xCurr + ItemsImage.Width, yCurr + ItemsImage.Height)
   }
 
-  def textPos: (Int, Int) =
-    (xPos.toInt + 2, yPos.toInt + 11)
+  def textPos: (Double, Double) =
+    (xPos + 2, yPos + 11)
 
   def getItem(index: Int): Option[Item] =
     if (index < 0 || index >= contents.size)
@@ -98,25 +99,10 @@ class Inventory(master: StandardGame.Master, val xPos: Double, val yPos: Double)
     graph.setColor(Color.black)
     for (i <- 0 until capacity) {
       val rect = positionOf(i)
-      if (i < contents.size) {
-        graph.drawImage(
-          contents(i).image,
-          rect.x.toInt,
-          rect.y.toInt,
-          rect.width.toInt,
-          rect.height.toInt,
-          null
-        )
-      } else {
-        graph.drawImage(
-          Item.image.item(0),
-          rect.x.toInt,
-          rect.y.toInt,
-          rect.width.toInt,
-          rect.height.toInt,
-          null
-        )
-      }
+      if (i < contents.size)
+        graph.drawImage(contents(i).image, rect)
+      else
+        graph.drawImage(Item.image.item(0), rect)
     }
 
     graph.setFont(font)

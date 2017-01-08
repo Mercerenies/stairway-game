@@ -12,6 +12,7 @@ import java.awt._
 class LotteryContent(contentArea: ContentArea, val space: LotterySpace)
     extends AbstractContent(contentArea) with DiceContainer with ContentHeader {
   import util.PointImplicits._
+  import util.GraphicsImplicits._
 
   abstract class State extends Drawable {
     def step(): Unit
@@ -94,8 +95,8 @@ class LotteryContent(contentArea: ContentArea, val space: LotterySpace)
       val textHeight = metrics.getAscent()
       graph.drawString(
         string,
-        (centerField.centerX - textWidth / 2).toFloat,
-        (centerField.centerY + textHeight / 2).toFloat
+        centerField.centerX - textWidth / 2,
+        centerField.centerY + textHeight / 2
       )
 
       graph.setFont(font)
@@ -110,8 +111,8 @@ class LotteryContent(contentArea: ContentArea, val space: LotterySpace)
       val textHeight1 = metrics.getAscent()
       graph.drawString(
         string1,
-        (goButton.centerX - textWidth1 / 2).toFloat,
-        (goButton.centerY + textHeight1 / 2).toFloat
+        goButton.centerX - textWidth1 / 2,
+        goButton.centerY + textHeight1 / 2
       )
 
     }

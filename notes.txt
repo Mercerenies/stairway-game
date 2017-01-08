@@ -56,6 +56,16 @@ Napoleon Bone Apart
 Ben Jammin' Franklin
 
 == ERA I ==
+ * Enemies: Rat
  * Boss: Ratticus Finch
  * Length: 30
+ * Special Spaces: None
+ * Special Events: None
+
+== ERA II ==
+ * Enemies: Pear, Helmet Imp, Rat, Rat (x2)
+ * Boss: William Shakes Pear
+ * Length: 50
+ * Special Spaces: None
+ * Special Events: Scroll Set A (1)
 

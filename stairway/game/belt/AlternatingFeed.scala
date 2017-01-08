@@ -6,6 +6,7 @@ import com.mercerenies.stairway.game.StandardGame
 import com.mercerenies.stairway.space.Space
 import scala.collection.mutable.Map
 import scala.collection.concurrent.TrieMap
+import scala.util.control.{Exception => UtilException}
 
 class AlternatingFeed[+A <: ConveyerFeed, +B <: ConveyerFeed](
   master: StandardGame.Master,
@@ -17,6 +18,13 @@ class AlternatingFeed[+A <: ConveyerFeed, +B <: ConveyerFeed](
   private var on2 = false
 
   def feed: ConveyerFeed = if (on2) feed2 else feed1
+
+  def topDefined: Index.Type = {
+    val zero = implicitly[Integral[Index.Type]].fromInt(0)
+    UtilException.failAsValue(classOf[UnsupportedOperationException])(zero) {
+      cache.keySet.max
+    }
+  }
 
   def switchTo(arg: AlternatingFeed.Alternate): Unit = arg match {
     case AlternatingFeed.One => { on2 = false }

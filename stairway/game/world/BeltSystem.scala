@@ -106,6 +106,8 @@ class BeltSystem(
       case _ => 25
     }
 
+    override def ready: Boolean = eraSettings.isDefinedAt(master.era - 1) && super.ready
+
     override def nextEnemy() = random.nextOf(settings(master.era)) match {
       case (enemy, paces) => (enemy(Enemy.entropy(random)), random.nextOf(paces))
     }
@@ -341,7 +343,19 @@ class BeltSystem(
 
     override lazy val bosses: Seq[BossEnemy] = List(new Ratticus(master))
 
-    override def switchMoment: util.Index = util.Index.Absolute(30)
+    lazy val stoppingPoints: Seq[Int] = List(30)
+
+    private var lastSwitch: util.Index = util.Index.Absolute(0)
+
+    override def timeToSwitch(index: util.Index): Boolean =
+      stoppingPoints andThen (index >= lastSwitch + _ - 1) applyOrElse (master.era - 1, { (_: Int) => false })
+
+    override def onSwitch(arg: AlternatingFeed.Alternate): Unit = {
+      super.onSwitch(arg)
+      // If we're switching back to the regular feed, set the basis point
+      if (arg == regularFeed)
+        lastSwitch = util.Index.Absolute(AltFeed.topDefined)
+    }
 
   }
 

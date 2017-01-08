@@ -18,15 +18,18 @@ abstract class BossSystem[+A <: GeneratorFeed](
 
   def bosses: Seq[BossEnemy]
 
-  def switchMoment: Index
+  def timeToSwitch(index: Index): Boolean
 
   def regularFeed = AlternatingFeed.One
   def bossFeed = AlternatingFeed.Two
+
+  def onSwitch(arg: AlternatingFeed.Alternate): Unit = {}
 
   object AltFeed extends AlternatingFeed[RegularFeed.type, BossFeed.type](master, RegularFeed, BossFeed) {
 
     override def switchTo(arg: AlternatingFeed.Alternate): Unit = {
       super.switchTo(arg)
+      onSwitch(arg)
       if (arg == bossFeed)
         underlyingFeed.freeze()
     }
@@ -37,7 +40,7 @@ abstract class BossSystem[+A <: GeneratorFeed](
 
     override def getSpace(index: Index): Space = {
       val space = underlyingFeed.getSpace(index)
-      if (master.player.occupiedPosition >= switchMoment) {
+      if (timeToSwitch(index)) {
         if (iterator.hasNext) {
           curr = Some(iterator.next)
           altFeed.switchTo(bossFeed)

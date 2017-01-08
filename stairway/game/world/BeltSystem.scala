@@ -355,4 +355,8 @@ class BeltSystem(
   val belt: OverrideConveyer[ConveyerFeed] =
     new OverrideConveyer(master, BossFeedSystem.AltFeed)
 
+  def eraChanged(newEra: Int): Unit = {
+    BaseFeed.eraChanged(newEra)
+  }
+
 }

@@ -88,5 +88,9 @@ abstract class GeneratorFeed(
     cache(index.value) = space
   }
 
+  def eraChanged(newEra: Int): Unit = {
+    generators.foreach(_.eraChanged(newEra))
+  }
+
 }
 

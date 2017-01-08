@@ -37,8 +37,9 @@ object StandardGame {
     val particleText = new ParticleText(this)
     val contentArea = new ContentArea(this, Rectangle(BeltRightMargin + 32, 40, 620, 370))
     val inventory = new Inventory(this, BeltRightMargin + 180, 370)
+    val system = new BeltSystem(this)
     val belt: ConveyerBelt[OverrideConveyer[ConveyerFeed]] =
-      new ConveyerBelt(this, new BeltSystem(this).belt, BeltRightMargin)
+      new ConveyerBelt(this, system.belt, BeltRightMargin)
     val damage = new StandardDamage(this, Rectangle(BeltRightMargin + 10, 5, PlayerMeterX - 10, 50))
 
     override lazy val objects = List(
@@ -117,6 +118,7 @@ object StandardGame {
 
     def advanceEra(): Unit = {
       _era += 1
+      system.eraChanged(era)
     }
 
     inventory.addItem(DivineBolt)

@@ -16,4 +16,6 @@ abstract class AbstractGenerator[+T <: ConveyerFeed](
 
   override def trigger(next: Index): Unit = {}
 
+  override def eraChanged(newEra: Int): Unit = {}
+
 }

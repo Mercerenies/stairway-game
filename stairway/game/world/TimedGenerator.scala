@@ -29,4 +29,12 @@ trait TimedGenerator[+T <: ConveyerFeed] extends Generator[T] {
     timer = computeTimer()
   }
 
+  abstract override def eraChanged(newEra: Int): Unit = {
+    super.eraChanged(newEra)
+    // Timer bounds frequently change when the era shifts, so recompute the timer
+    // if necessary
+    if (timer > maxTimer)
+      timer = computeTimer()
+  }
+
 }

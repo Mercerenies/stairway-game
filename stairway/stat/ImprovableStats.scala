@@ -26,9 +26,9 @@ class ImprovableStats(val master: StandardGame.Master) {
   val vitality      = new Stat("Vitality", "Effect of eating oranges", 10.0, 2.0, Some(0.0))
   val metabolism    = new Stat("Metabolism", "Effect of eating melons", 12.0, 2.0, Some(0.0))
   val mercantilism  = new Stat("Mercantilism", "Quality of prices at shops", 0, 1, None)
-  val stamina       = new Stat("Stamina", "Restore rate of energy meter", 10.0, 1.0, Some(0.0))
-  val discipline    = new Stat("Discipline", "Cost efficiency of fade ability", 0.0, 1.0, Some(0.0))
-  val rage          = new Stat("Rage", "Cost efficiency of special attack", 0.0, 1.0, Some(0.0))
+  val stamina       = new Stat("Stamina", "Restore rate of energy meter", 5.0, 1.0, Some(0.0))
+  val discipline    = new Stat("Discipline", "Cost efficiency of fade ability", 0.0, 2.0, Some(0.0))
+  val rage          = new Stat("Rage", "Cost efficiency of special attack", 0.0, 2.0, Some(0.0))
   val chaos         = new Stat("Chaos", "Effect of karma on luck", 1.0, 1.0, Some(0.0))
   val tax           = new Stat("Tax", "Money taken on tax spaces", 0.15, -0.01, Some(0.0))
   val fortune       = new Stat("Fortune", "Chance of critical hits", 0.01, 0.005, Some(0.0))
@@ -45,8 +45,8 @@ class ImprovableStats(val master: StandardGame.Master) {
     new UpgradeSlot(metabolism   , 20, 10),
     new UpgradeSlot(mercantilism , 10, 20),
     new UpgradeSlot(stamina      , 15, 15),
-    new UpgradeSlot(discipline   , 50, 15),
-    new UpgradeSlot(rage         , 50, 15),
+    new UpgradeSlot(discipline   ,  5,  5),
+    new UpgradeSlot(rage         ,  5,  5),
     new UpgradeSlot(tax          , 20,  5),
     new UpgradeSlot(fortune      , 50, 15),
     new UpgradeSlot(force        , 25, 10),

@@ -53,7 +53,7 @@ class PlayerStats(val master: StandardGame.Master, val moneyChanged: (Int) => Un
   }
 
   def fadeCost: Double = math.max(50 - levels.discipline.value, 1)
-  def specialAttackCost: Double = math.max(30 - levels.rage.value, 1)
+  def specialAttackCost: Double = math.max(50 - levels.rage.value, 1)
 
   def incomeAmount: Int = 5
   def healthSpaceAmount: Double = 5.0

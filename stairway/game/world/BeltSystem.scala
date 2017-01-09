@@ -291,7 +291,8 @@ class BeltSystem(
     }
 
     def lottoSampler: Seq[(Int, DiceValue)] = master.era match {
-      case _ => List((3, DiceValue(9)), (3, DiceValue(10)), (3, DiceValue(11)), (3, DiceValue(11)))
+      case 1 => List((3, DiceValue(9)), (3, DiceValue(10)), (3, DiceValue(11)), (3, DiceValue(11)))
+      case 2 => List((3, DiceValue(10)), (3, DiceValue(10)), (3, DiceValue(11)), (3, DiceValue(12)))
     }
 
     def houseRules(x: (Int, DiceValue)): Int = x match {
@@ -335,13 +336,13 @@ class BeltSystem(
     val upgradeIter: Iterator[ImprovableStats.UpgradeSlot[_]] = util.cycle(allUpgrades: _*).iterator
 
     override def minTimer = master.era match {
-      case 1 => 46
-      case 2 => 46
+      case 1 => NoGenerate
+      case 2 => 20
       case _ => NoGenerate
     }
     override def maxTimer = master.era match {
-      case 1 => 54
-      case 2 => 54
+      case 1 => NoGenerate
+      case 2 => 25
       case _ => NoGenerate
     }
 

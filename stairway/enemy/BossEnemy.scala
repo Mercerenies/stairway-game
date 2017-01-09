@@ -10,7 +10,7 @@ trait BossEnemy extends Enemy {
   import util.GraphicsImplicits._
 
   private var textShow = 0
-  private val textRate = 30 // Show a new character every 30 steps (or 2 per second)
+  private val textRate = 20 // Show a new character every 20 steps (or 3 per second)
 
   def bossName: String
 

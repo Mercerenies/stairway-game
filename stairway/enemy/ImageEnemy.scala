@@ -12,8 +12,7 @@ trait ImageEnemy extends Enemy {
   def image: Image = Enemy.image.enemy(imageIndex)
 
   override def draw(graph: Graphics2D, rect: Rectangle): Unit = {
-    val rect0 = this.rect
-    graph.drawImage(image, rect0)
+    graph.drawImage(image, rect)
     super.draw(graph, rect)
   }
 

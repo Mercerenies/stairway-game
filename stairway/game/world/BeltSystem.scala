@@ -90,12 +90,18 @@ class BeltSystem(
       with TimedGenerator[GeneratorFeed]
       with EnemySequenceGenerator[GeneratorFeed] {
 
-    private val eraSettings: Array[Seq[(Enemy.Entropy => Enemy, Seq[Int])]] = Array(
-      List(entry(new Rat(master, _), 3, 3, 4))
+    type EnemySpawnArg = (() => Enemy, Seq[Int])
+
+    def basicRat() = new Rat(master, Enemy.entropy(random))
+    def ratTeam() = new EnemyTeam(master, basicRat(), basicRat())
+
+    private val eraSettings: Array[Seq[EnemySpawnArg]] = Array(
+      List(entry(basicRat(), 3, 3, 4)),
+      List(entry(ratTeam(), 3, 4, 5))
     )
 
-    private def entry(func: Enemy.Entropy => Enemy, poss: Int*): (Enemy.Entropy => Enemy, Seq[Int]) =
-      (func, poss)
+    private def entry(func: => Enemy, poss: Int*): EnemySpawnArg =
+      (() => func, poss)
 
     private def settings(era: Int) = eraSettings(era - 1)
 
@@ -110,7 +116,7 @@ class BeltSystem(
     override def ready: Boolean = eraSettings.isDefinedAt(master.era - 1) && super.ready
 
     override def nextEnemy() = random.nextOf(settings(master.era)) match {
-      case (enemy, paces) => (enemy(Enemy.entropy(random)), random.nextOf(paces))
+      case (enemy, paces) => (enemy(), random.nextOf(paces))
     }
 
   }

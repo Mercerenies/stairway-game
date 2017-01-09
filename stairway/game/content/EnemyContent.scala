@@ -12,7 +12,7 @@ import java.awt.{List => _, _}
 class EnemyContent(contentArea: ContentArea, val enemy: EnemyBox[Enemy]) extends AbstractContent(contentArea) {
 
   override def draw(graph: Graphics2D, rect: Rectangle): Unit = {
-    enemy.enemy.foreach(_.draw(graph, rect))
+    enemy.enemy.foreach { e => e.draw(graph, e.rect) }
   }
 
   override def step(): Unit = {

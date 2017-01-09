@@ -37,20 +37,20 @@ class ImprovableStats(val master: StandardGame.Master) {
   val evasion       = new Stat("Evasion", "Chance of dodging attacks", 0.01, 0.005, Some(0.0))
 
   def standardUpgrades: Seq[UpgradeSlot[_]] = Vector(
-    new UpgradeSlot(health       , 20),
-    new UpgradeSlot(energy       , 20),
-    new UpgradeSlot(luck         ,  5),
-    new UpgradeSlot(perserverence, 20),
-    new UpgradeSlot(vitality     , 20),
-    new UpgradeSlot(metabolism   , 20),
-    new UpgradeSlot(mercantilism , 50),
-    new UpgradeSlot(stamina      , 30),
-    new UpgradeSlot(discipline   , 50),
-    new UpgradeSlot(rage         , 50),
-    new UpgradeSlot(tax          , 40),
-    new UpgradeSlot(fortune      , 30),
-    new UpgradeSlot(force        , 40),
-    new UpgradeSlot(evasion      , 30)
+    new UpgradeSlot(health       , 10, 20),
+    new UpgradeSlot(energy       , 10, 20),
+    new UpgradeSlot(luck         ,  5,  5),
+    new UpgradeSlot(perserverence, 20, 10),
+    new UpgradeSlot(vitality     , 20, 10),
+    new UpgradeSlot(metabolism   , 20, 10),
+    new UpgradeSlot(mercantilism , 10, 20),
+    new UpgradeSlot(stamina      , 15, 15),
+    new UpgradeSlot(discipline   , 50, 15),
+    new UpgradeSlot(rage         , 50, 15),
+    new UpgradeSlot(tax          , 20,  5),
+    new UpgradeSlot(fortune      , 50, 15),
+    new UpgradeSlot(force        , 25, 10),
+    new UpgradeSlot(evasion      , 25, 10)
   )
 
 }
@@ -92,12 +92,11 @@ object ImprovableStats {
 
   }
 
-  class UpgradeSlot[T](val stat: Stat[T], val basePrice: Int) extends Purchasable {
+  class UpgradeSlot[T](val stat: Stat[T], val basePrice: Int, val priceUp: Int) extends Purchasable {
 
     private var timesBought = 0
 
-    // TODO Come up with a good progression formula
-    override def price(player: Player): Int = basePrice + timesBought * 10
+    override def price(player: Player): Int = basePrice + timesBought * priceUp
 
     override def giveTo(player: Player): Unit = {
       timesBought += 1

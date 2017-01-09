@@ -2,6 +2,7 @@
 package com.mercerenies.stairway.product
 
 import com.mercerenies.stairway.game.StandardGame
+import com.mercerenies.stairway.stat.ImprovableStats
 import com.mercerenies.stairway.ui.SizedDrawable
 import com.mercerenies.stairway.util
 import com.mercerenies.stairway.util.Rectangle
@@ -55,6 +56,11 @@ object Scroll {
 
   case class Effect(caption: String, result: (StandardGame.Master) => Unit) {
     def perform(master: StandardGame.Master) = result(master)
+  }
+
+  object LevelEffect {
+    def apply(caption: String, result: (ImprovableStats) => Unit) =
+      Effect(caption, m => result(m.stats.levels))
   }
 
 }

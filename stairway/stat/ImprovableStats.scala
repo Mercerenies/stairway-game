@@ -8,13 +8,13 @@ import scala.collection.immutable.Vector
 class ImprovableStats(val master: StandardGame.Master) {
   import ImprovableStats.{Stat, UpgradeSlot}
 
-  val health = new Stat("Health", "Capacity of health meter", 100.0, 10.0, Some(0.0)) {
+  val health = new Stat("Health", "Capacity of health meter", 100.0, 5.0, Some(0.0)) {
     override def onChanged(): Unit = {
       master.meter.health.max = value
     }
   }
 
-  val energy = new Stat("Energy", "Capacity of energy meter", 100.0, 10.0, Some(0.0)) {
+  val energy = new Stat("Energy", "Capacity of energy meter", 100.0, 5.0, Some(0.0)) {
     override def onChanged(): Unit = {
       master.meter.energy.max = value
     }
@@ -36,7 +36,7 @@ class ImprovableStats(val master: StandardGame.Master) {
   val resilience    = new Stat("Resilience", "Health restored each turn", 0.0, 0.1, Some(0.0))
   val evasion       = new Stat("Evasion", "Chance of dodging attacks", 0.01, 0.005, Some(0.0))
 
-  def standardUpgrades: Seq[UpgradeSlot[Any]] = Vector(
+  def standardUpgrades: Seq[UpgradeSlot[_]] = Vector(
     new UpgradeSlot(health       , 20),
     new UpgradeSlot(energy       , 20),
     new UpgradeSlot(luck         ,  5),
@@ -57,10 +57,10 @@ class ImprovableStats(val master: StandardGame.Master) {
 
 object ImprovableStats {
 
-  class Stat[+T : Numeric](
+  class Stat[T : Numeric](
     val name: String,
     val description: String,
-    private[this] var amount: T, // private[this] so that we can have covariance in T
+    private var amount: T,
     val improveAmount: T,
     val minValue: Option[T] = None) {
 
@@ -71,9 +71,8 @@ object ImprovableStats {
 
     def onChanged(): Unit = {}
 
-    def buff(n: Int): Unit = {
-      val n1 = implicitly[Numeric[T]].fromInt(n)
-      amount += improveAmount * n1
+    def buffBy(amt: T): Unit = {
+      amount += amt
       minValue match {
         case Some(x) if amount < x =>
           amount = x
@@ -82,13 +81,18 @@ object ImprovableStats {
       onChanged()
     }
 
+    def buff(n: Int): Unit = {
+      val n1 = implicitly[Numeric[T]].fromInt(n)
+      buffBy(improveAmount * n1)
+    }
+
     def buff(): Unit = buff(1)
 
     def debuff(): Unit = buff(-1)
 
   }
 
-  class UpgradeSlot[+T](val stat: Stat[T], val basePrice: Int) extends Purchasable {
+  class UpgradeSlot[T](val stat: Stat[T], val basePrice: Int) extends Purchasable {
 
     private var timesBought = 0
 

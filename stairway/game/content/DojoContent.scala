@@ -9,11 +9,11 @@ import com.mercerenies.stairway.game.Player
 import com.mercerenies.stairway.stat.ImprovableStats
 import java.awt.{List => _, _}
 
-class DojoContent(contentArea: ContentArea, _stats: Seq[ImprovableStats.UpgradeSlot[Any]])
+class DojoContent(contentArea: ContentArea, _stats: Seq[ImprovableStats.UpgradeSlot[_]])
     extends PurchaseContent(contentArea) with ContentHeader {
   import util.GraphicsImplicits._
 
-  class CaptionedUpgradeSlot[+T](val slot: ImprovableStats.UpgradeSlot[T])
+  class CaptionedUpgradeSlot[T](val slot: ImprovableStats.UpgradeSlot[T])
       extends Purchasable with SizedDrawable {
 
     override def price(player: Player) = slot.price(player)
@@ -44,7 +44,7 @@ class DojoContent(contentArea: ContentArea, _stats: Seq[ImprovableStats.UpgradeS
 
   override def headerText: String = "Welcome to the dojo! You may pay for training in different skills here."
 
-  override lazy val items: Seq[PurchaseContentSlot[CaptionedUpgradeSlot[Any]]] = {
+  override lazy val items: Seq[PurchaseContentSlot[CaptionedUpgradeSlot[_]]] = {
     val startX = contentArea.rect.xmin
     val startY = contentArea.rect.ymin + 32
     stats.zipWithIndex.map({ case (stat, i) =>

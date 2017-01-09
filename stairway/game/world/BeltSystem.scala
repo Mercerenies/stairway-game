@@ -270,8 +270,8 @@ class BeltSystem(
       with TimedGenerator[GeneratorFeed]
       with SimpleSpaceGenerator[GeneratorFeed] {
 
-    val allUpgrades = random.shuffle(master.stats.levels.standardUpgrades)
-    val upgradeIter = util.cycle(allUpgrades: _*).iterator
+    val allUpgrades: Seq[ImprovableStats.UpgradeSlot[_]] = random.shuffle(master.stats.levels.standardUpgrades)
+    val upgradeIter: Iterator[ImprovableStats.UpgradeSlot[_]] = util.cycle(allUpgrades: _*).iterator
 
     override def minTimer = master.era match {
       case _ => 46
@@ -280,17 +280,17 @@ class BeltSystem(
       case _ => 54
     }
 
-    private def cyclicLevels(): Seq[ImprovableStats.UpgradeSlot[Any]] =
+    private def cyclicLevels(): Seq[ImprovableStats.UpgradeSlot[_]] =
       List(upgradeIter.next(), upgradeIter.next())
 
-    private def randomLevels(non: Seq[ImprovableStats.UpgradeSlot[Any]]): Seq[ImprovableStats.UpgradeSlot[Any]] = {
+    private def randomLevels(non: Seq[ImprovableStats.UpgradeSlot[_]]): Seq[ImprovableStats.UpgradeSlot[_]] = {
       val upgrades = allUpgrades.filterNot(non.contains(_))
       val fst = random.nextOf(upgrades)
       val snd = random.nextOf(upgrades.filterNot(_ == fst))
       List(fst, snd)
     }
 
-    private def levelsSet(): Seq[ImprovableStats.UpgradeSlot[Any]] = {
+    private def levelsSet(): Seq[ImprovableStats.UpgradeSlot[_]] = {
       val cyclic = cyclicLevels()
       val rand = randomLevels(cyclic)
       cyclic ++ rand
@@ -305,9 +305,23 @@ class BeltSystem(
       with FixedGenerator[GeneratorFeed]
       with SimpleSpaceGenerator[GeneratorFeed] {
 
-    val scroll1 = new Scroll(Scroll.Effect("ATK +1", m => m.stats.money += 1), Scroll.Effect("Test2", m => m.stats.money += 2))
-    val scroll2 = new Scroll(Scroll.Effect("HP +50", m => m.stats.money += 1), Scroll.Effect("And2", m => m.stats.money += 2))
-    val scroll3 = new Scroll(Scroll.Effect("Item Slot", m => m.stats.money += 1), Scroll.Effect("Ad2", m => m.stats.money += 2))
+    val scrolls = Array(
+       new Scroll(
+         Scroll.LevelEffect("HP +5" , _.health.buff(1)),
+         Scroll.LevelEffect("HP +10", _.health.buff(2)),
+         Scroll.LevelEffect("HP +15", _.health.buff(3))
+       ),
+      new Scroll(
+        Scroll.LevelEffect("Energy +5" , _.energy.buff(1)),
+        Scroll.LevelEffect("Energy +10", _.energy.buff(2)),
+        Scroll.LevelEffect("Energy +15", _.energy.buff(3))
+      ),
+      new Scroll(
+        Scroll.LevelEffect("Luck +3%", _.luck.buff(1)),
+        Scroll.LevelEffect("Luck +6%", _.luck.buff(2)),
+        Scroll.LevelEffect("Luck +9%", _.luck.buff(3))
+      )
+    )
 
     override def fixedTimer = master.era match {
       case _ => NoGenerate
@@ -319,7 +333,7 @@ class BeltSystem(
 
     override def nextSpace() = {
       age += 1
-      ScrollSpace(age, scroll1, scroll2, scroll3)
+      ScrollSpace(age, scrolls: _*)
     }
 
   }

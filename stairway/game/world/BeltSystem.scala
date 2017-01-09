@@ -104,12 +104,21 @@ class BeltSystem(
 
     type EnemySpawnArg = (() => Enemy, Seq[Int])
 
-    def basicRat() = new Rat(master, Enemy.entropy(random))
-    def ratTeam() = new EnemyTeam(master, basicRat(), basicRat())
+    private def basicRat() = new Rat(master, Enemy.entropy(random))
+    private def ratTeam() = new EnemyTeam(master, basicRat(), basicRat())
+    private def basicPear() = new Pear(master, Enemy.entropy(random))
 
     private val eraSettings: Array[Seq[EnemySpawnArg]] = Array(
-      List(entry(basicRat(), 3, 3, 4)),
-      List(entry(ratTeam(), 3, 4, 5))
+      List(
+        entry(basicRat(), 3, 3, 4)
+      ),
+      List(
+        entry(ratTeam(), 3, 4, 5),
+        entry(ratTeam(), 3, 4, 5),
+        entry(basicPear(), 4, 5, 5),
+        entry(basicPear(), 4, 5, 5),
+        entry(basicRat(), 3, 3, 4)
+      )
     )
 
     private def entry(func: => Enemy, poss: Int*): EnemySpawnArg =
@@ -118,11 +127,15 @@ class BeltSystem(
     private def settings(era: Int) = eraSettings(era - 1)
 
     override def minTimer = master.era match {
-      case _ => 20
+      case 1 => 20
+      case 2 => 19
+      case _ => NoGenerate
     }
 
     override def maxTimer = master.era match {
-      case _ => 25
+      case 1 => 25
+      case 2 => 24
+      case _ => NoGenerate
     }
 
     override def ready: Boolean = eraSettings.isDefinedAt(master.era - 1) && super.ready
@@ -139,10 +152,14 @@ class BeltSystem(
       with SimpleSpaceGenerator[GeneratorFeed] {
 
     override def minTimer = master.era match {
-      case _ => 9
+      case 1 => 9
+      case 2 => 10
+      case _ => NoGenerate
     }
     override def maxTimer = master.era match {
-      case _ => 18
+      case 1 => 18
+      case 2 => 20
+      case _ => NoGenerate
     }
 
     override def nextSpace(): Space = FruitSpace
@@ -157,10 +174,14 @@ class BeltSystem(
     val cycle = util.cycle(IncomeSpace, HealthSpace).iterator
 
     override def minTimer = master.era match {
-      case _ => 7
+      case 1 => 7
+      case 2 => 7
+      case _ => NoGenerate
     }
     override def maxTimer = master.era match {
-      case _ => 10
+      case 1 => 10
+      case 2 => 10
+      case _ => NoGenerate
     }
 
     override def nextSpace(): Space = cycle.next()
@@ -174,13 +195,19 @@ class BeltSystem(
       with LeadInGenerator[GeneratorFeed] {
 
     override def minTimer = master.era match {
-      case _ => 10
+      case 1 => 10
+      case 2 => 10
+      case _ => NoGenerate
     }
     override def maxTimer = master.era match {
-      case _ => 25
+      case 1 => 25
+      case 2 => 25
+      case _ => NoGenerate
     }
 
     override def leadIn() = master.era match {
+      case 1 => 0
+      case 2 => 0
       case _ => 0
     }
 
@@ -194,15 +221,23 @@ class BeltSystem(
       with SimpleSpaceGenerator[GeneratorFeed] {
 
     override def minTimer = master.era match {
-      case _ => 20
+      case 1 => 20
+      case 2 => 18
+      case _ => NoGenerate
     }
     override def maxTimer = master.era match {
-      case _ => 25
+      case 1 => 25
+      case 2 => 25
+      case _ => NoGenerate
     }
 
     def itemSampler: Seq[Item] = master.era match {
-      case _ => List(Coffee, Coffee, Sundae)
+      case 1 => List(Coffee, Coffee, Sundae)
+      case 2 => List(Coffee, Sundae, ThrowingKnife)
+      case _ => List()
     }
+
+    override def ready = !itemSampler.isEmpty && super.ready
 
     def nextItem(): Item = random.nextOf(itemSampler: _*)
 
@@ -216,14 +251,20 @@ class BeltSystem(
       with SimpleSpaceGenerator[GeneratorFeed] {
 
     override def minTimer = master.era match {
-      case _ => 13
+      case 1 => 13
+      case 2 => 13
+      case _ => NoGenerate
     }
     override def maxTimer = master.era match {
-      case _ => 18
+      case 1 => 18
+      case 2 => 22
+      case _ => NoGenerate
     }
 
     def boxSampler: Seq[Int] = master.era match {
-      case _ => List(3)
+      case 1 => List(3)
+      case 2 => List(3, 4, 4)
+      case _ => List(1)
     }
 
     def nextBoxes(): Int = random.nextOf(boxSampler: _*)
@@ -239,10 +280,14 @@ class BeltSystem(
     import Ordering.Implicits._
 
     override def minTimer = master.era match {
-      case _ => 25
+      case 1 => 25
+      case 2 => 20
+      case _ => NoGenerate
     }
     override def maxTimer = master.era match {
-      case _ => 28
+      case 1 => 28
+      case 2 => 27
+      case _ => NoGenerate
     }
 
     def lottoSampler: Seq[(Int, DiceValue)] = master.era match {
@@ -267,10 +312,14 @@ class BeltSystem(
       with SimpleSpaceGenerator[GeneratorFeed] {
 
     override def minTimer = master.era match {
-      case _ => 28
+      case 1 => 28
+      case 2 => 26
+      case _ => NoGenerate
     }
     override def maxTimer = master.era match {
-      case _ => 44
+      case 1 => 44
+      case 2 => 44
+      case _ => NoGenerate
     }
 
     override def nextSpace(): Space = IceSpace
@@ -286,10 +335,14 @@ class BeltSystem(
     val upgradeIter: Iterator[ImprovableStats.UpgradeSlot[_]] = util.cycle(allUpgrades: _*).iterator
 
     override def minTimer = master.era match {
-      case _ => 46
+      case 1 => 46
+      case 2 => 46
+      case _ => NoGenerate
     }
     override def maxTimer = master.era match {
-      case _ => 54
+      case 1 => 54
+      case 2 => 54
+      case _ => NoGenerate
     }
 
     private def cyclicLevels(): Seq[ImprovableStats.UpgradeSlot[_]] =
@@ -315,7 +368,8 @@ class BeltSystem(
   private object ScrollGeneratorA
       extends AbstractGenerator(BaseFeed, random)
       with FixedGenerator[GeneratorFeed]
-      with SimpleSpaceGenerator[GeneratorFeed] {
+      with SimpleSpaceGenerator[GeneratorFeed]
+      with CounterGenerator[GeneratorFeed] {
 
     val scrolls = Array(
        new Scroll(
@@ -336,16 +390,13 @@ class BeltSystem(
     )
 
     override def fixedTimer = master.era match {
+      case 1 => NoGenerate
+      case 2 => if (counter <= 0) 20 else NoGenerate
       case _ => NoGenerate
     }
 
-    override def ready = false
-
-    private var age = 0
-
     override def nextSpace() = {
-      age += 1
-      ScrollSpace(age, scrolls: _*)
+      ScrollSpace(counter, scrolls: _*)
     }
 
   }

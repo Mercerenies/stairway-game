@@ -18,8 +18,6 @@ What if each era had an era-specific space that it introduced?
  * Then that space is used in all the later era, just not as often
  * Spiders could have a spider web space which decreases your energy
 
-///// Next up, other spaces (and bosses)
-
 == Improvable Stats ==
  * Health        - Max HP
  * Energy        - Energy capacity
@@ -55,17 +53,27 @@ Spruce Wayne
 Napoleon Bone Apart
 Ben Jammin' Franklin
 
+== SCROLL SET A ==
+ * +5 HP     / +10 HP     / +20 HP
+ * +5 Energy / +10 Energy / +20 Energy
+ * +3% Luck  / +6% Luck   / +12% Luck
+
 == ERA I ==
  * Enemies: Rat
  * Boss: Ratticus Finch
  * Length: 30
+ * Items: Coffee, Sundae
  * Special Spaces: None
  * Special Events: None
+ * Beginning Event: None
+ * End Event: None
 
 == ERA II ==
  * Enemies: Pear, Helmet Imp, Rat, Rat (x2)
  * Boss: William Shakes Pear
  * Length: 50
+ * Items: Coffee, Sundae, Throwing Knife
  * Special Spaces: None
  * Special Events: Scroll Set A (1)
-
+ * Beginning Event: None
+ * End Event: None

@@ -6,7 +6,7 @@ import com.mercerenies.stairway.util.Rectangle
 import com.mercerenies.stairway.image.FruitsImage
 import java.awt._
 
-object Orange extends Purchasable with Usable with Captioned {
+object Orange extends FruitProduct {
 
   override def price(player: Player): Int = player.master.stats.orangePrice
 
@@ -21,6 +21,6 @@ object Orange extends Purchasable with Usable with Captioned {
 
   override def image: Image = Fruits.image.orange
 
-  override def dims: (Double, Double) = (FruitsImage.Width, FruitsImage.Height)
+  override def toString(): String = "Orange"
 
 }

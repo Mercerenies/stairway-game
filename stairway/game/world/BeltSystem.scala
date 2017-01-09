@@ -128,13 +128,13 @@ class BeltSystem(
 
     override def minTimer = master.era match {
       case 1 => 20
-      case 2 => 19
+      case 2 => 16
       case _ => NoGenerate
     }
 
     override def maxTimer = master.era match {
       case 1 => 25
-      case 2 => 24
+      case 2 => 21
       case _ => NoGenerate
     }
 
@@ -293,10 +293,11 @@ class BeltSystem(
     def lottoSampler: Seq[(Int, DiceValue)] = master.era match {
       case 1 => List((3, DiceValue(9)), (3, DiceValue(10)), (3, DiceValue(11)), (3, DiceValue(11)))
       case 2 => List((3, DiceValue(10)), (3, DiceValue(10)), (3, DiceValue(11)), (3, DiceValue(12)))
+      case _ => List((1, DiceValue(999)))
     }
 
     def houseRules(x: (Int, DiceValue)): Int = x match {
-      case (n, v) => (1 / DiceNumbers(n).satisfy(_.sum >= v)).floor.toInt
+      case (n, v) => math.max((1 / DiceNumbers(n).satisfy(_.sum >= v)).floor.toInt, 2)
     }
 
     def nextLotto(): LotterySpace = random.nextOf(lottoSampler: _*) match {
@@ -430,9 +431,8 @@ class BeltSystem(
       case _ => NoGenerate
     }
 
-    override def nextSpace() = {
+    override def nextSpace() =
       ScrollSpace(counter, scrolls: _*)
-    }
 
   }
 
@@ -456,9 +456,9 @@ class BeltSystem(
 
   private object BossFeedSystem extends BossSystem[BaseFeed.type](master, BaseFeed) {
 
-    override lazy val bosses: Seq[BossEnemy] = List(new Ratticus(master))
+    override lazy val bosses: Seq[BossEnemy] = List(new Ratticus(master), new ShakesPear(master))
 
-    lazy val stoppingPoints: Seq[Int] = List(30)
+    lazy val stoppingPoints: Seq[Int] = List(50, 80)
 
     private var lastSwitch: util.Index = util.Index.Absolute(0)
 

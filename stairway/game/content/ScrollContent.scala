@@ -10,7 +10,8 @@ import com.mercerenies.stairway.action.{MouseClick, MouseButton, ActionType}
 import java.awt.{List => _, _}
 
 class ScrollContent(contentArea: ContentArea, scrolls: Seq[Scroll])
-    extends AbstractContent(contentArea) with ContentHeader {
+    extends AbstractContent(contentArea)
+    with ContentHeader {
   import util.PointImplicits._
 
   private var finished = false
@@ -42,6 +43,7 @@ class ScrollContent(contentArea: ContentArea, scrolls: Seq[Scroll])
 
   override def draw(graph: Graphics2D, rect: Rectangle): Unit = {
     scrollBoxes.foreach(s => s.draw(graph, s.rect))
+    super.drawHeader(graph, rect)
   }
 
   override def click(click: MouseClick): Unit = click match {

@@ -12,8 +12,8 @@ trait CounterGenerator[+T <: ConveyerFeed] extends Generator[T] {
   def counter = _counter
 
   abstract override def trigger(next: Index): Unit = {
-    super.trigger(next)
     _counter += 1
+    super.trigger(next)
   }
 
 }

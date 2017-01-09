@@ -303,11 +303,8 @@ class BeltSystem(
     val scroll2 = new Scroll(Scroll.Effect("HP +50", m => m.stats.money += 1), Scroll.Effect("And2", m => m.stats.money += 2))
     val scroll3 = new Scroll(Scroll.Effect("Item Slot", m => m.stats.money += 1), Scroll.Effect("Ad2", m => m.stats.money += 2))
 
-    override def minTimer = master.era match {
-      case _ => 3
-    }
-    override def maxTimer = master.era match {
-      case _ => 5
+    override def fixedTimer = master.era match {
+      case _ => NoGenerate
     }
 
     override def ready = false
@@ -325,10 +322,11 @@ class BeltSystem(
 
     override lazy val generators: Seq[Generator[GeneratorFeed]] =
       List(
+        ScrollGeneratorA, // Scrolls
         RecoveryGenerator, // Recovery
         MysteryGenerator, LottoGenerator,// Gambling
         FruitGenerator, ItemGenerator, // Shopping
-        DojoGenerator, ScrollGenerator, // Training
+        DojoGenerator, // Training
         TaxGenerator, RedGenerator, IceGenerator, // Negative
         EnemySeqGenerator // Fighting
       )

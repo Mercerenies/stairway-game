@@ -8,6 +8,8 @@ import java.awt.event.KeyEvent.VK_X
 
 class OrangeButton(pad: ButtonPad) extends FruitButton(pad, 7, KeyboardKey(VK_X)) {
 
+  override def product = Orange
+
   override def call(): Unit = {
     super.call()
     if (master.isIdle && justReleased && count > 0) {

@@ -2,12 +2,13 @@
 package com.mercerenies.stairway.game.button
 
 import com.mercerenies.stairway.game.ButtonPad
+import com.mercerenies.stairway.product.FruitProduct
 import com.mercerenies.stairway.util
 import com.mercerenies.stairway.util.Rectangle
 import com.mercerenies.stairway.action.KeyboardKey
 import java.awt.{Graphics2D, Font, Color}
 
-class FruitButton(
+abstract class FruitButton(
   pad: ButtonPad,
   initFruits: Int,
   bbox: Rectangle,
@@ -25,6 +26,8 @@ class FruitButton(
     this(pad, 0, index, hotkeys)
   def this(pad: ButtonPad, index: Int, hotkey: KeyboardKey) =
     this(pad, 0, index, List(hotkey))
+
+  def product: FruitProduct
 
   def count: Int = _count
   def count_=(n: Int): Unit = {

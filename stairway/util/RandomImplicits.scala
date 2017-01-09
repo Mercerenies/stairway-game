@@ -15,7 +15,7 @@ object RandomImplicits {
       random.nextDouble() * (max - min) + min
     }
 
-    def nextOf[T](seq: Seq[T]): T = {
+    def nextOf[T](seq: T*): T = {
       seq(random nextInt seq.length)
     }
 

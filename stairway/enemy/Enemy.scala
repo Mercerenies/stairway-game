@@ -80,7 +80,7 @@ object Enemy {
 
   def entropy(rand: Random) = {
     val poss: List[Double] = List(-1, -1, 0, 0, 1)
-    val risk = rand.nextOf(poss)
+    val risk = rand.nextOf(poss: _*)
     Entropy(risk, risk)
   }
 

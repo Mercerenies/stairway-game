@@ -133,7 +133,7 @@ class LotteryContent(contentArea: ContentArea, val space: LotterySpace)
       val odds = nums.satisfy(_.sum >= space.toBeat)
       val outcome = master.luck.evaluateLuck(LotteryContent.LuckWeight, odds)
       val total = if (outcome) (space.toBeat) to (nums.maximum) else (nums.minimum) until (space.toBeat)
-      val numbers = DiceWaterfall.getValues(space.diceCount, util.rand.nextOf(total))
+      val numbers = DiceWaterfall.getValues(space.diceCount, util.rand.nextOf(total: _*))
       wager = n
       for (n <- numbers) spawnDie(n)
     }

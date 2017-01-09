@@ -41,24 +41,35 @@ class BeltSystem(
     private var quadrupleCounter = 0
 
     def doubleFreq = master.era match {
-      case _ => 50
+      case 1 => 50
+      case 2 => 40
+      case _ => NoGenerate
     }
     def tripleFreq = master.era match {
-      case _ => 100
+      case 1 => 100
+      case 2 => 100
+      case _ => NoGenerate
     }
     def quadrupleFreq = master.era match {
-      case _ => 100
+      case 1 => 100
+      case 2 => 100
+      case _ => NoGenerate
     }
 
     override def minTimer = master.era match {
-      case _ => 10
+      case 1 => 10
+      case 2 => 10
+      case _ => NoGenerate
     }
     override def maxTimer = master.era match {
-      case _ => 15
+      case 1 => 15
+      case 2 => 14
+      case _ => NoGenerate
     }
 
     override def leadIn() = master.era match {
-      case _ => 0
+      case 1 => 0
+      case 2 => 0
     }
 
     override def nextSpace() = {
@@ -115,8 +126,8 @@ class BeltSystem(
 
     override def ready: Boolean = eraSettings.isDefinedAt(master.era - 1) && super.ready
 
-    override def nextEnemy() = random.nextOf(settings(master.era)) match {
-      case (enemy, paces) => (enemy(), random.nextOf(paces))
+    override def nextEnemy() = random.nextOf(settings(master.era): _*) match {
+      case (enemy, paces) => (enemy(), random.nextOf(paces: _*))
     }
 
   }
@@ -192,7 +203,7 @@ class BeltSystem(
       case _ => List(Coffee, Coffee, Sundae)
     }
 
-    def nextItem(): Item = random.nextOf(itemSampler)
+    def nextItem(): Item = random.nextOf(itemSampler: _*)
 
     override def nextSpace(): Space = ItemSpace(nextItem(), nextItem(), nextItem())
 
@@ -214,7 +225,7 @@ class BeltSystem(
       case _ => List(3)
     }
 
-    def nextBoxes(): Int = random.nextOf(boxSampler)
+    def nextBoxes(): Int = random.nextOf(boxSampler: _*)
 
     override def nextSpace(): Space = MysterySpace(nextBoxes())
 
@@ -241,7 +252,7 @@ class BeltSystem(
       case (n, v) => (1 / DiceNumbers(n).satisfy(_.sum >= v)).floor.toInt
     }
 
-    def nextLotto(): LotterySpace = random.nextOf(lottoSampler) match {
+    def nextLotto(): LotterySpace = random.nextOf(lottoSampler: _*) match {
       case (n, v) => LotterySpace(n, v, houseRules((n, v)))
     }
 
@@ -285,8 +296,8 @@ class BeltSystem(
 
     private def randomLevels(non: Seq[ImprovableStats.UpgradeSlot[_]]): Seq[ImprovableStats.UpgradeSlot[_]] = {
       val upgrades = allUpgrades.filterNot(non.contains(_))
-      val fst = random.nextOf(upgrades)
-      val snd = random.nextOf(upgrades.filterNot(_ == fst))
+      val fst = random.nextOf(upgrades: _*)
+      val snd = random.nextOf(upgrades.filterNot(_ == fst): _*)
       List(fst, snd)
     }
 
@@ -307,19 +318,19 @@ class BeltSystem(
 
     val scrolls = Array(
        new Scroll(
-         Scroll.LevelEffect("HP +5" , _.health.buff(1)),
-         Scroll.LevelEffect("HP +10", _.health.buff(2)),
-         Scroll.LevelEffect("HP +15", _.health.buff(3))
+         Scroll.LevelEffect("HP +5" , _.health.buffBy(5)),
+         Scroll.LevelEffect("HP +10", _.health.buffBy(10)),
+         Scroll.LevelEffect("HP +20", _.health.buffBy(20))
        ),
       new Scroll(
-        Scroll.LevelEffect("Energy +5" , _.energy.buff(1)),
-        Scroll.LevelEffect("Energy +10", _.energy.buff(2)),
-        Scroll.LevelEffect("Energy +15", _.energy.buff(3))
+        Scroll.LevelEffect("Energy +5" , _.energy.buffBy(5)),
+        Scroll.LevelEffect("Energy +10", _.energy.buffBy(10)),
+        Scroll.LevelEffect("Energy +20", _.energy.buffBy(20))
       ),
       new Scroll(
-        Scroll.LevelEffect("Luck +3%", _.luck.buff(1)),
-        Scroll.LevelEffect("Luck +6%", _.luck.buff(2)),
-        Scroll.LevelEffect("Luck +9%", _.luck.buff(3))
+        Scroll.LevelEffect("Luck +3%" , _.luck.buffBy(3)),
+        Scroll.LevelEffect("Luck +6%" , _.luck.buffBy(6)),
+        Scroll.LevelEffect("Luck +12%", _.luck.buffBy(12))
       )
     )
 

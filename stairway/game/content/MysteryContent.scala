@@ -81,7 +81,7 @@ class MysteryContent(contentArea: ContentArea, val count: Int) extends AbstractC
           if (!finished) {
             val success = master.luck.evaluateLuck(MysteryContent.LuckWeight, 3.0 / count)
             if (success) {
-              val result = util.rand.nextOf(List(Fruits.apple, Fruits.orange, Fruits.melon))
+              val result = util.rand.nextOf(Fruits.apple, Fruits.orange, Fruits.melon)
               result giveTo master.player
               box.openBox(Some(result))
             } else {

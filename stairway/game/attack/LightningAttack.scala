@@ -9,6 +9,4 @@ class LightningAttack(master: StandardGame.Master) extends PlayerAttack(master) 
 
   override def damage: Double = 100.0
 
-  override protected def attackUsed(enemy: Enemy): Unit = {}
-
 }

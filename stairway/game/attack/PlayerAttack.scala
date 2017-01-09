@@ -10,7 +10,7 @@ abstract class PlayerAttack(val master: StandardGame.Master) {
 
   def damage: Double
 
-  protected def attackUsed(enemy: Enemy): Unit
+  def attackUsed(enemy: Enemy): Unit = {}
 
   def perform(): Unit = master.currentEnemy match {
     case None => {}

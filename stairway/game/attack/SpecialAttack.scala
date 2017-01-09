@@ -12,7 +12,7 @@ class SpecialAttack(master: StandardGame.Master) extends PlayerAttack(master) {
 
   def canPerform: Boolean = master.meter.energy.value.toDouble >= master.stats.specialAttackCost
 
-  override protected def attackUsed(enemy: Enemy): Unit = {
+  override def attackUsed(enemy: Enemy): Unit = {
     master.meter.energy.value -= master.stats.specialAttackCost
   }
 

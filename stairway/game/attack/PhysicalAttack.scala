@@ -20,7 +20,7 @@ class PhysicalAttack(master: StandardGame.Master) extends PlayerAttack(master) {
       atk
   }
 
-  override protected def attackUsed(enemy: Enemy): Unit = {
+  override def attackUsed(enemy: Enemy): Unit = {
     if (isCritical)
       master.particleText.addParticle("CRIT!", HealthBased.particleColor, enemy.rect)
   }

@@ -2,7 +2,7 @@
 package com.mercerenies.stairway.enemy
 
 import com.mercerenies.stairway.game.{Player, StandardGame}
-import com.mercerenies.stairway.game.attack.PlayerAttack
+import com.mercerenies.stairway.game.attack.{PlayerAttack, FragmentedAttack}
 import com.mercerenies.stairway.util.{Rectangle, GraphicsImplicits}
 import java.awt.Graphics2D
 
@@ -25,7 +25,8 @@ class EnemyTeam(override val master: StandardGame.Master, val fullTeam: Enemy*)
   override def spoils: Spoils = Spoils.None // Handled internally
 
   override def takeDamage(attack: PlayerAttack) = {
-    team.foreach(_.takeDamage(attack))
+    val newAttack = new FragmentedAttack(attack, team.size)
+    team.foreach(_.takeDamage(newAttack))
     super.takeDamage(attack)
   }
 
@@ -45,6 +46,11 @@ class EnemyTeam(override val master: StandardGame.Master, val fullTeam: Enemy*)
       if (e.isAlive)
         e.draw(graph, rect.shift(x, y))
     }
+  }
+
+  override def instantKill(player: Player): Unit = {
+    fullTeam.foreach(_.instantKill(player))
+    super.instantKill(player)
   }
 
 }

@@ -9,6 +9,4 @@ class KnifeAttack(master: StandardGame.Master) extends PlayerAttack(master) {
 
   override def damage: Double = master.stats.attackPower
 
-  override protected def attackUsed(enemy: Enemy): Unit = {}
-
 }

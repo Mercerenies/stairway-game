@@ -465,6 +465,14 @@ class BeltSystem(
     override def timeToSwitch(index: util.Index): Boolean =
       stoppingPoints andThen (index >= lastSwitch + _ - 1) applyOrElse (master.era - 1, { (_: Int) => false })
 
+    def tillNextBoss: util.Index.Type = {
+      val index = master.player.occupiedPosition
+      stoppingPoints andThen
+        (lastSwitch + _ - index) andThen
+        (math.max(_, 0)) applyOrElse
+        (master.era - 1, { (_: Int) => 0 })
+    }
+
     override def onSwitch(arg: AlternatingFeed.Alternate): Unit = {
       super.onSwitch(arg)
       // If we're switching back to the regular feed, set the basis point
@@ -487,6 +495,8 @@ class BeltSystem(
   def eraChanged(newEra: Int): Unit = {
     BaseFeed.eraChanged(newEra)
   }
+
+  def tillNextBoss: util.Index.Type = BossFeedSystem.tillNextBoss
 
 }
 

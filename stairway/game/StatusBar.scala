@@ -11,9 +11,9 @@ class StatusBar(master: StandardGame.Master) extends GameEntity[StandardGame.Mas
   def string = List(
     s"Era ${util.Roman.numeral(master.era)}",
     s"Spaces ${master.spacesMoved}",
+    s"${master.system.tillNextBoss} till Boss",
     s"ATK ${master.stats.attackPower}",
-    s"$$${master.stats.money}",
-    s"LUCK ${(master.luck.baseLuck * 100).toInt}%"
+    s"$$${master.stats.money}"
   ).mkString(" | ")
 
   override def draw(graph: Graphics2D): Unit = {

@@ -10,6 +10,8 @@ abstract class Index extends Ordered[Index] {
   def +(other: Index.Type): Index = Index.Absolute(this.value + other)
   def -(other: Index.Type): Index = Index.Absolute(this.value - other)
 
+  def -(other: Index): Index.Type = this.value - other.value
+
   override def compare(that: Index): Int = this.value compare that.value
 
 }

@@ -39,6 +39,10 @@ trait HealthBased extends Enemy {
     super.takeDamage(attack)
   }
 
+  override def instantKill(): Unit = {
+    healthBar.value = 0
+  }
+
   override def step(): Unit = {
     super.step()
     healthBar.Draw.refresh()

@@ -11,4 +11,6 @@ case object IceSpace extends ImageSpace {
     master.stepForward()
   }
 
+  override def onEmulate(master: StandardGame.Master) = {}
+
 }

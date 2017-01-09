@@ -5,6 +5,7 @@ import com.mercerenies.stairway.image.ButtonsImage
 import com.mercerenies.stairway.stat.PlayerStats
 import com.mercerenies.stairway.util.{Rectangle, Index}
 import com.mercerenies.stairway.luck.{DiceValue, PlayerLuck}
+import com.mercerenies.stairway.debug.DebugBox
 import com.mercerenies.stairway.game.content._
 import com.mercerenies.stairway.game.belt._
 import com.mercerenies.stairway.game.world._
@@ -109,6 +110,18 @@ object StandardGame {
         }
         stats.decayAttackPower()
       }
+    }
+
+    def leapForward(): Unit = {
+      belt.shiftBottom(ConveyerBelt.SpaceDim.height)
+      player.currentSpace onEmulate this
+      player.resolveStatuses()
+      player.faded = false
+      silently {
+        meter.health.value += stats.healthIncrease
+        meter.energy.value += stats.energyIncrease
+      }
+      stats.decayAttackPower()
     }
 
     def spacesMoved: Int =

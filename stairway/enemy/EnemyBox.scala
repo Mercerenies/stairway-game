@@ -18,9 +18,9 @@ class EnemyBox[+A <: Enemy](val innerEnemy: A) {
       _alive = false
   }
 
-  def instantKill(): Unit = {
-    // Primary use case: the smoke bomb item
-    // Does not reward any spoils
+  def instantKill(reward: Boolean): Unit = {
+    if (reward && innerEnemy.isAlive)
+      innerEnemy.instantKill()
     _alive = false
   }
 

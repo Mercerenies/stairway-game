@@ -13,6 +13,10 @@ case class RedSpace(severity: RedSpace.Severity) extends ImageSpace {
     master.meter.health.value -= damage
   }
 
+  override def onEmulate(master: StandardGame.Master) = {
+    master.meter.health.value -= RedSpace.Single.damage
+  }
+
 }
 
 object RedSpace {

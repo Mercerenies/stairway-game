@@ -13,6 +13,11 @@ trait Space extends Drawable {
 
   def onDepart(master: StandardGame.Master): Unit = {}
 
+  def onEmulate(master: StandardGame.Master): Unit = {
+    onLand(master)
+    onDepart(master)
+  }
+
   override def draw(graph: Graphics2D, rect: Rectangle): Unit = {
     graph.setColor(Color.white)
     graph.fill(rect)

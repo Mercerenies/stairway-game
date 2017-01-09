@@ -18,4 +18,9 @@ case class ScrollSpace(age: Int, scrolls: Scroll*) extends ImageSpace {
     master.contentArea.clear()
   }
 
+  override def onEmulate(master: StandardGame.Master) = {
+    scrolls.foreach(_.age = age)
+    scrolls.find(!_.used).foreach(_.click(master))
+  }
+
 }

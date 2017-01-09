@@ -5,9 +5,9 @@ import com.mercerenies.stairway.image.ButtonsImage
 import com.mercerenies.stairway.event.StepEvent
 import com.mercerenies.stairway.action.KeyboardKey
 import com.mercerenies.stairway.game.button._
+import com.mercerenies.stairway.debug.EmulateButton
 import scala.collection.immutable.Vector
 import java.awt.{Graphics2D, Font, Color}
-import java.awt.event.KeyEvent.VK_E
 
 class ButtonPad(master: StandardGame.Master, val upperLeft: (Int, Int))
     extends GameEntity[StandardGame.Master](master) {
@@ -16,7 +16,7 @@ class ButtonPad(master: StandardGame.Master, val upperLeft: (Int, Int))
 
   val moveButton = new MoveButton(this)
   val fadeButton = new FadeButton(this)
-  val extraButton = new Button(this, 2, List(KeyboardKey(VK_E)))
+  val emulateButton = new EmulateButton(this)
   val physicalAtkButton = new PhysicalButton(this)
   val magicalAtkButton = new MagicalButton(this)
   val specialAtkButton = new SpecialButton(this)
@@ -25,7 +25,7 @@ class ButtonPad(master: StandardGame.Master, val upperLeft: (Int, Int))
   val melonButton = new MelonButton(this)
 
   val buttons: Vector[Button] = Vector(
-    moveButton, fadeButton, extraButton,
+    moveButton, fadeButton, emulateButton,
     physicalAtkButton, magicalAtkButton, specialAtkButton,
     appleButton, orangeButton, melonButton
   )

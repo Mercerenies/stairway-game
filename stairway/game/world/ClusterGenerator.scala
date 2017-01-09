@@ -3,16 +3,17 @@ package com.mercerenies.stairway.game.world
 
 import com.mercerenies.stairway.game.belt.ConveyerFeed
 import com.mercerenies.stairway.util.Index
-import com.mercerenies.stairway.space.Space
+import com.mercerenies.stairway.space.{Space, IceSpace}
 import scala.util.Random
 
-trait SimpleSpaceGenerator[+T <: GeneratorFeed] extends Generator[T] {
+trait ClusterGenerator[+T <: GeneratorFeed] extends Generator[T] {
 
-  def nextSpace(): Space
+  def clusterSize(): Int
 
   abstract override def trigger(index: Index): Unit = {
-    feed.assign(index, nextSpace())
-    super.trigger(index + 1)
+    val amount = clusterSize()
+    for (i <- 0 until amount)
+      super.trigger(index + i)
   }
 
 }

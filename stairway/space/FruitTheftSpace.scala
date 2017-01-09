@@ -7,8 +7,10 @@ import com.mercerenies.stairway.luck.DiceValue
 import com.mercerenies.stairway.product.Fruits
 import java.awt.Color
 
-case class FruitTheftSpace(val count: Int) extends ImageSpace {
+case object FruitTheftSpace extends ImageSpace {
   import util.RandomImplicits._
+
+  val color = Color.orange.darker
 
   override def imageIndex: Int = 19
 
@@ -23,15 +25,11 @@ case class FruitTheftSpace(val count: Int) extends ImageSpace {
       target.count -= 1
       master.particleText.addParticle(
         s"-1 ${target.product}",
-        FruitTheftSpace.color,
+        color,
         master.player.drawRect,
         (-90.0, 45.0)
       )
     }
   }
 
-}
-
-object FruitTheftSpace {
-  val color = Color.orange.darker
 }

@@ -30,7 +30,7 @@ class Scroll(val effects: Scroll.Effect*)
     _used = true
   }
 
-  override def dims: (Double, Double) = (72, 96)
+  override def dims: (Double, Double) = (80, 100)
 
   override def draw(graph: Graphics2D, rect: Rectangle): Unit = {
 
@@ -52,7 +52,7 @@ class Scroll(val effects: Scroll.Effect*)
 
 object Scroll {
 
-  val DefaultFont = new Font(Font.SERIF, Font.BOLD, 14)
+  val DefaultFont = new Font(Font.SERIF, Font.BOLD, 12)
 
   case class Effect(caption: String, result: (StandardGame.Master) => Unit) {
     def perform(master: StandardGame.Master) = result(master)

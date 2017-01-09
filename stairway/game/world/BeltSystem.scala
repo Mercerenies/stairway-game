@@ -365,6 +365,40 @@ class BeltSystem(
 
   }
 
+  private object FruitTheftGenerator
+      extends AbstractGenerator(BaseFeed, random)
+      with TimedGenerator[GeneratorFeed]
+      with SimpleSpaceGenerator[GeneratorFeed]
+      with ClusterGenerator[GeneratorFeed]
+      with LeadInGenerator[GeneratorFeed] {
+
+    override def minTimer = master.era match {
+      case 1 => NoGenerate
+      case 2 => 12
+      case _ => NoGenerate
+    }
+    override def maxTimer = master.era match {
+      case 1 => NoGenerate
+      case 2 => 24
+      case _ => NoGenerate
+    }
+
+    override def leadIn() = master.era match {
+      case 1 => 0
+      case 2 => 0
+      case _ => 0
+    }
+
+    override def clusterSize() = master.era match {
+      case 1 => 1
+      case 2 => 1
+      case _ => 1
+    }
+
+    override def nextSpace(): Space = FruitTheftSpace
+
+  }
+
   private object ScrollGeneratorA
       extends AbstractGenerator(BaseFeed, random)
       with FixedGenerator[GeneratorFeed]
@@ -410,7 +444,7 @@ class BeltSystem(
         MysteryGenerator, LottoGenerator,// Gambling
         FruitGenerator, ItemGenerator, // Shopping
         DojoGenerator, // Training
-        TaxGenerator, RedGenerator, IceGenerator, // Negative
+        TaxGenerator, RedGenerator, FruitTheftGenerator, IceGenerator, // Negative
         EnemySeqGenerator // Fighting
       )
 

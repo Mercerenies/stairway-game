@@ -17,7 +17,7 @@ trait EnemySequenceGenerator[+T <: GeneratorFeed] extends Generator[T] {
     for (i <- 0 until n) {
       feed.assign(index + i, EnemySpace(box))
     }
-    super.trigger(index)
+    super.trigger(index + n)
   }
 
 }

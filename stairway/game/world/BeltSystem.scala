@@ -70,6 +70,7 @@ class BeltSystem(
     override def leadIn() = master.era match {
       case 1 => 0
       case 2 => 0
+      case _ => 0
     }
 
     override def nextSpace() = {

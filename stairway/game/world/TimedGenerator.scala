@@ -14,7 +14,10 @@ trait TimedGenerator[+T <: ConveyerFeed] extends Generator[T] {
   def maxTimer: Int
 
   def computeTimer(): Int = {
-    rand.nextInt(minTimer, maxTimer)
+    if (minTimer == maxTimer)
+      minTimer
+    else
+      rand.nextInt(minTimer, maxTimer)
   }
 
   abstract override def forward(next: Index): Unit = {

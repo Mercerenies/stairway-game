@@ -17,6 +17,7 @@ class BeltSystem(
   master: StandardGame.Master,
   seed: Option[Long] = None) {
   import util.RandomImplicits._
+  import BeltSystem._
 
   private class SpaceGenerator(
     feed: GeneratorFeed,
@@ -169,8 +170,6 @@ class BeltSystem(
 
   }
 
-  ///// Lottery and dojo
-
   private object ItemGenerator
       extends AbstractGenerator(BaseFeed, random)
       with TimedGenerator[GeneratorFeed]
@@ -295,9 +294,9 @@ class BeltSystem(
 
   }
 
-  private object ScrollGenerator ///// Properly set this up with real scrolls
+  private object ScrollGeneratorA
       extends AbstractGenerator(BaseFeed, random)
-      with TimedGenerator[GeneratorFeed]
+      with FixedGenerator[GeneratorFeed]
       with SimpleSpaceGenerator[GeneratorFeed] {
 
     val scroll1 = new Scroll(Scroll.Effect("ATK +1", m => m.stats.money += 1), Scroll.Effect("Test2", m => m.stats.money += 2))
@@ -372,5 +371,11 @@ class BeltSystem(
   def eraChanged(newEra: Int): Unit = {
     BaseFeed.eraChanged(newEra)
   }
+
+}
+
+object BeltSystem {
+
+  val NoGenerate = Int.MaxValue
 
 }

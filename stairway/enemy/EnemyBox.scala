@@ -1,6 +1,8 @@
 
 package com.mercerenies.stairway.enemy
 
+import com.mercerenies.stairway.game.Player
+
 class EnemyBox[+A <: Enemy](val innerEnemy: A) {
 
   private var _alive = innerEnemy.isAlive
@@ -18,9 +20,9 @@ class EnemyBox[+A <: Enemy](val innerEnemy: A) {
       _alive = false
   }
 
-  def instantKill(reward: Boolean): Unit = {
+  def instantKill(player: Player, reward: Boolean): Unit = {
     if (reward && innerEnemy.isAlive)
-      innerEnemy.instantKill()
+      innerEnemy.instantKill(player)
     _alive = false
   }
 

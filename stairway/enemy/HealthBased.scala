@@ -3,6 +3,7 @@ package com.mercerenies.stairway.enemy
 
 import com.mercerenies.stairway.util.Rectangle
 import com.mercerenies.stairway.stat.{BarStat, StatDrawParams}
+import com.mercerenies.stairway.game.Player
 import com.mercerenies.stairway.game.attack.PlayerAttack
 import java.awt.{Color, Graphics2D}
 
@@ -39,8 +40,9 @@ trait HealthBased extends Enemy {
     super.takeDamage(attack)
   }
 
-  override def instantKill(): Unit = {
+  override def instantKill(player: Player): Unit = {
     healthBar.value = 0
+    super.instantKill(player)
   }
 
   override def step(): Unit = {

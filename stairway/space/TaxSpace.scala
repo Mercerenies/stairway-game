@@ -11,4 +11,8 @@ case object TaxSpace extends ImageSpace {
     master.stats.deductTax()
   }
 
+  override def onEmulate(master: StandardGame.Master) = {
+    master.stats.deductTax(master.stats.taxPercent / 4)
+  }
+
 }

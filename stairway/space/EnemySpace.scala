@@ -42,7 +42,11 @@ case class EnemySpace(enemy: EnemyBox[Enemy]) extends ImageSpace {
   }
 
   override def onEmulate(master: StandardGame.Master) = {
-    enemy.instantKill(true)
+    if (enemy.isAlive) {
+      for (i <- 1 to 3)
+        enemy.innerEnemy.attack(master.player)
+      enemy.instantKill(master.player, true)
+    }
   }
 
 }

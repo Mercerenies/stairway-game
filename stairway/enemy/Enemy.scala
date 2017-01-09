@@ -46,7 +46,9 @@ trait Enemy extends Drawable with StatusEntity {
     spoils.giveTo(player)
   }
 
-  def instantKill(): Unit
+  def instantKill(player: Player): Unit = {
+    onDeath(player)
+  }
 
   def step(): Unit = {}
 

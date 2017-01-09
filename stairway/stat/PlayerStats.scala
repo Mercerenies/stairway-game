@@ -45,8 +45,11 @@ class PlayerStats(val master: StandardGame.Master, val moneyChanged: (Int) => Un
   }
 
   def taxPercent: Double = levels.tax.value
+  def deductTax(per: Double): Unit = {
+    money -= math.ceil(money * per).toInt
+  }
   def deductTax(): Unit = {
-    money -= math.ceil(money * taxPercent).toInt
+    deductTax(taxPercent)
   }
 
   def fadeCost: Double = math.max(50 - levels.discipline.value, 1)

@@ -409,19 +409,19 @@ class BeltSystem(
 
     val scrolls = Array(
        new Scroll(
-         Scroll.LevelEffect("HP +5" , _.health.buffBy(5)),
          Scroll.LevelEffect("HP +10", _.health.buffBy(10)),
-         Scroll.LevelEffect("HP +20", _.health.buffBy(20))
+         Scroll.LevelEffect("HP +20", _.health.buffBy(20)),
+         Scroll.LevelEffect("HP +50", _.health.buffBy(50))
        ),
       new Scroll(
-        Scroll.LevelEffect("Energy +5" , _.energy.buffBy(5)),
         Scroll.LevelEffect("Energy +10", _.energy.buffBy(10)),
-        Scroll.LevelEffect("Energy +20", _.energy.buffBy(20))
+        Scroll.LevelEffect("Energy +20", _.energy.buffBy(20)),
+        Scroll.LevelEffect("Energy +50", _.energy.buffBy(50))
       ),
       new Scroll(
-        Scroll.LevelEffect("Luck +3%" , _.luck.buffBy(3)),
-        Scroll.LevelEffect("Luck +6%" , _.luck.buffBy(6)),
-        Scroll.LevelEffect("Luck +12%", _.luck.buffBy(12))
+        Scroll.LevelEffect("Luck +10%", _.luck.buffBy(10)),
+        Scroll.LevelEffect("Luck +20%", _.luck.buffBy(20)),
+        Scroll.LevelEffect("Luck +50%", _.luck.buffBy(50))
       )
     )
 

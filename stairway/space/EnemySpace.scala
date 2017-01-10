@@ -1,6 +1,7 @@
 
 package com.mercerenies.stairway.space
 
+import com.mercerenies.stairway.game.attack
 import com.mercerenies.stairway.game.StandardGame
 import com.mercerenies.stairway.game.content.EnemyContent
 import com.mercerenies.stairway.enemy.{EnemyBox, Enemy}
@@ -42,10 +43,15 @@ case class EnemySpace(enemy: EnemyBox[Enemy]) extends ImageSpace {
   }
 
   override def onEmulate(master: StandardGame.Master) = {
-    if (enemy.isAlive) {
-      for (i <- 1 to 3)
-        enemy.innerEnemy.attack(master.player)
-      enemy.instantKill(master.player, true)
+    val apples = master.buttonPad.appleButton
+    while (enemy.isAlive) {
+      while ((master.meter.health.value.toDouble <= 50.0) && (apples.count > 0)) {
+        apples.product.use(master.player)
+        apples.count -= 1
+      }
+      enemy.innerEnemy.takeDamage(new attack.MagnifiedAttack(new attack.PhysicalAttack(master), 1.5))
+      enemy.innerEnemy.attack(master.player)
+      enemy.refresh()
     }
   }
 

@@ -6,7 +6,7 @@ import com.mercerenies.stairway.game.{Player, StandardGame}
 class Pear(master: StandardGame.Master, entropy: Enemy.Entropy)
     extends SingleEnemy(master) {
 
-  override def spoils: Spoils = Spoils.Money((20 + 3 * entropy.reward).toInt)
+  override def spoils: Spoils = Spoils.Money((24 + 4 * entropy.reward).toInt)
 
   override def startingHealth: Double = 13.0 + 4.0 * entropy.risk
 

@@ -221,18 +221,18 @@ class BeltSystem(
       with SimpleSpaceGenerator[GeneratorFeed] {
 
     override def minTimer = master.era match {
-      case 1 => 20
-      case 2 => 18
+      case 1 => NoGenerate
+      case 2 => 20
       case _ => NoGenerate
     }
     override def maxTimer = master.era match {
-      case 1 => 25
+      case 1 => NoGenerate
       case 2 => 25
       case _ => NoGenerate
     }
 
     def itemSampler: Seq[Item] = master.era match {
-      case 1 => List(Coffee, Coffee, Sundae)
+      case 1 => List()
       case 2 => List(Coffee, Sundae, ThrowingKnife)
       case _ => List()
     }

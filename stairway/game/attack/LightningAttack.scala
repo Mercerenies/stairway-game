@@ -7,6 +7,6 @@ import java.awt.Color
 
 class LightningAttack(master: StandardGame.Master) extends PlayerAttack(master) {
 
-  override def damage: Double = 100.0
+  override def damage(enemy: Enemy): Double = 100.0
 
 }

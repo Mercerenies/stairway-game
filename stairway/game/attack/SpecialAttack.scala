@@ -8,7 +8,7 @@ import java.awt.Color
 
 class SpecialAttack(master: StandardGame.Master) extends PlayerAttack(master) {
 
-  override val damage: Double = master.stats.specialMultiplier * master.stats.attackPower
+  override def damage(enemy: Enemy): Double = master.stats.specialMultiplier * master.stats.attackPower
 
   def canPerform: Boolean = master.meter.energy.value.toDouble >= master.stats.specialAttackCost
 

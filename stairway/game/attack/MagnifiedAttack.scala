@@ -7,7 +7,7 @@ import com.mercerenies.stairway.enemy.Enemy
 class MagnifiedAttack(val attack: PlayerAttack, val magnitude: Double)
     extends PlayerAttack(attack.master) {
 
-  override def damage: Double = attack.damage * magnitude
+  override def damage(enemy: Enemy): Double = attack.damage(enemy) * magnitude
 
   override def attackUsed(enemy: Enemy): Unit = {
     attack.attackUsed(enemy)

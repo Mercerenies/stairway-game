@@ -12,13 +12,11 @@ class PhysicalAttack(master: StandardGame.Master) extends PlayerAttack(master) {
     master.luck.evaluateLuck((LuckWeightMinus, LuckWeightPlus), master.stats.criticalChance)
   }
 
-  override val damage: Double = {
-    val atk = master.stats.attackPower
+  override def damage(enemy: Enemy): Double =
     if (isCritical)
-      atk * 3
+      master.stats.attackPower * 3
     else
-      atk
-  }
+      master.stats.attackPower
 
   override def attackUsed(enemy: Enemy): Unit = {
     if (isCritical)

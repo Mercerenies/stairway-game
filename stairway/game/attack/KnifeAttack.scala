@@ -7,6 +7,6 @@ import java.awt.Color
 
 class KnifeAttack(master: StandardGame.Master) extends PlayerAttack(master) {
 
-  override def damage: Double = master.stats.attackPower
+  override def damage(enemy: Enemy): Double = master.stats.attackPower
 
 }

@@ -8,7 +8,7 @@ abstract class PlayerAttack(val master: StandardGame.Master) {
 
   def player: Player = master.player
 
-  def damage: Double
+  def damage(enemy: Enemy): Double
 
   def attackUsed(enemy: Enemy): Unit = {}
 

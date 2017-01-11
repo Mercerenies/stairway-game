@@ -62,7 +62,7 @@ Ben Jammin' Franklin
  * Enemies: Rat
  * Boss: Ratticus Finch
  * Length: 30
- * Items: Coffee, Sundae
+ * Items: None
  * Special Spaces: None
  * Special Events: None
  * Beginning Event: None
@@ -78,3 +78,12 @@ Ben Jammin' Franklin
  * Beginning Event: None
  * End Event: None
 
+== ERA III ==
+ * Enemies: Spider, Spider (x2), Rat (x3), Pear / Rat (x2), Pear (x2)
+ * Boss: Count Arachula
+ * Length: 80
+ * Items: Spikes, Sundae, Coffee, Holy Fire
+ * Special Spaces: Web Space
+ * Special Events: Scroll Set A (2)
+ * Beginning Event: None
+ * End Event: None

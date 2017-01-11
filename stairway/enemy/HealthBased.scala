@@ -36,7 +36,7 @@ trait HealthBased extends Enemy {
   override def isAlive: Boolean = health > 0
 
   override def takeDamage(attack: PlayerAttack): Unit = {
-    healthBar.value -= attack.damage
+    healthBar.value -= attack.damage(this)
     super.takeDamage(attack)
   }
 

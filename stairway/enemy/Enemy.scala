@@ -18,6 +18,8 @@ trait Enemy extends Drawable with StatusEntity {
 
   def spoils: Spoils
 
+  def isUndead: Boolean = false
+
   def isBoss: Boolean = false
 
   def rect: Rectangle = {

@@ -38,8 +38,10 @@ trait TimedGenerator[+T <: ConveyerFeed] extends Generator[T] {
     super.eraChanged(newEra)
     // Timer bounds frequently change when the era shifts, so recompute the timer
     // if necessary
-    if ((timer_hit > maxTimer) || (timer_hit < minTimer))
+    if ((timer_hit > maxTimer) || (timer_hit < minTimer)) {
+      timer = 0
       timer_hit = computeTimer()
+    }
   }
 
 }

@@ -7,7 +7,8 @@ import com.mercerenies.stairway.util.{Index, RandomImplicits}
 trait TimedGenerator[+T <: ConveyerFeed] extends Generator[T] {
   import RandomImplicits._
 
-  private var timer = computeTimer()
+  private var timer = 0
+  private var timer_hit = computeTimer()
 
   def minTimer: Int
 
@@ -21,23 +22,24 @@ trait TimedGenerator[+T <: ConveyerFeed] extends Generator[T] {
   }
 
   abstract override def forward(next: Index): Unit = {
-    timer -= 1
+    timer += 1
     super.forward(next)
   }
 
-  abstract override def ready: Boolean = (timer <= 0) || (super.ready)
+  abstract override def ready: Boolean = (timer >= timer_hit) || (super.ready)
 
   abstract override def trigger(next: Index): Unit = {
     super.trigger(next)
-    timer = computeTimer()
+    timer = 0
+    timer_hit = computeTimer()
   }
 
   abstract override def eraChanged(newEra: Int): Unit = {
     super.eraChanged(newEra)
     // Timer bounds frequently change when the era shifts, so recompute the timer
     // if necessary
-    if (timer > maxTimer)
-      timer = computeTimer()
+    if ((timer_hit > maxTimer) || (timer_hit < minTimer))
+      timer_hit = computeTimer()
   }
 
 }

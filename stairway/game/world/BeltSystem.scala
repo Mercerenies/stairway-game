@@ -43,33 +43,39 @@ class BeltSystem(
     def doubleFreq = master.era match {
       case 1 => 50
       case 2 => 40
+      case 3 => 40
       case _ => NoGenerate
     }
     def tripleFreq = master.era match {
       case 1 => 100
       case 2 => 100
+      case 3 => 100
       case _ => NoGenerate
     }
     def quadrupleFreq = master.era match {
       case 1 => 100
       case 2 => 100
+      case 3 => 100
       case _ => NoGenerate
     }
 
     override def minTimer = master.era match {
       case 1 => 10
       case 2 => 10
+      case 3 => 10
       case _ => NoGenerate
     }
     override def maxTimer = master.era match {
       case 1 => 15
       case 2 => 14
+      case 3 => 14
       case _ => NoGenerate
     }
 
     override def leadIn() = master.era match {
       case 1 => 0
       case 2 => 0
+      case 3 => random.nextOf(0, 0, 1)
       case _ => 0
     }
 
@@ -107,6 +113,11 @@ class BeltSystem(
     private def basicRat() = new Rat(master, Enemy.entropy(random))
     private def ratTeam() = new EnemyTeam(master, basicRat(), basicRat())
     private def basicPear() = new Pear(master, Enemy.entropy(random))
+    private def basicSpider() = new Spider(master, Enemy.entropy(random))
+    private def spiderTeam() = new EnemyTeam(master, basicSpider(), basicSpider())
+    private def ratTeam3() = new EnemyTeam(master, basicRat(), basicRat(), basicRat())
+    private def pearRatTeam() = new EnemyTeam(master, basicPear(), basicRat(), basicRat())
+    private def pearTeam() = new EnemyTeam(master, basicPear(), basicPear())
 
     private val eraSettings: Array[Seq[EnemySpawnArg]] = Array(
       List(
@@ -118,6 +129,13 @@ class BeltSystem(
         entry(basicPear(), 4, 5, 5),
         entry(basicPear(), 4, 5, 5),
         entry(basicRat(), 3, 3, 4)
+      ),
+      List(
+        entry(basicSpider(), 4, 5, 5),
+        entry(spiderTeam(), 5, 6, 6),
+        entry(ratTeam3(), 4, 5, 5),
+        entry(pearRatTeam(), 5, 5, 6),
+        entry(pearTeam(), 4, 4, 5)
       )
     )
 
@@ -129,12 +147,14 @@ class BeltSystem(
     override def minTimer = master.era match {
       case 1 => 20
       case 2 => 16
+      case 3 => 15
       case _ => NoGenerate
     }
 
     override def maxTimer = master.era match {
       case 1 => 25
       case 2 => 21
+      case 3 => 21
       case _ => NoGenerate
     }
 
@@ -154,11 +174,13 @@ class BeltSystem(
     override def minTimer = master.era match {
       case 1 => 9
       case 2 => 10
+      case 3 => 15
       case _ => NoGenerate
     }
     override def maxTimer = master.era match {
       case 1 => 18
       case 2 => 20
+      case 3 => 23
       case _ => NoGenerate
     }
 
@@ -176,11 +198,13 @@ class BeltSystem(
     override def minTimer = master.era match {
       case 1 => 7
       case 2 => 7
+      case 3 => 8
       case _ => NoGenerate
     }
     override def maxTimer = master.era match {
       case 1 => 10
       case 2 => 10
+      case 3 => 11
       case _ => NoGenerate
     }
 
@@ -197,17 +221,20 @@ class BeltSystem(
     override def minTimer = master.era match {
       case 1 => 10
       case 2 => 10
+      case 3 => 10
       case _ => NoGenerate
     }
     override def maxTimer = master.era match {
       case 1 => 25
       case 2 => 25
+      case 3 => 25
       case _ => NoGenerate
     }
 
     override def leadIn() = master.era match {
       case 1 => 0
       case 2 => 0
+      case 3 => 0
       case _ => 0
     }
 
@@ -223,17 +250,20 @@ class BeltSystem(
     override def minTimer = master.era match {
       case 1 => NoGenerate
       case 2 => 20
+      case 3 => 18
       case _ => NoGenerate
     }
     override def maxTimer = master.era match {
       case 1 => NoGenerate
       case 2 => 25
+      case 3 => 25
       case _ => NoGenerate
     }
 
     def itemSampler: Seq[Item] = master.era match {
       case 1 => List()
       case 2 => List(Coffee, Sundae, ThrowingKnife)
+      case 3 => List(Spikes, Sundae, Coffee, HolyFire)
       case _ => List()
     }
 
@@ -253,17 +283,20 @@ class BeltSystem(
     override def minTimer = master.era match {
       case 1 => 13
       case 2 => 13
+      case 3 => 13
       case _ => NoGenerate
     }
     override def maxTimer = master.era match {
       case 1 => 18
       case 2 => 22
+      case 3 => 26
       case _ => NoGenerate
     }
 
     def boxSampler: Seq[Int] = master.era match {
       case 1 => List(3)
       case 2 => List(3, 4, 4)
+      case 3 => List(3, 4, 4, 5, 5, 6, 6)
       case _ => List(1)
     }
 
@@ -282,17 +315,20 @@ class BeltSystem(
     override def minTimer = master.era match {
       case 1 => 25
       case 2 => 20
+      case 3 => 19
       case _ => NoGenerate
     }
     override def maxTimer = master.era match {
       case 1 => 28
       case 2 => 27
+      case 3 => 28
       case _ => NoGenerate
     }
 
     def lottoSampler: Seq[(Int, DiceValue)] = master.era match {
       case 1 => List((3, DiceValue(9)), (3, DiceValue(10)), (3, DiceValue(11)), (3, DiceValue(11)))
       case 2 => List((3, DiceValue(10)), (3, DiceValue(10)), (3, DiceValue(11)), (3, DiceValue(12)))
+      case 3 => List((3, DiceValue(11)), (3, DiceValue(12)), (3, DiceValue(13)))
       case _ => List((1, DiceValue(999)))
     }
 
@@ -316,11 +352,13 @@ class BeltSystem(
     override def minTimer = master.era match {
       case 1 => 28
       case 2 => 26
+      case 3 => 24
       case _ => NoGenerate
     }
     override def maxTimer = master.era match {
       case 1 => 44
       case 2 => 44
+      case 3 => 44
       case _ => NoGenerate
     }
 
@@ -339,11 +377,13 @@ class BeltSystem(
     override def minTimer = master.era match {
       case 1 => NoGenerate
       case 2 => 20
+      case 3 => 20
       case _ => NoGenerate
     }
     override def maxTimer = master.era match {
       case 1 => NoGenerate
       case 2 => 25
+      case 3 => 25
       case _ => NoGenerate
     }
 
@@ -377,23 +417,27 @@ class BeltSystem(
     override def minTimer = master.era match {
       case 1 => NoGenerate
       case 2 => 12
+      case 3 => 12
       case _ => NoGenerate
     }
     override def maxTimer = master.era match {
       case 1 => NoGenerate
       case 2 => 24
+      case 3 => 25
       case _ => NoGenerate
     }
 
     override def leadIn() = master.era match {
       case 1 => 0
       case 2 => 0
+      case 3 => random.nextOf(0, 0, 0, 1)
       case _ => 0
     }
 
     override def clusterSize() = master.era match {
       case 1 => 1
       case 2 => 1
+      case 3 => 1
       case _ => 1
     }
 
@@ -428,12 +472,46 @@ class BeltSystem(
     override def fixedTimer = master.era match {
       case 1 => NoGenerate
       case 2 => if (counter <= 0) 20 else NoGenerate
+      case 3 => if (counter <= 1) 50 else NoGenerate
       case _ => NoGenerate
     }
 
     override def nextSpace() =
       ScrollSpace(counter, scrolls: _*)
 
+  }
+
+  private object SpecialGenerator
+      extends AbstractGenerator(BaseFeed, random)
+      with TimedGenerator[GeneratorFeed]
+      with SimpleSpaceGenerator[GeneratorFeed] {
+
+    override def minTimer = master.era match {
+      case 1 => NoGenerate
+      case 2 => NoGenerate
+      case 3 => 10
+      case _ => NoGenerate
+    }
+    override def maxTimer = master.era match {
+      case 1 => NoGenerate
+      case 2 => NoGenerate
+      case 3 => 25
+      case _ => NoGenerate
+    }
+
+    def eraSpace(era: Int): Space = era match {
+      case 1 => NeutralSpace
+      case 2 => NeutralSpace
+      case 3 => WebSpace
+    }
+
+    def startEra: Int = 3
+
+    override def nextSpace(): Space =
+      if (random.nextInt(5) == 0)
+        eraSpace(random.nextOf((startEra to master.era): _*))
+      else
+        eraSpace(master.era)
   }
 
   private object BaseFeed extends GeneratorFeed(master) {
@@ -445,7 +523,7 @@ class BeltSystem(
         MysteryGenerator, LottoGenerator,// Gambling
         FruitGenerator, ItemGenerator, // Shopping
         DojoGenerator, // Training
-        TaxGenerator, RedGenerator, FruitTheftGenerator, IceGenerator, // Negative
+        TaxGenerator, RedGenerator, FruitTheftGenerator, IceGenerator, SpecialGenerator, // Negative
         EnemySeqGenerator // Fighting
       )
 
@@ -456,9 +534,13 @@ class BeltSystem(
 
   private object BossFeedSystem extends BossSystem[BaseFeed.type](master, BaseFeed) {
 
-    override lazy val bosses: Seq[BossEnemy] = List(new Ratticus(master), new ShakesPear(master))
+    override lazy val bosses: Seq[BossEnemy] = List(
+      new Ratticus(master),
+      new ShakesPear(master),
+      new Arachula(master)
+    )
 
-    lazy val stoppingPoints: Seq[Int] = List(50, 80)
+    lazy val stoppingPoints: Seq[Int] = List(50, 80, 110)
 
     private var lastSwitch: util.Index = util.Index.Absolute(0)
 

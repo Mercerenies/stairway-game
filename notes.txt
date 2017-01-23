@@ -61,7 +61,7 @@ Ben Jammin' Franklin
 == ERA I ==
  * Enemies: Rat
  * Boss: Ratticus Finch
- * Length: 30
+ * Length: 50
  * Items: None
  * Special Spaces: None
  * Special Events: None
@@ -71,18 +71,20 @@ Ben Jammin' Franklin
 == ERA II ==
  * Enemies: Pear, Rat, Rat (x2)
  * Boss: William Shakes Pear
- * Length: 50
+ * Length: 80
  * Items: Coffee, Sundae, Throwing Knife
+ * New Spaces: Item Space, Fruit Theft Space
  * Special Spaces: None
  * Special Events: Scroll Set A (1)
  * Beginning Event: None
  * End Event: None
 
 == ERA III ==
- * Enemies: Spider, Spider (x2), Rat (x3), Pear / Rat (x2), Pear (x2)
+ * Enemies: Spider, Spider (x2), Rat (x3), Pear / Rat (x2), Pear (x2), Helmet Imp
  * Boss: Count Arachula
- * Length: 80
+ * Length: 110
  * Items: Spikes, Sundae, Coffee, Holy Fire
+ * New Spaces: None
  * Special Spaces: Web Space
  * Special Events: Scroll Set A (2)
  * Beginning Event: None

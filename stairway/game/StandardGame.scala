@@ -135,7 +135,6 @@ object StandardGame {
     }
 
     inventory.addItem(DivineBolt)
-    inventory.addItem(HolyFire)
 
   }
 

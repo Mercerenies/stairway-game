@@ -7,7 +7,7 @@ import com.mercerenies.stairway.util
 import com.mercerenies.stairway.util.{PointImplicits, Rectangle, Numeral}
 import com.mercerenies.stairway.space.LotterySpace
 import com.mercerenies.stairway.action.{MouseClick, MouseButton, ActionType}
-import java.awt._
+import java.awt.{List => _, _}
 
 class LotteryContent(contentArea: ContentArea, val space: LotterySpace)
     extends AbstractContent(contentArea) with DiceContainer with ContentHeader {
@@ -169,7 +169,11 @@ class LotteryContent(contentArea: ContentArea, val space: LotterySpace)
   private def phrase1: String = s"If the sum is greater than ${space.toBeat.value},"
   private def phrase2: String = s"you win ${Numeral.times(space.multiplier)} your wager!"
 
-  override def headerText: String = if (_state.showHeader) s"$phrase0 $phrase1 $phrase2" else ""
+  override def headerText: List[String] =
+    if (_state.showHeader)
+      List(phrase0, phrase1, phrase2)
+    else
+      Nil
 
   override def step(): Unit = {
     stepDice()

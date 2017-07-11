@@ -1,4 +1,6 @@
 
+///// Make the game able to save "states" so we don't have to speed through everywhere every time
+
 package com.mercerenies.stairway.game
 
 import com.mercerenies.stairway.util
@@ -50,7 +52,7 @@ class Inventory(master: StandardGame.Master, val xPos: Double, val yPos: Double)
   }
 
   def textPos: (Double, Double) =
-    (xPos + 2, yPos + 11)
+    (xPos + 2, yPos)
 
   def getItem(index: Int): Option[Item] =
     if (index < 0 || index >= contents.size)
@@ -122,6 +124,6 @@ class Inventory(master: StandardGame.Master, val xPos: Double, val yPos: Double)
 
 object Inventory {
 
-  val DefaultFont = new Font(Font.SANS_SERIF, Font.PLAIN, 11)
+  val DefaultFont = new Font(Font.SANS_SERIF, Font.PLAIN, 9)
 
 }

@@ -42,7 +42,11 @@ class DojoContent(contentArea: ContentArea, _stats: Seq[ImprovableStats.UpgradeS
 
   val stats = _stats.map(new CaptionedUpgradeSlot(_))
 
-  override def headerText: String = "Welcome to the dojo! You may pay for training in different skills here."
+  override def headerText: List[String] =
+    List(
+      "Welcome to the dojo!",
+      "You may pay for training in different skills here."
+    )
 
   override lazy val items: Seq[PurchaseContentSlot[CaptionedUpgradeSlot[_]]] = {
     val startX = contentArea.rect.xmin
@@ -61,7 +65,7 @@ class DojoContent(contentArea: ContentArea, _stats: Seq[ImprovableStats.UpgradeS
 
 object DojoContent {
 
-  val DefaultFont = new Font(Font.SANS_SERIF, Font.PLAIN, 11)
+  val DefaultFont = new Font(Font.SANS_SERIF, Font.PLAIN, 9)
 
   val SlotDims: (Double, Double) = (300, 40)
 

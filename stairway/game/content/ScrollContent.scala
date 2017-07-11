@@ -39,7 +39,11 @@ class ScrollContent(contentArea: ContentArea, scrolls: Seq[Scroll])
 
   val scrollBoxes: Seq[ScrollBox] = scrolls.zipWithIndex.map { case (s, i) => ScrollBox(i, s) }
 
-  override def headerText: String = "Choose a scroll to activate; the others will grow in strength later."
+  override def headerText: List[String] =
+    List(
+      "Choose a scroll to activate",
+      "The others will grow in strength later"
+    )
 
   override def draw(graph: Graphics2D, rect: Rectangle): Unit = {
     scrollBoxes.foreach(s => s.draw(graph, s.rect))

@@ -52,7 +52,7 @@ class Scroll(val effects: Scroll.Effect*)
 
 object Scroll {
 
-  val DefaultFont = new Font(Font.SERIF, Font.BOLD, 12)
+  val DefaultFont = new Font(Font.SERIF, Font.BOLD, 10)
 
   case class Effect(caption: String, result: (StandardGame.Master) => Unit) {
     def perform(master: StandardGame.Master) = result(master)

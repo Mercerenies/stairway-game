@@ -3,7 +3,7 @@ package com.mercerenies.stairway
 package game
 
 import product.item.Item
-import util.IOFriendly
+import util.{IOFriendly, Index}
 
 // Data class, used to serialize the game's data
 case class GameData(
@@ -12,7 +12,7 @@ case class GameData(
   money: Int,
   luck: Double,
   strength: Int,
-  perserverence: Double,
+  perseverence: Double,
   vitality: Double,
   metabolism: Double,
   mercantilism: Int,
@@ -37,10 +37,82 @@ case class GameData(
   invSize: Int,
   invData: List[Item],
   playerSpace: Int,
-  damageShift: Double
+  damageShift: Double,
+  belt: GameData.Belt
 )
 
 object GameData {
+
+  case class ScrollState(
+    age: Int,
+    used: (Boolean, Boolean, Boolean)
+  )
+
+  object ScrollState {
+    val Default = ScrollState(0, (false, false, false))
+  }
+
+  case class Belt(
+    double: Int,
+    triple: Int,
+    quadruple: Int,
+    dojoIndex: Int,
+    scrolls: List[ScrollState],
+    lastSwitch: Index.Type
+  )
+
+  implicit object ScrollStateIsIOFriendly extends IOFriendly[ScrollState] {
+    override def write(value: ScrollState, file: IOFriendly.Writer): Unit = {
+      IOFriendly.write(value.age, file)
+      IOFriendly.write("", file)
+      IOFriendly.write(value.used._1, file)
+      IOFriendly.write(value.used._2, file)
+      IOFriendly.write(value.used._3, file)
+      IOFriendly.write(false, file)
+      IOFriendly.write(false, file)
+    }
+    override def read(file: IOFriendly.Reader): ScrollState = {
+      val age = IOFriendly.read[Int](file)
+      IOFriendly.read[String](file)
+      val u1 = IOFriendly.read[Boolean](file)
+      val u2 = IOFriendly.read[Boolean](file)
+      val u3 = IOFriendly.read[Boolean](file)
+      IOFriendly.read[Boolean](file)
+      IOFriendly.read[Boolean](file)
+      ScrollState(age, (u1, u2, u3))
+    }
+  }
+
+  implicit object BeltIsIOFriendly extends IOFriendly[Belt] {
+    override def write(value: Belt, file: IOFriendly.Writer): Unit = {
+      IOFriendly.write(value.double, file)
+      IOFriendly.write(value.triple, file)
+      IOFriendly.write(value.quadruple, file)
+      IOFriendly.write(0.0, file)
+      IOFriendly.write(0.0, file)
+      IOFriendly.write(value.dojoIndex, file)
+      IOFriendly.write("", file)
+      IOFriendly.write(value.scrolls, file)
+      IOFriendly.write(value.lastSwitch, file)
+      IOFriendly.write(0, file)
+      IOFriendly.write(0, file)
+    }
+    override def read(file: IOFriendly.Reader): Belt = {
+      val double = IOFriendly.read[Int](file)
+      val triple = IOFriendly.read[Int](file)
+      val quadruple = IOFriendly.read[Int](file)
+      IOFriendly.read[Double](file)
+      IOFriendly.read[Double](file)
+      val dojo = IOFriendly.read[Int](file)
+      IOFriendly.read[String](file)
+      val scrolls = IOFriendly.read[List[ScrollState]](file)
+      val lastSwitch = IOFriendly.read[Index.Type](file)
+      IOFriendly.read[Int](file)
+      IOFriendly.read[Int](file)
+      Belt(double, triple, quadruple, dojo, scrolls, lastSwitch)
+    }
+  }
+
   implicit object GameDataIsIOFriendly extends IOFriendly[GameData] {
     override def write(value: GameData, file: IOFriendly.Writer): Unit = {
       import value._
@@ -58,7 +130,7 @@ object GameData {
       // Improvable stats
       IOFriendly.write(luck, file)
       IOFriendly.write(strength, file)
-      IOFriendly.write(perserverence, file)
+      IOFriendly.write(perseverence, file)
       IOFriendly.write(vitality, file)
       IOFriendly.write(metabolism, file)
       IOFriendly.write(mercantilism, file)
@@ -121,6 +193,7 @@ object GameData {
       IOFriendly.write(0.0, file)
 
       // Etc
+      IOFriendly.write(belt, file)
       IOFriendly.write("", file)
       IOFriendly.write("", file)
       IOFriendly.write("", file)
@@ -141,7 +214,7 @@ object GameData {
 
       val luck = IOFriendly.read[Double](file)
       val strength = IOFriendly.read[Int](file)
-      val perserverence = IOFriendly.read[Double](file)
+      val perseverence = IOFriendly.read[Double](file)
       val vitality = IOFriendly.read[Double](file)
       val metabolism = IOFriendly.read[Double](file)
       val mercantilism = IOFriendly.read[Int](file)
@@ -196,6 +269,7 @@ object GameData {
       val damageShift = IOFriendly.read[Double](file)
       IOFriendly.read[Double](file)
 
+      val belt = IOFriendly.read[Belt](file)
       IOFriendly.read[String](file)
       IOFriendly.read[String](file)
       IOFriendly.read[String](file)
@@ -203,6 +277,41 @@ object GameData {
       IOFriendly.read[IOFriendly.IOEmptySeq](file)
       IOFriendly.read[Int](file)
 
+      GameData(
+        era,
+        atkMod,
+        money,
+        luck,
+        strength,
+        perseverence,
+        vitality,
+        metabolism,
+        mercantilism,
+        stamina,
+        discipline,
+        rage,
+        chaos,
+        tax,
+        fortune,
+        force,
+        resilience,
+        evasion,
+        faded,
+        karma,
+        maxEnergy,
+        energy,
+        maxHealth,
+        health,
+        apples,
+        oranges,
+        melons,
+        invSize,
+        invData,
+        playerSpace,
+        damageShift,
+        belt
+      )
     }
   }
+
 }

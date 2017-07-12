@@ -166,7 +166,8 @@ object StandardGame {
         inventory.capacity,
         inventory.toList,
         belt.bottomIndex + player.occupiedSpace,
-        damage.horizontalShift
+        damage.horizontalShift,
+        system.mirror
       )
 
     def unmirror(data: GameData) = {
@@ -175,7 +176,7 @@ object StandardGame {
       stats.money = data.money
       stats.levels.luck.value = data.luck
       stats.levels.strength.value = data.strength
-      stats.levels.perserverence.value = data.perserverence
+      stats.levels.perserverence.value = data.perseverence
       stats.levels.vitality.value = data.vitality
       stats.levels.metabolism.value = data.metabolism
       stats.levels.mercantilism.value = data.mercantilism
@@ -202,6 +203,7 @@ object StandardGame {
       data.invData.foreach { inventory.addItem(_) }
       belt.putIndex(data.playerSpace - player.occupiedSpace)
       damage.horizontalShift = data.damageShift
+      system.unmirror(data.belt)
     }
 
     inventory.addItem(DivineBolt)

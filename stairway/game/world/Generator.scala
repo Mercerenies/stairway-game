@@ -19,4 +19,6 @@ trait Generator[+T <: ConveyerFeed] {
 
   def eraChanged(newEra: Int): Unit
 
+  def resetState(): Unit
+
 }

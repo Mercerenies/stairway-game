@@ -22,7 +22,7 @@ class ImprovableStats(val master: StandardGame.Master) {
 
   val luck          = new Stat("Luck", "Chance of success in luck events", 1.0, 0.05, Some(0.0))
   val strength      = new Stat("Strength", "Base offensive power against enemies", 2, 1, Some(0))
-  val perserverence = new Stat("Perserverence", "Effect of eating apples", 15.0, 1.0, Some(0.0))
+  val perseverence  = new Stat("Perseverence", "Effect of eating apples", 15.0, 1.0, Some(0.0))
   val vitality      = new Stat("Vitality", "Effect of eating oranges", 10.0, 2.0, Some(0.0))
   val metabolism    = new Stat("Metabolism", "Effect of eating melons", 12.0, 2.0, Some(0.0))
   val mercantilism  = new Stat("Mercantilism", "Quality of prices at shops", 0, 1, None)
@@ -40,7 +40,7 @@ class ImprovableStats(val master: StandardGame.Master) {
     new UpgradeSlot(health       ,  5, 10),
     new UpgradeSlot(energy       ,  5, 10),
     new UpgradeSlot(luck         ,  5,  5),
-    new UpgradeSlot(perserverence, 10, 10),
+    new UpgradeSlot(perseverence , 10, 10),
     new UpgradeSlot(vitality     , 10, 10),
     new UpgradeSlot(metabolism   , 10, 10),
     new UpgradeSlot(mercantilism , 10, 20),

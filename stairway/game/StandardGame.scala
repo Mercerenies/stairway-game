@@ -42,11 +42,12 @@ object StandardGame {
     val belt: ConveyerBelt[OverrideConveyer[ConveyerFeed]] =
       new ConveyerBelt(this, system.belt, BeltRightMargin)
     val damage = new StandardDamage(this, Rectangle(BeltRightMargin + 10, 5, PlayerMeterX - 10, 50))
+    val saveload = new SaveLoader(this)
 
     override lazy val objects = List(
       belt, contentArea,
       player, inventory, damage, meter, buttonPad,
-      particleText, statusBar, debugger
+      particleText, statusBar, saveload, debugger
     )
 
     private def moneyChanged(amount: Int): Unit = {
@@ -141,7 +142,7 @@ object StandardGame {
         stats.money,
         stats.levels.luck.value,
         stats.levels.strength.value,
-        stats.levels.perserverence.value,
+        stats.levels.perseverence.value,
         stats.levels.vitality.value,
         stats.levels.metabolism.value,
         stats.levels.mercantilism.value,
@@ -175,7 +176,7 @@ object StandardGame {
       stats.money = data.money
       stats.levels.luck.value = data.luck
       stats.levels.strength.value = data.strength
-      stats.levels.perserverence.value = data.perserverence
+      stats.levels.perseverence.value = data.perseverence
       stats.levels.vitality.value = data.vitality
       stats.levels.metabolism.value = data.metabolism
       stats.levels.mercantilism.value = data.mercantilism

@@ -12,7 +12,7 @@ case class GameData(
   money: Int,
   luck: Double,
   strength: Int,
-  perserverence: Double,
+  perseverence: Double,
   vitality: Double,
   metabolism: Double,
   mercantilism: Int,
@@ -58,7 +58,7 @@ object GameData {
       // Improvable stats
       IOFriendly.write(luck, file)
       IOFriendly.write(strength, file)
-      IOFriendly.write(perserverence, file)
+      IOFriendly.write(perseverence, file)
       IOFriendly.write(vitality, file)
       IOFriendly.write(metabolism, file)
       IOFriendly.write(mercantilism, file)
@@ -141,7 +141,7 @@ object GameData {
 
       val luck = IOFriendly.read[Double](file)
       val strength = IOFriendly.read[Int](file)
-      val perserverence = IOFriendly.read[Double](file)
+      val perseverence = IOFriendly.read[Double](file)
       val vitality = IOFriendly.read[Double](file)
       val metabolism = IOFriendly.read[Double](file)
       val mercantilism = IOFriendly.read[Int](file)
@@ -203,6 +203,39 @@ object GameData {
       IOFriendly.read[IOFriendly.IOEmptySeq](file)
       IOFriendly.read[Int](file)
 
+      GameData(
+        era,
+        atkMod,
+        money,
+        luck,
+        strength,
+        perseverence,
+        vitality,
+        metabolism,
+        mercantilism,
+        stamina,
+        discipline,
+        rage,
+        chaos,
+        tax,
+        fortune,
+        force,
+        resilience,
+        evasion,
+        faded,
+        karma,
+        maxEnergy,
+        energy,
+        maxHealth,
+        health,
+        apples,
+        oranges,
+        melons,
+        invSize,
+        invData,
+        playerSpace,
+        damageShift
+      )
     }
   }
 }

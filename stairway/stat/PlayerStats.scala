@@ -63,7 +63,7 @@ class PlayerStats(val master: StandardGame.Master, val moneyChanged: (Int) => Un
   def orangePrice: Int = math.max( 5 - levels.mercantilism.value, 1)
   def melonPrice: Int  = math.max(10 - levels.mercantilism.value, 1)
 
-  def appleEffect: Double = levels.perserverence.value
+  def appleEffect: Double = levels.perseverence.value
   def orangeEffect: Double = levels.vitality.value
   def melonEffect: Double = levels.metabolism.value
 

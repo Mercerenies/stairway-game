@@ -19,6 +19,10 @@ class OverrideConveyer[+T <: ConveyerFeed](master: StandardGame.Master, val feed
 
   override def bottomIndex = feed.bottomIndex
 
+  override def putIndex(n: Int) = {
+    feed.putIndex(n)
+  }
+
   override def indexChanged(): Unit = {
     overrides.retain { case (k, _) => k >= bottomIndex }
   }

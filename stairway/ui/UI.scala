@@ -1,6 +1,7 @@
 
 package com.mercerenies.stairway.ui
 
+import javax.swing.JFrame
 import java.awt.Dimension
 import java.awt.event.{MouseEvent, MouseAdapter, KeyEvent, KeyAdapter}
 import com.mercerenies.stairway.game.EventDispatch
@@ -48,6 +49,8 @@ class UI(private val _events: EventDispatch) {
 
   private val _frame = new Frame(_events)
   private var _tempDim = new Dimension
+
+  def frame: JFrame = _frame
 
   def isClosed = _frame.isClosed
 

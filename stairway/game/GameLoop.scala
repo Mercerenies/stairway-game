@@ -3,6 +3,7 @@ package com.mercerenies.stairway.game
 
 import scala.util.control.{Exception => UtilException}
 import java.awt.Graphics2D
+import javax.swing.JFrame
 import com.mercerenies.stairway.ui.UI
 import com.mercerenies.stairway.util.ThreadSafeQueue
 import com.mercerenies.stairway.action.Action
@@ -26,6 +27,8 @@ class GameLoop(val master: GameMaster) extends Runnable {
   def kill(): Unit = {
     _thread = None
   }
+
+  def frame: JFrame = ui.frame
 
   def roomSize = (ui.width, ui.height)
   def roomWidth = roomSize._1

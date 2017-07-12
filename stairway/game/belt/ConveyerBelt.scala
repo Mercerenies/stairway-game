@@ -1,11 +1,12 @@
 
-package com.mercerenies.stairway.game.belt
+package com.mercerenies.stairway
+package game.belt
 
+import game.{GameEntity, StandardGame}
+import util.{Index, Rectangle}
+import space.Space
+import event.AbstractStepEvent
 import java.awt._
-import com.mercerenies.stairway.game.{GameEntity, StandardGame}
-import com.mercerenies.stairway.util.{Index, Rectangle}
-import com.mercerenies.stairway.space.Space
-import com.mercerenies.stairway.event.AbstractStepEvent
 
 class ConveyerBelt[+T <: ConveyerFeed](
   _master: StandardGame.Master,
@@ -39,6 +40,10 @@ class ConveyerBelt[+T <: ConveyerFeed](
 
   def bottomPosition = _bottomPosition
   def bottomIndex = feed.bottomIndex
+
+  def putIndex(n: Int) = {
+    feed.putIndex(n)
+  }
 
   def shiftBottom(n: Double) = {
     _bottomPosition += n

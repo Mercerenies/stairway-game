@@ -21,5 +21,10 @@ abstract class ConveyerFeed(val master: StandardGame.Master) {
     indexChanged()
   }
 
+  def putIndex(n: Int) = {
+    _bottomIndex = Math.abs(n)
+    indexChanged()
+  }
+
 }
 

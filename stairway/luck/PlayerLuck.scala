@@ -9,7 +9,6 @@ class PlayerLuck(val master: StandardGame.Master) {
 
   private val rand = new Random
   private var _karma: Double = 0.0
-  private var _mult: Double = 1.0
 
   def baseLuck: Double = master.stats.levels.luck.value
 

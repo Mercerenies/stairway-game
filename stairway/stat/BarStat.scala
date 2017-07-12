@@ -1,10 +1,10 @@
 
-package com.mercerenies.stairway.stat
+package com.mercerenies.stairway
+package stat
 
 import java.awt.{Graphics, Graphics2D, Color}
-import com.mercerenies.stairway.util
-import com.mercerenies.stairway.util.Rectangle
-import com.mercerenies.stairway.ui.Drawable
+import util.Rectangle
+import ui.Drawable
 
 class BarStat(
   startValue: Double,

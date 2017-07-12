@@ -39,6 +39,10 @@ class StandardDamage(master: StandardGame.Master, rect: Rectangle)
 
   def horizontalShift: Double = _shift
 
+  def horizontalShift_=(v: Double) = {
+    _shift = v
+  }
+
   def advance(): Unit = {
     advance(actionStep)
   }

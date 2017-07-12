@@ -69,6 +69,11 @@ object ImprovableStats {
 
     def value: T = amount
 
+    def value_=(v: T) = {
+      amount = v
+      buffBy(implicitly[Numeric[T]].fromInt(0))
+    }
+
     def onChanged(): Unit = {}
 
     def buffBy(amt: T): Unit = {

@@ -37,12 +37,20 @@ class Inventory(master: StandardGame.Master, val xPos: Double, val yPos: Double)
 
   }
 
-  private var capacity: Int = 3
-  private val contents: ArrayBuffer[Item] = new ArrayBuffer(capacity)
+  private var _capacity: Int = 3
+  private val contents: ArrayBuffer[Item] = new ArrayBuffer(_capacity)
   private val font: Font = Inventory.DefaultFont
 
-  def isFull: Boolean = contents.size == capacity
+  def isFull: Boolean = contents.size == _capacity
   def isEmpty: Boolean = contents.isEmpty
+
+  def capacity = _capacity
+  def capacity_=(cap: Int) = {
+    if (cap < 0)
+      _capacity = 0
+    else
+      _capacity = cap
+  }
 
   def positionOf(index: Int): Rectangle = {
     val padding = 40
@@ -73,6 +81,13 @@ class Inventory(master: StandardGame.Master, val xPos: Double, val yPos: Double)
     contents remove index
   }
 
+  def clear(): Unit = {
+    contents.clear()
+  }
+
+  def toList: List[Item] =
+    contents.toList
+
   def highlightedPos: Option[Int] = {
     val pos = master.state.mousePosition
     (0 until capacity).find(pos within positionOf(_))
@@ -93,7 +108,7 @@ class Inventory(master: StandardGame.Master, val xPos: Double, val yPos: Double)
   }
 
   def increaseCapacity(): Unit = {
-    capacity += 1
+    _capacity += 1
   }
 
   override def draw(graph: Graphics2D): Unit = {

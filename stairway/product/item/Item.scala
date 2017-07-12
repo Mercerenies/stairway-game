@@ -1,9 +1,11 @@
 
-package com.mercerenies.stairway.product.item
+package com.mercerenies.stairway
+package product.item
 
-import com.mercerenies.stairway.product._
-import com.mercerenies.stairway.image.ItemsImage
-import com.mercerenies.stairway.game.Player
+import product._
+import image.ItemsImage
+import game.Player
+import util.IOFriendly
 import java.awt.Image
 
 abstract class Item extends Purchasable with Usable with Captioned {
@@ -37,5 +39,30 @@ abstract class Item extends Purchasable with Usable with Captioned {
 object Item {
 
   val image = new ItemsImage
+
+  def apply(n: Int) = n match {
+    case 1 => SmokeBomb
+    case 2 => Spikes
+    case 3 => Sundae
+    case 4 => Coffee
+    case 5 => BowlingBall
+    case 6 => ThrowingKnife
+    case 7 => HolyFire
+    case 9 => DivineBolt
+    case _ => sys.error("Invalid item index")
+  }
+
+  def unapply(item: Item) = Some(item.index)
+
+  implicit object ItemIsIOFriendly extends IOFriendly[Item] {
+    override def write(value: Item, file: IOFriendly.Writer): Unit = {
+      value match {
+        case Item(n) => IOFriendly.write(n, file)
+      }
+    }
+    override def read(file: IOFriendly.Reader): Item = {
+      Item(IOFriendly.read[Int](file))
+    }
+  }
 
 }

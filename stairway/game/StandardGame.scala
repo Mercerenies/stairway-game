@@ -134,6 +134,76 @@ object StandardGame {
       system.eraChanged(era)
     }
 
+    def mirror: GameData =
+      GameData(
+        _era,
+        stats.attackModifier,
+        stats.money,
+        stats.levels.luck.value,
+        stats.levels.strength.value,
+        stats.levels.perserverence.value,
+        stats.levels.vitality.value,
+        stats.levels.metabolism.value,
+        stats.levels.mercantilism.value,
+        stats.levels.stamina.value,
+        stats.levels.discipline.value,
+        stats.levels.rage.value,
+        stats.levels.chaos.value,
+        stats.levels.tax.value,
+        stats.levels.fortune.value,
+        stats.levels.force.value,
+        stats.levels.resilience.value,
+        stats.levels.evasion.value,
+        player.faded,
+        luck.karma,
+        meter.energy.max.toDouble,
+        meter.energy.value.toDouble,
+        meter.health.max.toDouble,
+        meter.health.value.toDouble,
+        buttonPad.appleButton.count,
+        buttonPad.orangeButton.count,
+        buttonPad.melonButton.count,
+        inventory.capacity,
+        inventory.toList,
+        belt.bottomIndex + player.occupiedSpace,
+        damage.horizontalShift
+      )
+
+    def unmirror(data: GameData) = {
+      _era = data.era
+      stats.attackModifier = data.atkMod
+      stats.money = data.money
+      stats.levels.luck.value = data.luck
+      stats.levels.strength.value = data.strength
+      stats.levels.perserverence.value = data.perserverence
+      stats.levels.vitality.value = data.vitality
+      stats.levels.metabolism.value = data.metabolism
+      stats.levels.mercantilism.value = data.mercantilism
+      stats.levels.stamina.value = data.stamina
+      stats.levels.discipline.value = data.discipline
+      stats.levels.rage.value = data.rage
+      stats.levels.chaos.value = data.chaos
+      stats.levels.tax.value = data.tax
+      stats.levels.fortune.value = data.fortune
+      stats.levels.force.value = data.force
+      stats.levels.resilience.value = data.resilience
+      stats.levels.evasion.value = data.evasion
+      player.faded = data.faded
+      luck.karma = data.karma
+      meter.energy.max = data.maxEnergy
+      meter.energy.value = data.energy
+      meter.health.max = data.maxHealth
+      meter.health.value = data.health
+      buttonPad.appleButton.count = data.apples
+      buttonPad.orangeButton.count = data.oranges
+      buttonPad.melonButton.count = data.melons
+      inventory.capacity = data.invSize
+      inventory.clear()
+      data.invData.foreach { inventory.addItem(_) }
+      belt.putIndex(data.playerSpace - player.occupiedSpace)
+      damage.horizontalShift = data.damageShift
+    }
+
     inventory.addItem(DivineBolt)
 
   }

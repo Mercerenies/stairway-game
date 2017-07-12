@@ -44,4 +44,9 @@ trait TimedGenerator[+T <: ConveyerFeed] extends Generator[T] {
     }
   }
 
+  abstract override def resetState(): Unit = {
+    timer = 0
+    timer_hit = computeTimer()
+  }
+
 }

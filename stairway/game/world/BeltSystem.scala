@@ -1,15 +1,15 @@
 
-package com.mercerenies.stairway.game.world
+package com.mercerenies.stairway
+package game.world
 
-import com.mercerenies.stairway.game.StandardGame
-import com.mercerenies.stairway.stat.ImprovableStats
-import com.mercerenies.stairway.game.belt._
-import com.mercerenies.stairway.space._
-import com.mercerenies.stairway.enemy._
-import com.mercerenies.stairway.product.item._
-import com.mercerenies.stairway.product.Scroll
-import com.mercerenies.stairway.util
-import com.mercerenies.stairway.luck.{DiceValue, DiceNumbers}
+import game.{StandardGame, GameData}
+import stat.ImprovableStats
+import game.belt._
+import space._
+import enemy._
+import product.item._
+import product.Scroll
+import luck.{DiceValue, DiceNumbers}
 import scala.util.Random
 import scala.collection.immutable.Stream
 
@@ -34,7 +34,8 @@ class BeltSystem(
       extends AbstractGenerator(BaseFeed, random)
       with TimedGenerator[GeneratorFeed]
       with SimpleSpaceGenerator[GeneratorFeed]
-      with LeadInGenerator[GeneratorFeed] {
+      with LeadInGenerator[GeneratorFeed]
+      with EraLocalGenerator[GeneratorFeed] {
 
     private var doubleCounter = 0
     private var tripleCounter = 0
@@ -101,12 +102,21 @@ class BeltSystem(
       }
     }
 
+    def mirror = (doubleCounter, tripleCounter, quadrupleCounter)
+
+    def unmirror(arg: (Int, Int, Int)): Unit = {
+      doubleCounter    = arg._1
+      tripleCounter    = arg._2
+      quadrupleCounter = arg._3
+    }
+
   }
 
   private object EnemySeqGenerator
       extends AbstractGenerator(BaseFeed, random)
       with TimedGenerator[GeneratorFeed]
-      with EnemySequenceGenerator[GeneratorFeed] {
+      with EnemySequenceGenerator[GeneratorFeed]
+      with EraLocalGenerator[GeneratorFeed] {
 
     type EnemySpawnArg = (() => Enemy, Seq[Int])
 
@@ -169,7 +179,8 @@ class BeltSystem(
   private object FruitGenerator
       extends AbstractGenerator(BaseFeed, random)
       with TimedGenerator[GeneratorFeed]
-      with SimpleSpaceGenerator[GeneratorFeed] {
+      with SimpleSpaceGenerator[GeneratorFeed]
+      with EraLocalGenerator[GeneratorFeed] {
 
     override def minTimer = master.era match {
       case 1 => 9
@@ -191,7 +202,8 @@ class BeltSystem(
   private object RecoveryGenerator
       extends AbstractGenerator(BaseFeed, random)
       with TimedGenerator[GeneratorFeed]
-      with SimpleSpaceGenerator[GeneratorFeed] {
+      with SimpleSpaceGenerator[GeneratorFeed]
+      with EraLocalGenerator[GeneratorFeed] {
 
     val cycle = util.cycle(IncomeSpace, HealthSpace).iterator
 
@@ -216,7 +228,8 @@ class BeltSystem(
       extends AbstractGenerator(BaseFeed, random)
       with TimedGenerator[GeneratorFeed]
       with SimpleSpaceGenerator[GeneratorFeed]
-      with LeadInGenerator[GeneratorFeed] {
+      with LeadInGenerator[GeneratorFeed]
+      with EraLocalGenerator[GeneratorFeed] {
 
     override def minTimer = master.era match {
       case 1 => 10
@@ -245,7 +258,8 @@ class BeltSystem(
   private object ItemGenerator
       extends AbstractGenerator(BaseFeed, random)
       with TimedGenerator[GeneratorFeed]
-      with SimpleSpaceGenerator[GeneratorFeed] {
+      with SimpleSpaceGenerator[GeneratorFeed]
+      with EraLocalGenerator[GeneratorFeed] {
 
     override def minTimer = master.era match {
       case 1 => NoGenerate
@@ -278,7 +292,8 @@ class BeltSystem(
   private object MysteryGenerator
       extends AbstractGenerator(BaseFeed, random)
       with TimedGenerator[GeneratorFeed]
-      with SimpleSpaceGenerator[GeneratorFeed] {
+      with SimpleSpaceGenerator[GeneratorFeed]
+      with EraLocalGenerator[GeneratorFeed] {
 
     override def minTimer = master.era match {
       case 1 => 13
@@ -309,7 +324,8 @@ class BeltSystem(
   private object LottoGenerator
       extends AbstractGenerator(BaseFeed, random)
       with TimedGenerator[GeneratorFeed]
-      with SimpleSpaceGenerator[GeneratorFeed] {
+      with SimpleSpaceGenerator[GeneratorFeed]
+      with EraLocalGenerator[GeneratorFeed] {
     import Ordering.Implicits._
 
     override def minTimer = master.era match {
@@ -347,7 +363,8 @@ class BeltSystem(
   private object IceGenerator
       extends AbstractGenerator(BaseFeed, random)
       with TimedGenerator[GeneratorFeed]
-      with SimpleSpaceGenerator[GeneratorFeed] {
+      with SimpleSpaceGenerator[GeneratorFeed]
+      with EraLocalGenerator[GeneratorFeed] {
 
     override def minTimer = master.era match {
       case 1 => 28
@@ -369,10 +386,18 @@ class BeltSystem(
   private object DojoGenerator
       extends AbstractGenerator(BaseFeed, random)
       with TimedGenerator[GeneratorFeed]
-      with SimpleSpaceGenerator[GeneratorFeed] {
+      with SimpleSpaceGenerator[GeneratorFeed]
+      with EraLocalGenerator[GeneratorFeed] {
 
     val allUpgrades: Seq[ImprovableStats.UpgradeSlot[_]] = random.shuffle(master.stats.levels.standardUpgrades)
     val upgradeIter: Iterator[ImprovableStats.UpgradeSlot[_]] = util.cycle(allUpgrades: _*).iterator
+    private var index: Int = 0
+    private val indexMax: Int = allUpgrades.size
+
+    private def upgradeNext() = {
+      index = (index + 1) % indexMax
+      upgradeIter.next()
+    }
 
     override def minTimer = master.era match {
       case 1 => NoGenerate
@@ -387,8 +412,17 @@ class BeltSystem(
       case _ => NoGenerate
     }
 
+    def currentIndex = index
+
+    def advanceTo(n: Int) = {
+      if (n < 0 || n >= indexMax)
+        sys.error("Invalid index in advanceTo")
+      while (index != n)
+        upgradeNext()
+    }
+
     private def cyclicLevels(): Seq[ImprovableStats.UpgradeSlot[_]] =
-      List(upgradeIter.next(), upgradeIter.next())
+      List(upgradeNext(), upgradeNext())
 
     private def randomLevels(non: Seq[ImprovableStats.UpgradeSlot[_]]): Seq[ImprovableStats.UpgradeSlot[_]] = {
       val upgrades = allUpgrades.filterNot(non.contains(_))
@@ -412,7 +446,8 @@ class BeltSystem(
       with TimedGenerator[GeneratorFeed]
       with SimpleSpaceGenerator[GeneratorFeed]
       with ClusterGenerator[GeneratorFeed]
-      with LeadInGenerator[GeneratorFeed] {
+      with LeadInGenerator[GeneratorFeed]
+      with EraLocalGenerator[GeneratorFeed] {
 
     override def minTimer = master.era match {
       case 1 => NoGenerate
@@ -449,7 +484,8 @@ class BeltSystem(
       extends AbstractGenerator(BaseFeed, random)
       with FixedGenerator[GeneratorFeed]
       with SimpleSpaceGenerator[GeneratorFeed]
-      with CounterGenerator[GeneratorFeed] {
+      with CounterGenerator[GeneratorFeed]
+      with EraLocalGenerator[GeneratorFeed] {
 
     val scrolls = Array(
        new Scroll(
@@ -479,12 +515,26 @@ class BeltSystem(
     override def nextSpace() =
       ScrollSpace(counter, scrolls: _*)
 
+    def mirror: GameData.ScrollState =
+      GameData.ScrollState(
+        counter,
+        (scrolls(0).used, scrolls(1).used, scrolls(2).used)
+      )
+
+    def unmirror(arg: GameData.ScrollState) = {
+      counter = arg.age
+      scrolls(0).used = arg.used._1
+      scrolls(1).used = arg.used._2
+      scrolls(2).used = arg.used._3
+    }
+
   }
 
   private object SpecialGenerator
       extends AbstractGenerator(BaseFeed, random)
       with TimedGenerator[GeneratorFeed]
-      with SimpleSpaceGenerator[GeneratorFeed] {
+      with SimpleSpaceGenerator[GeneratorFeed]
+      with EraLocalGenerator[GeneratorFeed] {
 
     override def minTimer = master.era match {
       case 1 => NoGenerate
@@ -562,6 +612,12 @@ class BeltSystem(
         lastSwitch = util.Index.Absolute(AltFeed.topDefined)
     }
 
+    def lastBoss = lastSwitch.value
+
+    def lastBoss_=(b: Int) = {
+      lastSwitch = util.Index.Absolute(b)
+    }
+
   }
 
   def this(master: StandardGame.Master, seed: Long) = this(master, Some(seed))
@@ -579,6 +635,24 @@ class BeltSystem(
   }
 
   def tillNextBoss: util.Index.Type = BossFeedSystem.tillNextBoss
+
+  def mirror: GameData.Belt = {
+    val (d, t, q) = RedGenerator.mirror
+    val scrolls = ???
+    GameData.Belt(
+      d, t, q,
+      DojoGenerator.currentIndex,
+      List(ScrollGeneratorA.mirror),
+      BossFeedSystem.lastBoss
+    )
+  }
+
+  def unmirror(belt: GameData.Belt) = {
+    RedGenerator.unmirror((belt.double, belt.triple, belt.quadruple))
+    DojoGenerator.advanceTo(belt.dojoIndex)
+    ScrollGeneratorA.unmirror(belt.scrolls.applyOrElse(0, (_: Int) => GameData.ScrollState.Default))
+    BossFeedSystem.lastBoss = belt.lastSwitch
+  }
 
 }
 

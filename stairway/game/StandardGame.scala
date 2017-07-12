@@ -167,7 +167,8 @@ object StandardGame {
         inventory.capacity,
         inventory.toList,
         belt.bottomIndex + player.occupiedSpace,
-        damage.horizontalShift
+        damage.horizontalShift,
+        system.mirror
       )
 
     def unmirror(data: GameData) = {
@@ -203,6 +204,7 @@ object StandardGame {
       data.invData.foreach { inventory.addItem(_) }
       belt.putIndex(data.playerSpace - player.occupiedSpace)
       damage.horizontalShift = data.damageShift
+      system.unmirror(data.belt)
     }
 
     inventory.addItem(DivineBolt)

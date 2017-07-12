@@ -25,9 +25,17 @@ class Scroll(val effects: Scroll.Effect*)
 
   def used = _used
 
+  def used_=(u: Boolean): Unit = {
+    _used = u
+  }
+
+  def markAsUsed() = { used = true }
+
+  def markAsUnused() = { used = false }
+
   def click(master: StandardGame.Master): Unit = {
     effect.perform(master)
-    _used = true
+    markAsUsed()
   }
 
   override def dims: (Double, Double) = (80, 100)

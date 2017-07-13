@@ -43,6 +43,12 @@ class AlternatingFeed[+A <: ConveyerFeed, +B <: ConveyerFeed](
     indexChanged()
   }
 
+  override def putIndex(n: Int) = {
+    feed1.putIndex(n)
+    feed2.putIndex(n)
+    indexChanged()
+  }
+
   override def getSpace(index: Index): Space = getCached(index) match {
     case None => {
       val space = feed.getSpace(index)

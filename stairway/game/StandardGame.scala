@@ -172,7 +172,13 @@ object StandardGame {
       )
 
     def unmirror(data: GameData) = {
+      // Do this at the beginning to the generators reset around it
       _era = data.era
+      system.freezeBase()
+      system.unmirror(data.belt)
+      belt.putIndex(data.playerSpace - player.occupiedSpace)
+      system.resetState()
+
       stats.attackModifier = data.atkMod
       stats.money = data.money
       stats.levels.luck.value = data.luck
@@ -202,9 +208,7 @@ object StandardGame {
       inventory.capacity = data.invSize
       inventory.clear()
       data.invData.foreach { inventory.addItem(_) }
-      belt.putIndex(data.playerSpace - player.occupiedSpace)
       damage.horizontalShift = data.damageShift
-      system.unmirror(data.belt)
     }
 
     inventory.addItem(DivineBolt)

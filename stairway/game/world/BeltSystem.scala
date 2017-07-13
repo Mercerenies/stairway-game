@@ -634,11 +634,18 @@ class BeltSystem(
     BaseFeed.eraChanged(newEra)
   }
 
+  def resetState(): Unit = {
+    BaseFeed.resetState()
+  }
+
+  def freezeBase(): Unit = {
+    BaseFeed.freeze()
+  }
+
   def tillNextBoss: util.Index.Type = BossFeedSystem.tillNextBoss
 
   def mirror: GameData.Belt = {
     val (d, t, q) = RedGenerator.mirror
-    val scrolls = ???
     GameData.Belt(
       d, t, q,
       DojoGenerator.currentIndex,

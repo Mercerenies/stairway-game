@@ -17,6 +17,7 @@ abstract class GeneratorFeed(
   private val cache: Map[Index.Type, Space] = new TrieMap
   private val queue: Queue[Generator[GeneratorFeed]] = new Queue
   private var frozen: Boolean = true
+  private var artificialTop: Int = -1
 
   def generators: Seq[Generator[GeneratorFeed]]
 
@@ -24,9 +25,11 @@ abstract class GeneratorFeed(
 
   def topDefined: Index.Type = {
     val zero = implicitly[Integral[Index.Type]].fromInt(0)
-    UtilException.failAsValue(classOf[UnsupportedOperationException])(zero) {
+    val authentic = UtilException.failAsValue(classOf[UnsupportedOperationException])(zero) {
       cache.keySet.max
     }
+    val artificial = artificialTop
+    math.max(authentic, artificial)
   }
 
   override protected def indexChanged(): Unit = {
@@ -40,6 +43,7 @@ abstract class GeneratorFeed(
     // won't be used.
     if (frozen) {
       frozen = false
+      artificialTop = bottomIndex
     } else {
       val top = topDefined
       val steps = index.value - top
@@ -90,6 +94,10 @@ abstract class GeneratorFeed(
 
   def eraChanged(newEra: Int): Unit = {
     generators.foreach(_.eraChanged(newEra))
+  }
+
+  def resetState(): Unit = {
+    generators.foreach(_.resetState())
   }
 
 }

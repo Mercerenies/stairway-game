@@ -21,6 +21,7 @@ class OverrideConveyer[+T <: ConveyerFeed](master: StandardGame.Master, val feed
 
   override def putIndex(n: Int) = {
     feed.putIndex(n)
+    indexChanged()
   }
 
   override def indexChanged(): Unit = {

@@ -1,9 +1,10 @@
 
-package com.mercerenies.stairway.game.world
+package com.mercerenies.stairway
+package game.world
 
-import com.mercerenies.stairway.game.belt.ConveyerFeed
-import com.mercerenies.stairway.util.Index
-import com.mercerenies.stairway.space.Space
+import game.belt.ConveyerFeed
+import util.Index
+import space.Space
 import scala.util.Random
 
 trait SimpleSpaceGenerator[+T <: GeneratorFeed] extends Generator[T] {

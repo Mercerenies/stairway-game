@@ -51,7 +51,7 @@ class MysteryContent(contentArea: ContentArea, val count: Int) extends AbstractC
   val boxes: List[MysteryBox] = {
     val xPos = contentArea.rect.x + 10
     val yPos = contentArea.rect.y + 20
-    val perRow = 5
+    val perRow = 4
     val diff = math.max(FruitsImage.Width, FruitsImage.Height) + 8
     for (i <- (0 until count).toList)
       yield new MysteryBox(xPos + diff * (i % perRow), yPos + diff * (i / perRow))

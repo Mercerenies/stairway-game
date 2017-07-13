@@ -8,7 +8,7 @@ case object WebSpace extends ImageSpace {
   override def imageIndex: Int = 20
 
   override def onLand(master: StandardGame.Master) = {
-    master.meter.energy.value -= master.meter.energy.value.toDouble
+    master.meter.energy.value -= 150
   }
 
 }

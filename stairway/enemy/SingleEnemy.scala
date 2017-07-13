@@ -10,6 +10,11 @@ abstract class SingleEnemy(override val master: StandardGame.Master)
 
   def attackPower: Double
 
+  override def onDeath(player: Player): Unit = {
+    super.onDeath(player)
+    master.particleText.addParticle("KO!", Enemy.particleColor, rect)
+  }
+
   override def attack(player: Player): Unit = {
     if (player.master.luck.evaluateLuck((LuckWeightMinus, LuckWeightPlus), master.stats.dodgeChance))
       master.particleText.addParticle(f"MISS!", HealthBased.particleColor, player.drawRect, (-90.0, 45.0))

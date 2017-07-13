@@ -46,7 +46,6 @@ trait Enemy extends Drawable with StatusEntity {
 
   def onDeath(player: Player): Unit = {
     spoils.giveTo(player)
-    master.particleText.addParticle(f"KO!", Enemy.particleColor, rect)
   }
 
   def instantKill(player: Player): Unit = {
@@ -59,7 +58,7 @@ trait Enemy extends Drawable with StatusEntity {
     statuses.zipWithIndex.foreach { case (x, i) =>
       val (width, height) = x.dims
       val statusX = this.rect.xmax + width * i
-      val statusY = this.rect.ymin - Player.Radius
+      val statusY = this.rect.ymin
       x.draw(graph, Rectangle(statusX, statusY, statusX + width, statusY + height))
     }
   }

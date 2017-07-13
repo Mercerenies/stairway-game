@@ -11,7 +11,7 @@ class Arachula(master: StandardGame.Master)
 
   override def spoils: Spoils = Spoils.Money(65) + Spoils.Strength
 
-  override def startingHealth: Double = 90.0
+  override def startingHealth: Double = 95.0
 
   override def attackPower: Double = 9.0
 

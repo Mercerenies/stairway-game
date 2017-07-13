@@ -18,6 +18,8 @@ What if each era had an era-specific space that it introduced?
  * Then that space is used in all the later era, just not as often
  * Spiders could have a spider web space which decreases your energy
 
+DO NOT LOAD A SAVE FILE IF YOU ARE ALREADY ADVANCED PAST THAT POINT!!!!!!!
+
 == Improvable Stats ==
  * Health        - Max HP
  * Energy        - Energy capacity

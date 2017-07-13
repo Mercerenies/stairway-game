@@ -121,9 +121,11 @@ class BeltSystem(
     type EnemySpawnArg = (() => Enemy, Seq[Int])
 
     private def basicRat() = new Rat(master, Enemy.entropy(random))
-    private def ratTeam() = new EnemyTeam(master, basicRat(), basicRat())
     private def basicPear() = new Pear(master, Enemy.entropy(random))
     private def basicSpider() = new Spider(master, Enemy.entropy(random))
+    private def basicHelmetImp() = new HelmetImp(master, Enemy.entropy(random))
+
+    private def ratTeam() = new EnemyTeam(master, basicRat(), basicRat())
     private def spiderTeam() = new EnemyTeam(master, basicSpider(), basicSpider())
     private def ratTeam3() = new EnemyTeam(master, basicRat(), basicRat(), basicRat())
     private def pearRatTeam() = new EnemyTeam(master, basicPear(), basicRat(), basicRat())
@@ -145,7 +147,8 @@ class BeltSystem(
         entry(spiderTeam(), 5, 6, 6),
         entry(ratTeam3(), 4, 5, 5),
         entry(pearRatTeam(), 5, 5, 6),
-        entry(pearTeam(), 4, 4, 5)
+        entry(pearTeam(), 4, 4, 5),
+        entry(basicHelmetImp(), 5, 6, 7)
       )
     )
 

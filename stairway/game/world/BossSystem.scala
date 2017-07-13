@@ -11,7 +11,7 @@ abstract class BossSystem[+A <: GeneratorFeed](
   master: StandardGame.Master,
   val underlyingFeed: A) {
 
-  private val iterator: Iterator[EnemyBox[BossEnemy]] = bosses.map(new EnemyBox(_)).iterator
+  private val storedBosses = bosses.map(new EnemyBox(_))
   private var curr: Option[EnemyBox[BossEnemy]] = None
 
   val altFeed = AltFeed
@@ -41,8 +41,8 @@ abstract class BossSystem[+A <: GeneratorFeed](
     override def getSpace(index: Index): Space = {
       val space = underlyingFeed.getSpace(index)
       if (timeToSwitch(index)) {
-        if (iterator.hasNext) {
-          curr = Some(iterator.next)
+        if (master.era - 1 < storedBosses.size) {
+          curr = Some(storedBosses(master.era - 1))
           altFeed.switchTo(bossFeed)
         } else {
           curr = None

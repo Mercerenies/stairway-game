@@ -9,7 +9,7 @@ import com.mercerenies.stairway.game.attack.PlayerAttack
 import com.mercerenies.stairway.game.content.ContentArea
 import com.mercerenies.stairway.status.StatusEntity
 import scala.util.Random
-import java.awt.Graphics2D
+import java.awt.{Graphics2D, Color}
 
 trait Enemy extends Drawable with StatusEntity {
 
@@ -46,6 +46,7 @@ trait Enemy extends Drawable with StatusEntity {
 
   def onDeath(player: Player): Unit = {
     spoils.giveTo(player)
+    master.particleText.addParticle(f"KO!", Enemy.particleColor, rect)
   }
 
   def instantKill(player: Player): Unit = {
@@ -75,6 +76,8 @@ object Enemy {
   import RandomImplicits._
 
   val image = new EnemiesImage
+
+  val particleColor = Color.red.darker
 
   case class Entropy(risk: Double, reward: Double)
 

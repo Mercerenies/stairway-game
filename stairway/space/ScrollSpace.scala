@@ -9,6 +9,8 @@ case class ScrollSpace(age: Int, scrolls: Scroll*) extends ImageSpace {
 
   override def imageIndex: Int = 18
 
+  override def isOverridable: Boolean = false
+
   override def onLand(master: StandardGame.Master) = {
     scrolls.foreach(_.age = age)
     master.contentArea.put(new ScrollContent(master.contentArea, scrolls))

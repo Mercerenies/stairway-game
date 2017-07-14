@@ -12,9 +12,16 @@ class OverrideConveyer[+T <: ConveyerFeed](master: StandardGame.Master, val feed
 
   private val overrides: Map[Index.Type, Space] = new TrieMap
 
-  override def getSpace(index: Index): Space = overrides.get(index.value) match {
-    case None => feed.getSpace(index)
-    case Some(x) => x
+  override def getSpace(index: Index): Space = {
+    overrides.get(index.value) match {
+      case None =>
+        val regular = feed.getSpace(index)
+        if (!regular.isOverridable)
+          overrides(index.value) = regular
+        regular
+      case Some(x) =>
+        x
+    }
   }
 
   override def bottomIndex = feed.bottomIndex
@@ -34,7 +41,12 @@ class OverrideConveyer[+T <: ConveyerFeed](master: StandardGame.Master, val feed
   }
 
   def assignOverride(n: Index, space: Space): Unit = {
-    overrides(n.value) = space
+    overrides.get(n.value) match {
+      case Some(x) if !x.isOverridable =>
+        // Pass
+      case _ =>
+        overrides(n.value) = space
+    }
   }
 
   def deleteOverride(n: Index): Unit = {

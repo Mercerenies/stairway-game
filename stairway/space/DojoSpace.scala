@@ -9,6 +9,8 @@ case class DojoSpace(stats: ImprovableStats.UpgradeSlot[_]*) extends ImageSpace 
 
   override def imageIndex: Int = 17
 
+  override def isOverridable: Boolean = false
+
   override def onLand(master: StandardGame.Master) = {
     master.contentArea.put(new DojoContent(master.contentArea, stats))
   }

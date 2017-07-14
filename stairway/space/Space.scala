@@ -9,6 +9,8 @@ import com.mercerenies.stairway.game.StandardGame
 
 trait Space extends Drawable {
 
+  def isOverridable: Boolean = true
+
   def onLand(master: StandardGame.Master): Unit
 
   def onDepart(master: StandardGame.Master): Unit = {}

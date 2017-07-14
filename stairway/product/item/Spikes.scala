@@ -22,7 +22,7 @@ case object Spikes extends Item {
 
   override def isPassive: Boolean = false
 
-  override def price(player: Player): Int = 18 // TODO Set the prices accurately
+  override def price(player: Player): Int = 20
 
   override def use(player: Player): Unit = {
     val damage = spikeDamage(player)

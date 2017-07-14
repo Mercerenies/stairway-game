@@ -280,7 +280,7 @@ class BeltSystem(
     def itemSampler: Seq[Item] = master.era match {
       case 1 => List()
       case 2 => List(Coffee, Sundae, ThrowingKnife)
-      case 3 => List(Spikes, Sundae, Coffee, HolyFire)
+      case 3 => List(Spikes, Sundae, Coffee, ThrowingKnife)
       case _ => List()
     }
 

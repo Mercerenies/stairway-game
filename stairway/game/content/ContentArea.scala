@@ -1,11 +1,12 @@
 
-package com.mercerenies.stairway.game.content
+package com.mercerenies.stairway
+package game.content
 
 import java.awt._
-import com.mercerenies.stairway.event.{StepEvent, ClickEvent}
-import com.mercerenies.stairway.action.MouseClick
-import com.mercerenies.stairway.game.{GameEntity, StandardGame}
-import com.mercerenies.stairway.util.Rectangle
+import event.{StepEvent, ClickEvent}
+import action.MouseClick
+import game.{GameEntity, StandardGame}
+import util.Rectangle
 
 class ContentArea(master: StandardGame.Master, val rect: Rectangle)
     extends GameEntity[StandardGame.Master](master) {
@@ -58,4 +59,4 @@ class ContentArea(master: StandardGame.Master, val rect: Rectangle)
   stepEvent += StepDelegator
   clickEvent += ClickDelegator
 
-} ///// All the other spaces that need content area things
+}

@@ -17,6 +17,11 @@ Ooh! Maybe a fire space that increases ATK as long as on fire but decreases HP e
 What if each era had an era-specific space that it introduced?
  * Then that space is used in all the later era, just not as often
  * Spiders could have a spider web space which decreases your energy
+Glass of Milk enemy ("Unspilled Milk") that spills into milk spaces if you inflict non-lethal damage
+Milk Spaces that take 1 health; Glass of Milk Spaces that spill into several Milk Spaces, overwriting nearby spaces
+
+///// Design the glass of milk enemy and the milk spaces and the glass of milk spaces
+///// Also consider whether making scrolls and dojos non-overridable was a good idea; maybe we should penalize the player if they get overriden; I'm thinking we should make them overridable
 
 DO NOT LOAD A SAVE FILE IF YOU ARE ALREADY ADVANCED PAST THAT POINT!!!!!!!
 
@@ -91,3 +96,7 @@ Ben Jammin' Franklin
  * Special Events: Scroll Set A (2)
  * Beginning Event: None
  * End Event: +1 Strength
+
+== ERA IV ==
+ * Enemies: Spider (x2), Pear / Rat (x3), Pear (x3), Helmet Imp / Spider
+...

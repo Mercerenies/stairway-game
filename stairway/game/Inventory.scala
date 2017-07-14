@@ -1,13 +1,11 @@
 
-///// Make the game able to save "states" so we don't have to speed through everywhere every time
+package com.mercerenies.stairway
+package game
 
-package com.mercerenies.stairway.game
-
-import com.mercerenies.stairway.util
-import com.mercerenies.stairway.util.Rectangle
-import com.mercerenies.stairway.event.{StepEvent, AbstractClickEvent}
-import com.mercerenies.stairway.image.ItemsImage
-import com.mercerenies.stairway.product.item._
+import util.Rectangle
+import event.{StepEvent, AbstractClickEvent}
+import image.ItemsImage
+import product.item._
 import scala.collection.mutable.ArrayBuffer
 import java.awt.{Graphics2D, Color, Font}
 

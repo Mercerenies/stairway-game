@@ -28,6 +28,8 @@ abstract class StatusEffect(val length: Option[Int]) // If None, the effect does
 
   def onEffect(obj: Effectee): Unit
 
+  def attackModifier: Int = 0
+
   def perform(obj: Effectee): Unit = {
     onEffect(obj)
     turnCounter += 1

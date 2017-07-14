@@ -1,17 +1,18 @@
 
-package com.mercerenies.stairway.game
+package com.mercerenies.stairway
+package game
 
-import com.mercerenies.stairway.image.ButtonsImage
-import com.mercerenies.stairway.stat.PlayerStats
-import com.mercerenies.stairway.util.{Rectangle, Index}
-import com.mercerenies.stairway.luck.{DiceValue, PlayerLuck}
-import com.mercerenies.stairway.debug.DebugBox
-import com.mercerenies.stairway.game.content._
-import com.mercerenies.stairway.game.belt._
-import com.mercerenies.stairway.game.world._
-import com.mercerenies.stairway.space._
-import com.mercerenies.stairway.product.item._
-import com.mercerenies.stairway.enemy._
+import image.ButtonsImage
+import stat.PlayerStats
+import util.{Rectangle, Index}
+import luck.{DiceValue, PlayerLuck}
+import debug.DebugBox
+import game.content._
+import game.belt._
+import game.world._
+import space._
+import product.item._
+import enemy._
 import scala.util.control
 import javax.swing.SwingUtilities
 import java.awt.Color

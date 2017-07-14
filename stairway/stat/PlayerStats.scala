@@ -23,7 +23,11 @@ class PlayerStats(val master: StandardGame.Master, val moneyChanged: (Int) => Un
   def decayAttackPower(): Unit = {
     attackModifier -= 1
   }
-  def attackPower: Int = baseAttack + attackModifier
+  def attackPower: Int = {
+    val direct = baseAttack + attackModifier
+    val indirect = master.player.statuses.map(_.attackModifier).foldLeft(0)(_ + _)
+    direct + indirect
+  }
 
   def money: Int = _money
   def money_=(x: Int): Unit = {

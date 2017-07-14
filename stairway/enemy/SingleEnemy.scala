@@ -10,6 +10,10 @@ abstract class SingleEnemy(override val master: StandardGame.Master)
 
   def attackPower: Double
 
+  def netAttackPower: Double = {
+    statuses.map(_.attackModifier).foldLeft(attackPower) { _ + _ }
+  }
+
   override def onDeath(player: Player): Unit = {
     super.onDeath(player)
     master.particleText.addParticle("KO!", Enemy.particleColor, rect)
@@ -19,7 +23,7 @@ abstract class SingleEnemy(override val master: StandardGame.Master)
     if (player.master.luck.evaluateLuck((LuckWeightMinus, LuckWeightPlus), master.stats.dodgeChance))
       master.particleText.addParticle(f"MISS!", HealthBased.particleColor, player.drawRect, (-90.0, 45.0))
     else
-      player.takeDamage(attackPower)
+      player.takeDamage(netAttackPower)
   }
 
 }

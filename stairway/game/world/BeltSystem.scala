@@ -547,9 +547,9 @@ class BeltSystem(
         Scroll.LevelEffect("Energy +50", _.energy.buffBy(50))
       ),
       new Scroll(
-        Scroll.LevelEffect("Luck +10%", _.luck.buffBy(10)),
-        Scroll.LevelEffect("Luck +20%", _.luck.buffBy(20)),
-        Scroll.LevelEffect("Luck +50%", _.luck.buffBy(50))
+        Scroll.LevelEffect("Luck +10%", _.luck.buffBy(0.10)),
+        Scroll.LevelEffect("Luck +20%", _.luck.buffBy(0.20)),
+        Scroll.LevelEffect("Luck +50%", _.luck.buffBy(0.50))
       )
     )
 

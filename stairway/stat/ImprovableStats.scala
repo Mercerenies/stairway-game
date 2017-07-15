@@ -9,14 +9,14 @@ class ImprovableStats(val master: StandardGame.Master) {
   import ImprovableStats.{Stat, UpgradeSlot}
 
   val health = new Stat("Health", "Capacity of health meter", 100.0, 5.0, Some(0.0)) {
-    override def onChanged(): Unit = {
-      master.meter.health.max = value
+    override def onChanged(amt: Double): Unit = {
+      master.meter.health.max += amt
     }
   }
 
   val energy = new Stat("Energy", "Capacity of energy meter", 100.0, 5.0, Some(0.0)) {
-    override def onChanged(): Unit = {
-      master.meter.energy.max = value
+    override def onChanged(amt: Double): Unit = {
+      master.meter.energy.max += amt
     }
   }
 
@@ -74,7 +74,7 @@ object ImprovableStats {
       buffBy(implicitly[Numeric[T]].fromInt(0))
     }
 
-    def onChanged(): Unit = {}
+    def onChanged(amt: T): Unit = {}
 
     def buffBy(amt: T): Unit = {
       amount += amt
@@ -83,7 +83,7 @@ object ImprovableStats {
           amount = x
         case _ => {}
       }
-      onChanged()
+      onChanged(amt: T)
     }
 
     def buff(n: Int): Unit = {

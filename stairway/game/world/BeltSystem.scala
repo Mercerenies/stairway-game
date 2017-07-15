@@ -384,7 +384,7 @@ class BeltSystem(
       case 1 => List((3, DiceValue(9)), (3, DiceValue(10)), (3, DiceValue(11)), (3, DiceValue(11)))
       case 2 => List((3, DiceValue(10)), (3, DiceValue(10)), (3, DiceValue(11)), (3, DiceValue(12)))
       case 3 => List((3, DiceValue(11)), (3, DiceValue(12)), (3, DiceValue(13)))
-      case 4 => List((3, DiceValue(12)), (3, DiceValue(13)), (3, DiceValue(14)), (3, DiceValue(15)))
+      case 4 => List((3, DiceValue(12)), (3, DiceValue(13)), (3, DiceValue(14)))
       case _ => List((1, DiceValue(999)))
     }
 

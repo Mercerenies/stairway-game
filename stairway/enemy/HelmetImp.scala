@@ -8,7 +8,7 @@ class HelmetImp(master: StandardGame.Master, entropy: Enemy.Entropy)
 
   override def spoils: Spoils = Spoils.Money((38 + 4 * entropy.reward).toInt)
 
-  override def startingHealth: Double = 25.0 + 5.0 * entropy.risk
+  override def startingHealth: Double = 26.0 + 5.0 * entropy.risk
 
   override def attackPower: Double = 2.0 + 1.0 * entropy.risk
 

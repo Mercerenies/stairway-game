@@ -9,11 +9,11 @@ class GrumpyCone(master: StandardGame.Master, entropy: Enemy.Entropy)
     extends SingleEnemy(master)
     with TurnCounterEnemy {
 
-  override def spoils: Spoils = Spoils.Money((38 + 4 * entropy.reward).toInt)
+  override def spoils: Spoils = Spoils.Money((36 + 6 * entropy.reward).toInt)
 
-  override def startingHealth: Double = 15.0 + 3.0 * entropy.risk
+  override def startingHealth: Double = 18.0 + 3.0 * entropy.risk
 
-  override def attackPower: Double = 5.0 + 1.0 * entropy.risk
+  override def attackPower: Double = 4.0 + 1.0 * entropy.risk
 
   private def isOwnEnemySpace(space: Space) = space match {
     case EnemySpace(box) if box.innerEnemy == this => true

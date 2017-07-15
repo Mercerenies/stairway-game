@@ -8,7 +8,7 @@ class Spider(master: StandardGame.Master, entropy: Enemy.Entropy)
 
   override def spoils: Spoils = Spoils.Money((33 + 6 * entropy.reward).toInt)
 
-  override def startingHealth: Double = 11.0 + 1.0 * entropy.risk
+  override def startingHealth: Double = 12.0 + 1.0 * entropy.risk
 
   override def attackPower: Double = 7.0 + 1.0 * entropy.risk
 

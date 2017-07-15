@@ -14,17 +14,19 @@ class GenghisKone(master: StandardGame.Master)
 
   override def spoils: Spoils = Spoils.Money(72) + Spoils.Strength
 
-  override def startingHealth: Double = 130.0
+  override def startingHealth: Double = 120.0
 
   override def attackPower: Double = 11.0
 
   override def imageIndex: Int = 24
 
-  def spreadLength: Int = health match {
-    case x if x < 25.0 => 7
-    case x if x < 50.0 => 4
-    case _             => 3
+  private def spreadLength: Int = health match {
+    case x if x < 25.0 => 8
+    case x if x < 50.0 => 5
+    case _             => 4
   }
+
+  override def counterStart = GenghisKone.attackCycle / 2
 
   override def attack(player: Player): Unit = {
     if (isEndOfCycle(GenghisKone.attackCycle)) {
@@ -45,5 +47,5 @@ class GenghisKone(master: StandardGame.Master)
 }
 
 object GenghisKone {
-  val attackCycle = 12
+  val attackCycle = 7
 }

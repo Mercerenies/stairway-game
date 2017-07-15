@@ -45,6 +45,7 @@ class EnemyTeam(override val master: StandardGame.Master, val fullTeam: Enemy*)
     fullTeam zip positions foreach { case (e, (x, y)) =>
       if (e.isAlive)
         e.draw(graph, rect.shift(x, y))
+      super.draw(graph, rect)
     }
   }
 

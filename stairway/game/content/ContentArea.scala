@@ -2,11 +2,11 @@
 package com.mercerenies.stairway
 package game.content
 
-import java.awt._
 import event.{StepEvent, ClickEvent}
 import action.MouseClick
 import game.{GameEntity, StandardGame}
 import util.Rectangle
+import java.awt._
 
 class ContentArea(master: StandardGame.Master, val rect: Rectangle)
     extends GameEntity[StandardGame.Master](master) {

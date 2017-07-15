@@ -20,6 +20,8 @@ class GrumpyCone(master: StandardGame.Master, entropy: Enemy.Entropy)
     case _ => false
   }
 
+  override def imageIndex: Int = 5
+
   override def attack(player: Player): Unit = {
     if (isEndOfCycle(GrumpyCone.attackCycle)) {
       // Use the ice cream attack
@@ -38,8 +40,6 @@ class GrumpyCone(master: StandardGame.Master, entropy: Enemy.Entropy)
     }
     advanceCounter()
   }
-
-  override def imageIndex: Int = 5
 
 }
 

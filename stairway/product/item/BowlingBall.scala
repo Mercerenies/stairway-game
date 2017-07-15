@@ -22,11 +22,10 @@ case object BowlingBall extends Item {
   override def price(player: Player): Int = 18 // TODO Set the prices accurately
 
   override def use(player: Player): Unit = {
-    val pos = player.occupiedPosition
     val feed = player.master.belt.feed
-    feed.assignOverride(pos + 1, BowlingSpace)
-    feed.assignOverride(pos + 2, BowlingSpace)
-    feed.assignOverride(pos + 3, BowlingSpace)
+    player nextNPositions 3 foreach { pos =>
+      feed.assignOverride(pos, BowlingSpace)
+    }
   }
 
 }

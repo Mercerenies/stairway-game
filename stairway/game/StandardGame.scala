@@ -213,8 +213,6 @@ object StandardGame {
     }
 
     inventory.addItem(DivineBolt)
-    inventory.addItem(BowlingBall) ////
-    inventory.addItem(BowlingBall) ////
 
   }
 

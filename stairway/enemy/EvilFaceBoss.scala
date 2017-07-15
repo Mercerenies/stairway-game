@@ -16,6 +16,6 @@ class EvilFaceBoss(master: StandardGame.Master)
 
   override def attackPower: Double = 2.0
 
-  override def imageIndex: Int = 29
+  override def imageIndex: Int = 30
 
 }

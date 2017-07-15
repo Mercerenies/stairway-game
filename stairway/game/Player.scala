@@ -21,6 +21,11 @@ class Player(master: StandardGame.Master, val xPos: Int)
 
   def occupiedPosition: Index = master.belt.RelativeIndex(occupiedSpace)
 
+  def nextNPositions(n: Int): Seq[Index] = {
+    val playerPos = occupiedPosition
+    1 to n map { playerPos + _ }
+  }
+
   def currentSpace: Space = forwardSpace(0)
 
   def nextSpace: Space = forwardSpace(1)

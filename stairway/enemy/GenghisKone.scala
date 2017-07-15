@@ -12,7 +12,7 @@ class GenghisKone(master: StandardGame.Master)
 
   override def bossName: String = "Genghis Kone"
 
-  override def spoils: Spoils = Spoils.Money(65) + Spoils.Strength
+  override def spoils: Spoils = Spoils.Money(72) + Spoils.Strength
 
   override def startingHealth: Double = 130.0
 

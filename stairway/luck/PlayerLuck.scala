@@ -23,6 +23,7 @@ class PlayerLuck(val master: StandardGame.Master) {
   def evaluateLuck(weight: (Double, Double), odds: Double): Boolean = {
     // If an event was already determined conclusively without random chance,
     // go with that result without factoring in luck or karma.
+    println(s"${odds} ${karma} ${baseLuck} ${luck}")
     if (odds >= 1.00) {
       true
     } else if (odds <= 0.00) {

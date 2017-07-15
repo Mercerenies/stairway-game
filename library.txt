@@ -1,0 +1,56 @@
+
+=== SPACES ===
+
+Neutral Space       - No special effect
+Red Space           - Deals 6 * 4^n damage, where n = number of rings
+Tax Space           - Takes percentage of money away
+Enemy / Boss Space  - Initiates or continues combat
+Lotto Space         - Allows the player to play the lottery
+Item Space          - Allows the player to buy items
+Fruit Space         - Allows the player to buy fruits
+Bowled Space        - No special effect
+Ice Space           - Forces the player to immediately move again
+Income Space        - Player gains $5
+Mystery Space       - Allows the player to get a chance at a free fruit
+Health Space        - Player gains 5 HP
+Minefield Space     - ???
+Dojo Space          - Allows the player to pay for stat upgrades
+Scroll Space        - Allows the player to select a scroll to apply
+Fruit Theft Space   - Takes a random fruit away
+Web Space           - Takes 150% energy away
+Spilled Milk Space  - Deals 3 damage
+Milk Glass Space    - Turns next 3 spaces into Spilled Milk Spaces
+
+=== ITEMS ===
+
+Null Item      (XX) - N/A
+Smoke Bomb     (??) - Escape from a non-boss fight
+Spikes         (20) - Drop spikes, inflicting damage to the enemy each turn
+Sundae         (27) - Restore half a meter of health immediately
+Coffee         (18) - Restore a full meter of energy immediately
+Bowling Ball   (??) - Obliterate the next three spaces
+Throwing Knife ( 9) - Instantly deal damage equal to ATK power
+Holy Fire      (16) - Deal damage equal to ATK, +20 when used on undead
+Grab Bag       (??) - ???
+Divine Bolt    (XX) - Instantly deal 100 damage to non-boss enemy
+Chili Pepper   (10) - Spicy peppers that increase your strength for awhile
+
+=== STATUSES ===
+
+Spikes - Damage taken each turn
+Spicy  - +N ATK, passive effect
+
+=== ENEMIES ===
+
+Rat             (HP   5 ±  1 | ATK  3 ±  0 | $16 ±  2)
+Pear            (HP  13 ±  4 | ATK  5 ±  1 | $28 ±  4) - Advances magic cycle on attack
+Spider          (HP  11 ±  1 | ATK  7 ±  1 | $33 ±  1) - Decreases energy on attack
+Helmet Imp      (HP  26 ±  5 | ATK  2 ±  1 | $38 ±  4)
+Grumpy Cone     (HP  18 ±  3 | ATK  4 ±  1 | $36 ±  6) - Secondary attack creates Spilled Milk Space
+Unspilled Milk  (HP   7 ±  0 | ATK  4 ±  0 | $22 ±  0) - If attacked nonlethally, becomes Spilled Milk
+Evil Face       (HP  50 ±  0 | ATK  2 ±  0 | $ 0 ±  0)
+Ratticus Finch  (HP  35      | ATK  5      | $41     )
+W. Shakes Pear  (HP  60      | ATK  7      | $55     ) - Advances magic cycle on attack
+Count Arachula  (HP  95      | ATK  9      | $65     ) - Decreases energy on attack
+Genghis Kone    (HP 120      | ATK 11      | $72     ) - Secondary attack creates Spilled Milk Spaces
+Evil Face Boss  (HP 100      | ATK  2      | $ 0     )

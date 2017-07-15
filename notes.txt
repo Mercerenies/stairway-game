@@ -23,7 +23,7 @@ Milk Spaces that take 1 health; Glass of Milk Spaces that spill into several Mil
 "East Wind" that occurs periodically (with warning); a bunch of bad spaces in a row
 Sign spaces to warn and advise
 
-///// Design the glass of milk enemy and the milk spaces and the glass of milk spaces
+///// So... maybe play through again and get new save files? The old ones had the health/energy meter dojo glitch
 ///// Also consider whether making scrolls and dojos non-overridable was a good idea; maybe we should penalize the player if they get overriden; I'm thinking we should make them overridable
 
 DO NOT LOAD A SAVE FILE IF YOU ARE ALREADY ADVANCED PAST THAT POINT!!!!!!!

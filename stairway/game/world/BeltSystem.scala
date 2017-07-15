@@ -237,14 +237,14 @@ class BeltSystem(
       case 1 => 7
       case 2 => 7
       case 3 => 8
-      case 4 => 10
+      case 4 => 8
       case _ => NoGenerate
     }
     override def maxTimer = master.era match {
       case 1 => 10
       case 2 => 10
       case 3 => 11
-      case 4 => 12
+      case 4 => 11
       case _ => NoGenerate
     }
 
@@ -263,14 +263,14 @@ class BeltSystem(
       case 1 => 10
       case 2 => 10
       case 3 => 10
-      case 4 => 10
+      case 4 => 15
       case _ => NoGenerate
     }
     override def maxTimer = master.era match {
       case 1 => 25
       case 2 => 25
       case 3 => 25
-      case 4 => 20
+      case 4 => 23
       case _ => NoGenerate
     }
 
@@ -278,7 +278,7 @@ class BeltSystem(
       case 1 => 0
       case 2 => 0
       case 3 => 0
-      case 4 => random.nextOf(0, 0, 1)
+      case 4 => random.nextOf(0, 0, 0, 1)
       case _ => 0
     }
 
@@ -303,7 +303,7 @@ class BeltSystem(
       case 1 => NoGenerate
       case 2 => 25
       case 3 => 25
-      case 4 => 25
+      case 4 => 23
       case _ => NoGenerate
     }
 
@@ -333,14 +333,14 @@ class BeltSystem(
       case 1 => 13
       case 2 => 13
       case 3 => 13
-      case 4 => 16
+      case 4 => 13
       case _ => NoGenerate
     }
     override def maxTimer = master.era match {
       case 1 => 18
       case 2 => 22
       case 3 => 26
-      case 4 => 26
+      case 4 => 29
       case _ => NoGenerate
     }
 
@@ -445,14 +445,14 @@ class BeltSystem(
       case 1 => NoGenerate
       case 2 => 20
       case 3 => 20
-      case 4 => 20
+      case 4 => 21
       case _ => NoGenerate
     }
     override def maxTimer = master.era match {
       case 1 => NoGenerate
       case 2 => 25
       case 3 => 25
-      case 4 => 25
+      case 4 => 26
       case _ => NoGenerate
     }
 

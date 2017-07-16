@@ -141,6 +141,7 @@ class BeltSystem(
     private def pearTeam() = new EnemyTeam(master, basicPear(), basicPear())
     private def pearTeam3() = new EnemyTeam(master, basicPear(), basicPear(), basicPear())
     private def impSpiderTeam() = new EnemyTeam(master, basicHelmetImp(), basicSpider())
+    private def impPearTeam() = new EnemyTeam(master, basicHelmetImp(), basicPear())
 
     private val eraSettings: Array[Seq[EnemySpawnArg]] = Array(
       List(
@@ -163,9 +164,8 @@ class BeltSystem(
       ),
       List(
         entry(spiderTeam(), 4, 4, 5),
-        entry(pearRatTeam3(), 4, 5, 6),
         entry(pearTeam3(), 4, 4, 5),
-        entry(impSpiderTeam(), 5, 6, 7),
+        entry(impPearTeam(), 5, 6, 7),
         entry(basicMilk(), 3, 3, 4),
         entry(basicCone(), 6, 6, 7)
       )
@@ -217,7 +217,7 @@ class BeltSystem(
       case 1 => 18
       case 2 => 20
       case 3 => 23
-      case 4 => 26
+      case 4 => 23
       case _ => NoGenerate
     }
 
@@ -340,7 +340,7 @@ class BeltSystem(
       case 1 => 18
       case 2 => 22
       case 3 => 26
-      case 4 => 29
+      case 4 => 26
       case _ => NoGenerate
     }
 
@@ -348,7 +348,7 @@ class BeltSystem(
       case 1 => List(3)
       case 2 => List(3, 4, 4)
       case 3 => List(3, 4, 4, 5, 5, 6, 6)
-      case 4 => List(4, 5, 5, 6, 6)
+      case 4 => List(4, 5, 5, 6)
       case _ => List(1)
     }
 
@@ -384,7 +384,7 @@ class BeltSystem(
       case 1 => List((3, DiceValue(9)), (3, DiceValue(10)), (3, DiceValue(11)), (3, DiceValue(11)))
       case 2 => List((3, DiceValue(10)), (3, DiceValue(10)), (3, DiceValue(11)), (3, DiceValue(12)))
       case 3 => List((3, DiceValue(11)), (3, DiceValue(12)), (3, DiceValue(13)))
-      case 4 => List((3, DiceValue(12)), (3, DiceValue(13)), (3, DiceValue(14)))
+      case 4 => List((3, DiceValue(12)), (3, DiceValue(13)), (3, DiceValue(13)))
       case _ => List((1, DiceValue(999)))
     }
 
@@ -512,7 +512,7 @@ class BeltSystem(
       case 1 => 0
       case 2 => 0
       case 3 => random.nextOf(0, 0, 0, 1)
-      case 4 => random.nextOf(0, 0, 1)
+      case 4 => random.nextOf(0, 0, 0, 1)
       case _ => 0
     }
 

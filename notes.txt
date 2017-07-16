@@ -97,7 +97,7 @@ Ben Jammin' Franklin
  * Special Spaces: Web Space
  * Special Events: Scroll Set A (2)
  * Beginning Event: None
- * End Event: +1 Strength, +0.5 Resilience
+ * End Event: +1 Strength
 
 == ERA IV ==
  * Enemies: Spider (x2), Pear (x3), Helmet Imp / Pear, Unspilled Milk, Grumpy Cone

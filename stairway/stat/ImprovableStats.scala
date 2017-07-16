@@ -108,6 +108,10 @@ object ImprovableStats {
       stat.buff()
     }
 
+    def changePrice(times: Int) = {
+      timesBought += times
+    }
+
   }
 
 }

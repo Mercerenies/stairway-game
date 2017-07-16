@@ -169,6 +169,7 @@ object GameData {
       IOFriendly.write(0.0, file)
       IOFriendly.write(0.0, file)
       IOFriendly.write(0.0, file)
+      ///// Save file completely invalidated; we need to add in UpgradeSlot.timesBought to it...
 
       // Fruits
       IOFriendly.write(apples, file)

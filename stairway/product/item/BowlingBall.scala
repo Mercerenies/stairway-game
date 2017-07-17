@@ -19,7 +19,7 @@ case object BowlingBall extends Item {
 
   override def isPassive: Boolean = false
 
-  override def price(player: Player): Int = 18 // TODO Set the prices accurately
+  override def basePrice: Int = 18 // TODO Set the prices accurately
 
   override def use(player: Player): Unit = {
     val feed = player.master.belt.feed

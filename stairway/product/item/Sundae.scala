@@ -18,7 +18,7 @@ case object Sundae extends Item {
 
   override def isPassive: Boolean = false
 
-  override def price(player: Player): Int = 27
+  override def basePrice: Int = 27
 
   override def use(player: Player): Unit = {
     player.master.meter.health.value += 50

@@ -19,7 +19,7 @@ case object HolyFire extends Item {
 
   override def isPassive: Boolean = false
 
-  override def price(player: Player): Int = 16
+  override def basePrice: Int = 16
 
   override def use(player: Player): Unit = {
     player.master.currentEnemy.foreach(_.takeDamage(new FireAttack(player.master)))

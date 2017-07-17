@@ -22,7 +22,7 @@ case object DivineBolt extends Item {
 
   override def isPassive: Boolean = false
 
-  override def price(player: Player): Int = 99
+  override def basePrice: Int = 99
 
   override def use(player: Player): Unit = {
     player.master.currentEnemy.foreach(_.takeDamage(new LightningAttack(player.master)))

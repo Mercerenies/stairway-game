@@ -21,7 +21,7 @@ case object SmokeBomb extends Item {
 
   override def isPassive: Boolean = false
 
-  override def price(player: Player): Int = 18 // TODO Set the prices accurately
+  override def basePrice: Int = 18 // TODO Set the prices accurately
 
   override def use(player: Player): Unit = {
     player.master.currentEnemyBox.foreach(_.instantKill(player, false))

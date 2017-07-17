@@ -22,6 +22,10 @@ abstract class Item extends Purchasable with Usable with Captioned {
     List(name, description, s"($lmb$rmb)")
   }
 
+  def basePrice: Int
+
+  override def price(player: Player): Int = player.master.stats.itemPrice(basePrice)
+
   override def giveTo(player: Player): Unit =
     player.master.inventory addItem this
 

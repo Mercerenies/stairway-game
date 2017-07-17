@@ -18,7 +18,7 @@ case object Coffee extends Item {
 
   override def isPassive: Boolean = false
 
-  override def price(player: Player): Int = 18
+  override def basePrice: Int = 18
 
   override def use(player: Player): Unit = {
     player.master.meter.energy.value += 100

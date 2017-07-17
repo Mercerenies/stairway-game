@@ -19,7 +19,7 @@ case object ThrowingKnife extends Item {
 
   override def isPassive: Boolean = false
 
-  override def price(player: Player): Int = 9
+  override def basePrice: Int = 9
 
   override def use(player: Player): Unit = {
     player.master.currentEnemy.foreach(_.takeDamage(new KnifeAttack(player.master)))

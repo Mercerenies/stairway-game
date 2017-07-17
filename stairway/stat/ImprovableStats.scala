@@ -33,7 +33,7 @@ class ImprovableStats(val master: StandardGame.Master) {
   val tax           = new Stat("Tax", "Money taken on tax spaces", 0.15, -0.01, Some(0.0))
   val fortune       = new Stat("Fortune", "Chance of critical hits", 0.01, 0.005, Some(0.0))
   val force         = new Stat("Force", "Power of special attack", 2.0, 0.05, Some(0.0))
-  val resilience    = new Stat("Resilience", "Health restored each turn", 0.0, 0.1, Some(0.0))
+  val resilience    = new Stat("Resilience", "Health restored each turn", 0.0, 0.2, Some(0.0))
   val evasion       = new Stat("Evasion", "Chance of dodging attacks", 0.01, 0.005, Some(0.0))
 
   lazy val standardUpgrades: Seq[UpgradeSlot[_]] = Vector(

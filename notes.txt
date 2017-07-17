@@ -22,6 +22,7 @@ Milk Spaces that take 1 health; Glass of Milk Spaces that spill into several Mil
 "Lightweight Shoes" that protect against certain spaces (like milk spaces)
 "East Wind" that occurs periodically (with warning); a bunch of bad spaces in a row
 Sign spaces to warn and advise
+Item that shows enemy HP once it gets down to a certain point (passive)
 
 ///// Play through at least the Arachula era again, as it seems too difficult
 

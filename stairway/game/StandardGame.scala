@@ -14,6 +14,7 @@ import space._
 import product.item._
 import enemy._
 import scala.util.control
+import scala.collection.breakOut
 import javax.swing.SwingUtilities
 import java.awt.Color
 
@@ -169,7 +170,8 @@ object StandardGame {
         inventory.toList,
         belt.bottomIndex + player.occupiedSpace,
         damage.horizontalShift,
-        system.mirror
+        system.mirror,
+        stats.levels.standardUpgrades.map(_.timesBought)(breakOut)
       )
 
     def unmirror(data: GameData) = {
@@ -210,6 +212,7 @@ object StandardGame {
       inventory.clear()
       data.invData.foreach { inventory.addItem(_) }
       damage.horizontalShift = data.damageShift
+      data.upgradeBuys zip stats.levels.standardUpgrades foreach { case (n, x) => x.timesBought = n }
     }
 
     inventory.addItem(DivineBolt)

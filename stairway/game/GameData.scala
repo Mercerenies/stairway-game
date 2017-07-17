@@ -38,7 +38,8 @@ case class GameData(
   invData: List[Item],
   playerSpace: Int,
   damageShift: Double,
-  belt: GameData.Belt
+  belt: GameData.Belt,
+  upgradeBuys: List[Int]
 )
 
 object GameData {
@@ -169,7 +170,7 @@ object GameData {
       IOFriendly.write(0.0, file)
       IOFriendly.write(0.0, file)
       IOFriendly.write(0.0, file)
-      ///// Save file completely invalidated; we need to add in UpgradeSlot.timesBought to it...
+      IOFriendly.write(upgradeBuys, file)
 
       // Fruits
       IOFriendly.write(apples, file)
@@ -251,6 +252,7 @@ object GameData {
       IOFriendly.read[Double](file)
       IOFriendly.read[Double](file)
       IOFriendly.read[Double](file)
+      val upgr = IOFriendly.read[List[Int]](file)
 
       val apples = IOFriendly.read[Int](file)
       val oranges = IOFriendly.read[Int](file)
@@ -310,7 +312,8 @@ object GameData {
         invData,
         playerSpace,
         damageShift,
-        belt
+        belt,
+        upgr
       )
     }
   }

@@ -36,7 +36,7 @@ class ImprovableStats(val master: StandardGame.Master) {
   val resilience    = new Stat("Resilience", "Health restored each turn", 0.0, 0.1, Some(0.0))
   val evasion       = new Stat("Evasion", "Chance of dodging attacks", 0.01, 0.005, Some(0.0))
 
-  def standardUpgrades: Seq[UpgradeSlot[_]] = Vector(
+  lazy val standardUpgrades: Seq[UpgradeSlot[_]] = Vector(
     new UpgradeSlot(health       ,  5, 10),
     new UpgradeSlot(energy       ,  5, 10),
     new UpgradeSlot(luck         ,  5,  5),
@@ -99,7 +99,7 @@ object ImprovableStats {
 
   class UpgradeSlot[T](val stat: Stat[T], val basePrice: Int, val priceUp: Int) extends Purchasable {
 
-    private var timesBought = 0
+    private var _timesBought = 0
 
     override def price(player: Player): Int = basePrice + timesBought * priceUp
 
@@ -108,8 +108,12 @@ object ImprovableStats {
       stat.buff()
     }
 
-    def changePrice(times: Int) = {
-      timesBought += times
+    def timesBought: Int = _timesBought
+
+    def timesBought_=(x: Int) = {
+      _timesBought = x
+      if (_timesBought < 0)
+        _timesBought = 0
     }
 
   }

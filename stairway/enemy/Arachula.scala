@@ -9,7 +9,7 @@ class Arachula(master: StandardGame.Master)
 
   override def bossName: String = "Count Arachula"
 
-  override def spoils: Spoils = Spoils.Money(65) + Spoils.Strength
+  override def spoils: Spoils = Spoils.Money(65) + Spoils.Strength + Spoils.Resilience
 
   override def startingHealth: Double = 95.0
 

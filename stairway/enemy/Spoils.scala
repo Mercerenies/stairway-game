@@ -41,6 +41,6 @@ object Spoils {
 
   object Strength extends Spoils({ player => player.master.stats.levels.strength.buff() })
 
-  object Resilience extends Spoils({ player => player.master.stats.levels.resilience.buff(5) })
+  object Resilience extends Spoils({ player => player.master.stats.levels.resilience.buff() })
 
 }

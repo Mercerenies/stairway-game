@@ -45,12 +45,12 @@ Spicy  - +N ATK, passive effect
 Rat             (HP   5 ±  1 | ATK  3 ±  0 | $16 ±  2)
 Pear            (HP  13 ±  4 | ATK  5 ±  1 | $28 ±  4) - Advances magic cycle on attack
 Spider          (HP  11 ±  1 | ATK  7 ±  1 | $33 ±  1) - Decreases energy on attack
-Helmet Imp      (HP  26 ±  5 | ATK  2 ±  1 | $38 ±  4)
+Helmet Imp      (HP  26 ±  5 | ATK  2 ±  1 | $42 ±  4)
 Grumpy Cone     (HP  18 ±  3 | ATK  4 ±  1 | $36 ±  6) - Secondary attack creates Spilled Milk Space
 Unspilled Milk  (HP   7 ±  0 | ATK  4 ±  0 | $22 ±  0) - If attacked nonlethally, becomes Spilled Milk
 Evil Face       (HP  50 ±  0 | ATK  2 ±  0 | $ 0 ±  0)
 Ratticus Finch  (HP  35      | ATK  5      | $41     )
 W. Shakes Pear  (HP  60      | ATK  7      | $55     ) - Advances magic cycle on attack
-Count Arachula  (HP  95      | ATK  9      | $65     ) - Decreases energy on attack
-Genghis Kone    (HP 120      | ATK 11      | $72     ) - Secondary attack creates Spilled Milk Spaces
+Count Arachula  (HP  95      | ATK  9      | $75     ) - Decreases energy on attack
+Genghis Kone    (HP 120      | ATK 11      | $90     ) - Secondary attack creates Spilled Milk Spaces
 Evil Face Boss  (HP 100      | ATK  2      | $ 0     )

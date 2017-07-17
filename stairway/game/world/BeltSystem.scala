@@ -236,14 +236,14 @@ class BeltSystem(
     override def minTimer = master.era match {
       case 1 => 7
       case 2 => 7
-      case 3 => 8
+      case 3 => 7
       case 4 => 8
       case _ => NoGenerate
     }
     override def maxTimer = master.era match {
       case 1 => 10
       case 2 => 10
-      case 3 => 11
+      case 3 => 10
       case 4 => 11
       case _ => NoGenerate
     }
@@ -444,14 +444,14 @@ class BeltSystem(
     override def minTimer = master.era match {
       case 1 => NoGenerate
       case 2 => 20
-      case 3 => 20
+      case 3 => 21
       case 4 => 21
       case _ => NoGenerate
     }
     override def maxTimer = master.era match {
       case 1 => NoGenerate
       case 2 => 25
-      case 3 => 25
+      case 3 => 26
       case 4 => 26
       case _ => NoGenerate
     }
@@ -588,7 +588,7 @@ class BeltSystem(
     override def minTimer = master.era match {
       case 1 => NoGenerate
       case 2 => NoGenerate
-      case 3 => 10
+      case 3 => 12
       case 4 => 10
       case _ => NoGenerate
     }

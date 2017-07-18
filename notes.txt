@@ -6,25 +6,31 @@ Three attacks
 
 Costs 50% energy meter to skip a space, using the faded advance icon
 
+== IDEAS ==
+
+ALREADY IMPLEMENTED
+What if each era had an era-specific space that it introduced?
+ * Then that space is used in all the later era, just not as often
+ * Spiders could have a spider web space which decreases your energy
+Glass of Milk enemy ("Unspilled Milk") that spills into milk spaces if you inflict non-lethal damage
+Milk Spaces that take 1 health; Glass of Milk Spaces that spill into several Milk Spaces, overwriting nearby spaces
 Scrolls that get more powerful the longer you wait to get them
 
+WILL BE IMPLEMENTED
 Hm... what about an underwater space which sets you to being "underwater"
  * As long as you are "underwater", fading is more expensive and ATK is halved
  * Can only resurface and cease to be "underwater" by landing on a neutral space
  * We could have an era where most (all?) of the neutral spaces are underwater spaces
 Ooh! Maybe a fire space that increases ATK as long as on fire but decreases HP every turn.
  * Only way to extinguish fire is to step on a water space
-What if each era had an era-specific space that it introduced?
- * Then that space is used in all the later era, just not as often
- * Spiders could have a spider web space which decreases your energy
-Glass of Milk enemy ("Unspilled Milk") that spills into milk spaces if you inflict non-lethal damage
-Milk Spaces that take 1 health; Glass of Milk Spaces that spill into several Milk Spaces, overwriting nearby spaces
+Enemies need to not have their gimmick (spiders, pears, etc) apply if they miss their attack
+Status effects apply to enemy groups right now, not individual enemies...
+
+CONSIDERING IMPLEMENTING
 "Lightweight Shoes" that protect against certain spaces (like milk spaces)
 "East Wind" that occurs periodically (with warning); a bunch of bad spaces in a row
-Sign spaces to warn and advise
 Item that shows enemy HP once it gets down to a certain point (passive)
-
-///// Play through at least the Arachula era again, as it seems too difficult
+Sign spaces to warn and advise
 
 DO NOT LOAD A SAVE FILE IF YOU ARE ALREADY ADVANCED PAST THAT POINT!!!!!!!
 
@@ -49,9 +55,9 @@ DO NOT LOAD A SAVE FILE IF YOU ARE ALREADY ADVANCED PAST THAT POINT!!!!!!!
  - Alignment     - Period of magic attack cycle (TBA)
 
 ** Ratticus Finch
-Count Arachula
+** Count Arachula
 Joan of Lark
-Genghis Kone
+** Genghis Kone
 Robert E Tree
 ** William Shakes Pear
 Pablo Pig Casso

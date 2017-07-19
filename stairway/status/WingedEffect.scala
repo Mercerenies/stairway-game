@@ -5,13 +5,15 @@ package status
 import game.Player
 import enemy.Enemy
 
-class SpicyEffect(val power: Int = 1, length: Int = 10) extends StatusEffect(Some(length)) {
+class WingedEffect(length: Option[Int] = Some(10)) extends StatusEffect(length) {
 
-  override def imageIndex: Int = 1
+  def this(length: Int) = this(Some(length))
+
+  override def imageIndex: Int = 2
 
   override def policy: EffectPolicy = EffectPolicy.FirstTarget
 
-  override def attackModifier: Int = power
+  override def isFlying: Boolean = true
 
   override def onEffect(obj: StatusEffect.Effectee): Unit = {
     // Passive effect

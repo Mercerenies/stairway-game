@@ -18,4 +18,7 @@ trait StatusEntity {
   def hasStatus(func: StatusEffect => Boolean): Boolean =
     !statuses.find(func).isEmpty
 
+  def isFlying: Boolean =
+    statuses.exists { _.isFlying }
+
 }

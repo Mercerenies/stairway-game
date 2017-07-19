@@ -33,6 +33,8 @@ abstract class StatusEffect(val length: Option[Int]) // If None, the effect does
 
   def attackModifier: Int = 0
 
+  def isFlying: Boolean = false
+
   def perform(obj: Effectee): Unit = {
     onEffect(obj)
     turnCounter += 1

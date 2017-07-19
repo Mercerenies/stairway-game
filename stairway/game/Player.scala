@@ -1,10 +1,12 @@
 
-package com.mercerenies.stairway.game
+package com.mercerenies.stairway
+package game
 
-import com.mercerenies.stairway.space.Space
-import com.mercerenies.stairway.util.{Rectangle, Index}
-import com.mercerenies.stairway.game.belt.ConveyerBelt
-import com.mercerenies.stairway.status.StatusEntity
+import space.Space
+import util.{Rectangle, Index}
+import game.belt.ConveyerBelt
+import status.StatusEntity
+import attack.{EnemyAttack, FlightLevel}
 import java.awt._
 import java.awt.geom.Ellipse2D
 
@@ -61,8 +63,13 @@ class Player(master: StandardGame.Master, val xPos: Int)
     }
   }
 
-  def takeDamage(damage: Double): Unit = {
-    master.meter.health.value -= damage
+  def takeDamage(attack: EnemyAttack): Unit = {
+    val dmg =
+      if (this.isFlying && attack.nature.flight == FlightLevel.Grounded)
+        attack.damage * FlightLevel.DamageFactor
+      else
+        attack.damage
+    master.meter.health.value -= dmg
     // TODO Check for survival
   }
 

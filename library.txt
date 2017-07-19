@@ -34,11 +34,13 @@ Holy Fire      (16) - Deal damage equal to ATK, +20 when used on undead
 Grab Bag       (??) - ???
 Divine Bolt    (XX) - Instantly deal 100 damage to non-boss enemy
 Chili Pepper   (10) - Spicy peppers that increase your strength for awhile
+Silver Feather
 
 === STATUSES ===
 
 Spikes - Damage taken each turn
 Spicy  - +N ATK, passive effect
+Winged - Effectee counts as flying
 
 === ENEMIES ===
 

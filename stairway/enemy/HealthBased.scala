@@ -1,10 +1,11 @@
 
-package com.mercerenies.stairway.enemy
+package com.mercerenies.stairway
+package enemy
 
-import com.mercerenies.stairway.util.Rectangle
-import com.mercerenies.stairway.stat.{BarStat, StatDrawParams}
-import com.mercerenies.stairway.game.Player
-import com.mercerenies.stairway.game.attack.PlayerAttack
+import util.Rectangle
+import stat.{BarStat, StatDrawParams}
+import game.Player
+import game.attack.{PlayerAttack, FlightLevel}
 import java.awt.{Color, Graphics2D}
 
 trait HealthBased extends Enemy {
@@ -36,7 +37,12 @@ trait HealthBased extends Enemy {
   override def isAlive: Boolean = health > 0
 
   override def takeDamage(attack: PlayerAttack): Unit = {
-    healthBar.value -= attack.damage(this)
+    val dmg =
+      if (this.isFlying && attack.nature.flight == FlightLevel.Grounded)
+        attack.damage(this) * FlightLevel.DamageFactor
+      else
+        attack.damage(this)
+    healthBar.value -= dmg
     super.takeDamage(attack)
   }
 

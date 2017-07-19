@@ -9,6 +9,8 @@ class MagnifiedAttack(val attack: PlayerAttack, val magnitude: Double)
 
   override def damage(enemy: Enemy): Double = attack.damage(enemy) * magnitude
 
+  override def nature = attack.nature
+
   override def attackUsed(enemy: Enemy): Unit = {
     attack.attackUsed(enemy)
   }

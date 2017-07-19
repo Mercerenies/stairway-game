@@ -1,12 +1,15 @@
 
-package com.mercerenies.stairway.game.attack
+package com.mercerenies.stairway
+package game.attack
 
-import com.mercerenies.stairway.game.{StandardGame, Player}
-import com.mercerenies.stairway.enemy.Enemy
+import game.{StandardGame, Player}
+import enemy.Enemy
 
 abstract class PlayerAttack(val master: StandardGame.Master) {
 
   def player: Player = master.player
+
+  def nature: AttackNature = AttackNature(FlightLevel(player.isFlying))
 
   def damage(enemy: Enemy): Double
 
@@ -14,10 +17,9 @@ abstract class PlayerAttack(val master: StandardGame.Master) {
 
   def perform(): Unit = master.currentEnemy match {
     case None => {}
-    case Some(enemy) => {
+    case Some(enemy) =>
       enemy.takeDamage(this)
       attackUsed(enemy)
-    }
   }
 
 }

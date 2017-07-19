@@ -1,7 +1,9 @@
 
-package com.mercerenies.stairway.enemy
+package com.mercerenies.stairway
+package enemy
 
-import com.mercerenies.stairway.game.{Player, StandardGame}
+import game.{Player, StandardGame}
+import game.attack.{EnemyAttack, AttackNature, FlightLevel}
 
 abstract class SingleEnemy(override val master: StandardGame.Master)
     extends ImageEnemy
@@ -23,7 +25,7 @@ abstract class SingleEnemy(override val master: StandardGame.Master)
     if (player.master.luck.evaluateLuck((LuckWeightMinus, LuckWeightPlus), master.stats.dodgeChance))
       master.particleText.addParticle(f"MISS!", HealthBased.particleColor, player.drawRect, (-90.0, 45.0))
     else
-      player.takeDamage(netAttackPower)
+      player.takeDamage(EnemyAttack(netAttackPower, AttackNature(FlightLevel(isFlying))))
   }
 
 }

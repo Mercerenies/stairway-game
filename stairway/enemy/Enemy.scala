@@ -1,17 +1,20 @@
 
-package com.mercerenies.stairway.enemy
+package com.mercerenies.stairway
+package enemy
 
-import com.mercerenies.stairway.image.EnemiesImage
-import com.mercerenies.stairway.util.{Rectangle, RandomImplicits}
-import com.mercerenies.stairway.ui.Drawable
-import com.mercerenies.stairway.game.{Player, StandardGame}
-import com.mercerenies.stairway.game.attack.PlayerAttack
-import com.mercerenies.stairway.game.content.ContentArea
-import com.mercerenies.stairway.status.StatusEntity
+import image.EnemiesImage
+import util.{Rectangle, RandomImplicits}
+import ui.Drawable
+import game.{Player, StandardGame}
+import game.attack.PlayerAttack
+import game.content.ContentArea
+import status.{StatusEntity, StatusEffect}
 import scala.util.Random
 import java.awt.{Graphics2D, Color}
 
 trait Enemy extends Drawable with StatusEntity {
+
+  private var _drawStatuses = true
 
   def master: StandardGame.Master
   def contentArea = master.contentArea
@@ -54,18 +57,27 @@ trait Enemy extends Drawable with StatusEntity {
 
   def step(): Unit = {}
 
+  def allStatuses: List[StatusEffect] =
+    statuses
+
   override def draw(graph: Graphics2D, rect: Rectangle): Unit = {
-    statuses.zipWithIndex.foreach { case (x, i) =>
-      val (width, height) = x.dims
-      val statusX = this.rect.xmax + width * i
-      val statusY = this.rect.ymin
-      x.draw(graph, Rectangle(statusX, statusY, statusX + width, statusY + height))
+    if (_drawStatuses) {
+      allStatuses.zipWithIndex.foreach { case (x, i) =>
+        val (width, height) = x.dims
+        val statusX = this.rect.xmax + width * i
+        val statusY = this.rect.ymin
+        x.draw(graph, Rectangle(statusX, statusY, statusX + width, statusY + height))
+      }
     }
   }
 
   def resolveStatuses(): Unit = {
     statuses.foreach(_.perform(Right(this)))
     checkStatuses()
+  }
+
+  def doNotDrawStatuses(): Unit = {
+    _drawStatuses = false
   }
 
 }

@@ -1,9 +1,11 @@
 
-package com.mercerenies.stairway.enemy
+package com.mercerenies.stairway
+package enemy
 
-import com.mercerenies.stairway.game.{Player, StandardGame}
-import com.mercerenies.stairway.game.attack.{PlayerAttack, FragmentedAttack}
-import com.mercerenies.stairway.util.{Rectangle, GraphicsImplicits}
+import game.{Player, StandardGame}
+import game.attack.{PlayerAttack, FragmentedAttack}
+import util.{Rectangle, GraphicsImplicits}
+import status.{StatusEffect, EffectPolicy}
 import java.awt.Graphics2D
 
 class EnemyTeam(override val master: StandardGame.Master, val fullTeam: Enemy*)
@@ -34,11 +36,33 @@ class EnemyTeam(override val master: StandardGame.Master, val fullTeam: Enemy*)
     fullTeam.foreach(_.step())
   }
 
+  override def allStatuses: List[StatusEffect] =
+    statuses ++ (for { enemy <- team ; status <- enemy.statuses } yield status)
+
+  override def checkStatuses(): Unit = {
+    team.foreach(_.checkStatuses())
+    super.checkStatuses()
+  }
+
   override def resolveStatuses(): Unit = {
     // Occasionally, an individual team member will have a status that
     // the whole team lacks as a whole.
     team.foreach(_.resolveStatuses())
     super.resolveStatuses()
+  }
+
+  // I'm hesitant about this one. The team reports that it has an effect if ANY
+  // team member has it.
+  override def hasStatus(func: StatusEffect => Boolean): Boolean =
+    super.hasStatus(func) || team.exists(_.hasStatus(func))
+
+  override def afflictStatus(status: StatusEffect): Unit = status.policy match {
+    case EffectPolicy.Uniform =>
+      super.afflictStatus(status)
+    case EffectPolicy.Distributed =>
+      team.foreach { _.afflictStatus(status) }
+    case EffectPolicy.FirstTarget =>
+      team.headOption.foreach { _.afflictStatus(status) }
   }
 
   override def draw(graph: Graphics2D, rect: Rectangle): Unit = {
@@ -53,6 +77,8 @@ class EnemyTeam(override val master: StandardGame.Master, val fullTeam: Enemy*)
     fullTeam.foreach(_.instantKill(player))
     super.instantKill(player)
   }
+
+  fullTeam.foreach(_.doNotDrawStatuses()) // This is an incredibly messy hack. I know.
 
 }
 

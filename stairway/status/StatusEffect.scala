@@ -1,11 +1,12 @@
 
-package com.mercerenies.stairway.status
+package com.mercerenies.stairway
+package status
 
-import com.mercerenies.stairway.image.StatusesImage
-import com.mercerenies.stairway.game.Player
-import com.mercerenies.stairway.enemy.Enemy
-import com.mercerenies.stairway.product.Captioned
-import com.mercerenies.stairway.util.Rectangle
+import image.StatusesImage
+import game.Player
+import enemy.Enemy
+import product.Captioned
+import util.Rectangle
 import java.awt.{Graphics2D, Image}
 
 abstract class StatusEffect(val length: Option[Int]) // If None, the effect does not expire
@@ -17,6 +18,8 @@ abstract class StatusEffect(val length: Option[Int]) // If None, the effect does
   def this(length: Int) = this(Some(length))
 
   def imageIndex: Int
+
+  def policy: EffectPolicy
 
   override def image: Image =
     StatusEffect.image.status(imageIndex)

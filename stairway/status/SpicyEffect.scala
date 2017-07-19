@@ -10,6 +10,8 @@ class SpicyEffect(val power: Int = 1, length: Int = 10) extends StatusEffect(Som
 
   override def imageIndex: Int = 1
 
+  override def policy: EffectPolicy = EffectPolicy.FirstTarget
+
   override def attackModifier: Int = power
 
   override def onEffect(obj: StatusEffect.Effectee): Unit = {

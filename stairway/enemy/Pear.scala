@@ -10,7 +10,7 @@ class Pear(master: StandardGame.Master, entropy: Enemy.Entropy)
 
   override def startingHealth: Double = 13.0 + 4.0 * entropy.risk
 
-  override def attackPower: Double = 5.0 + 1.0 * entropy.risk
+  override def attackPower: Double = 4.0 + 1.0 * entropy.risk
 
   override def imageIndex: Int = 11
 

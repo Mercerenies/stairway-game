@@ -15,6 +15,8 @@ What if each era had an era-specific space that it introduced?
 Glass of Milk enemy ("Unspilled Milk") that spills into milk spaces if you inflict non-lethal damage
 Milk Spaces that take 1 health; Glass of Milk Spaces that spill into several Milk Spaces, overwriting nearby spaces
 Scrolls that get more powerful the longer you wait to get them
+Flying characters take half damage from any non-flying attack (both enemies and players can be flying)
+Item that makes the player fly briefly (Silver Feather)
 
 WILL BE IMPLEMENTED
 Hm... what about an underwater space which sets you to being "underwater"
@@ -25,6 +27,8 @@ Ooh! Maybe a fire space that increases ATK as long as on fire but decreases HP e
  * Only way to extinguish fire is to step on a water space
 Enemies need to not have their gimmick (spiders, pears, etc) apply if they miss their attack
 Status effects apply to enemy groups right now, not individual enemies...
+Item that grounds flying enemies (on Joan of Lark, it would be temporary, since she would have a secondary ability that allows her to take flight again)
+Item that shoots into the air, counting as a flying attack even when the player is not flying (like an arrow)
 
 CONSIDERING IMPLEMENTING
 "Lightweight Shoes" that protect against certain spaces (like milk spaces)

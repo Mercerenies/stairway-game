@@ -108,7 +108,7 @@ Ben Jammin' Franklin
  * Special Spaces: Web Space
  * Special Events: Scroll Set A (2)
  * Beginning Event: None
- * End Event: +1 Strength, +0.1 Resilience
+ * End Event: +1 Strength, +0.2 Resilience
 
 == ERA IV ==
  * Enemies: Spider (x2), Pear (x3), Helmet Imp / Pear, Unspilled Milk, Grumpy Cone
@@ -119,4 +119,15 @@ Ben Jammin' Franklin
  * Special Spaces: Milk Glass Space
  * Special Events: Scroll Set A (3)
  * Beginning Event: None
- * End Event: +1 Strength
+ * End Event: +1 Strength, +0.2 Resilience
+
+== ERA V ==
+ * Enemies: TBA
+ * Boss: Joan of Lark
+ * Length: 170
+ * Items: TBA
+ * New Spaces: TBA
+ * Special Spaces: TBA
+ * Special Events: TBA
+ * Beginning Event: None
+ * End Event: +1 Strength, +0.2 Resilience

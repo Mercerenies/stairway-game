@@ -142,6 +142,7 @@ class BeltSystem(
 
     private def ratTeam() = new EnemyTeam(master, basicRat(), basicRat())
     private def spiderTeam() = new EnemyTeam(master, basicSpider(), basicSpider())
+    private def spiderTeam3() = new EnemyTeam(master, basicSpider(), basicSpider(), basicSpider())
     private def ratTeam3() = new EnemyTeam(master, basicRat(), basicRat(), basicRat())
     private def pearRatTeam() = new EnemyTeam(master, basicPear(), basicRat(), basicRat())
     private def pearRatTeam3() = new EnemyTeam(master, basicPear(), basicRat(), basicRat(), basicRat())
@@ -149,6 +150,8 @@ class BeltSystem(
     private def pearTeam3() = new EnemyTeam(master, basicPear(), basicPear(), basicPear())
     private def impSpiderTeam() = new EnemyTeam(master, basicHelmetImp(), basicSpider())
     private def impPearTeam() = new EnemyTeam(master, basicHelmetImp(), basicPear())
+    private def impMilkTeam() = new EnemyTeam(master, basicHelmetImp(), basicMilk())
+    private def coneTeam() = new EnemyTeam(master, basicCone(), basicCone())
 
     private val eraSettings: Array[Seq[EnemySpawnArg]] = Array(
       List(
@@ -177,8 +180,11 @@ class BeltSystem(
         entry(basicCone(), 6, 6, 7)
       ),
       List(
-        entry(basicBird(), 4, 5, 5)
+        entry(basicBird(), 4, 5, 5),
         ////
+        entry(impMilkTeam(), 5, 6, 6),
+        entry(coneTeam(), 4, 5, 5),
+        entry(spiderTeam3(), 3, 4, 4)
       )
     )
 

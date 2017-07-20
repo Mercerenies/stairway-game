@@ -122,10 +122,10 @@ Ben Jammin' Franklin
  * End Event: +1 Strength, +0.2 Resilience
 
 == ERA V ==
- * Enemies: TBA
+ * Enemies: Birdbrain, <SOME NEW ENEMY>, Helmet Imp / Unspilled Milk, Grumpy Cone (x2), Spider (x3)
  * Boss: Joan of Lark
  * Length: 170
- * Items: TBA
+ * Items: TBA ///// Add the new item (grounding flying enemies) and new enemy (bomber or something) and then fill in the Era V details below.
  * New Spaces: TBA
  * Special Spaces: TBA
  * Special Events: TBA

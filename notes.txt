@@ -31,6 +31,7 @@ Item that grounds flying enemies (on Joan of Lark, it would be temporary, since 
 Item that shoots into the air, counting as a flying attack even when the player is not flying (like an arrow)
 Holy Fire might be too powerful against undeads; consider balancing
 Sign spaces to warn and advise
+Lottery spaces need to show the current sum, for convenience
 
 CONSIDERING IMPLEMENTING
 "Lightweight Shoes" that protect against certain spaces (like milk spaces)
@@ -124,7 +125,7 @@ Ben Jammin' Franklin
  * End Event: +1 Strength, +0.2 Resilience
 
 == ERA V ==
- * Enemies: Birdbrain, <SOME NEW ENEMY>, Helmet Imp / Unspilled Milk, Grumpy Cone (x2), Spider (x3)
+ * Enemies: Birdbrain, <SOME NEW ENEMY>, Helmet Imp / Spider, Grumpy Cone (x2), Spider (x3)
  * Boss: Joan of Lark
  * Length: 170
  * Items: Anchor, Spearhead Arrow, Silver Feather, Chili Pepper

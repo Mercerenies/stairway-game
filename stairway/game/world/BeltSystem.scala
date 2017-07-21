@@ -182,8 +182,8 @@ class BeltSystem(
       List(
         entry(basicBird(), 4, 5, 5),
         ////
-        entry(impMilkTeam(), 5, 6, 6),
-        entry(coneTeam(), 4, 5, 5),
+        entry(impSpiderTeam(), 5, 6, 6),
+        entry(coneTeam(), 5, 5, 6),
         entry(spiderTeam3(), 3, 4, 4)
       )
     )

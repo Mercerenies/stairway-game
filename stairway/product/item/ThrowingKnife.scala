@@ -1,10 +1,11 @@
 
-package com.mercerenies.stairway.product.item
+package com.mercerenies.stairway
+package product.item
 
-import com.mercerenies.stairway.product._
-import com.mercerenies.stairway.image.ItemsImage
-import com.mercerenies.stairway.game.Player
-import com.mercerenies.stairway.game.attack.KnifeAttack
+import product._
+import image.ItemsImage
+import game.Player
+import game.attack.KnifeAttack
 import java.awt.Image
 
 case object ThrowingKnife extends Item {

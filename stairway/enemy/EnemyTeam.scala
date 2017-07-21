@@ -44,11 +44,18 @@ class EnemyTeam(override val master: StandardGame.Master, val fullTeam: Enemy*)
     super.checkStatuses()
   }
 
+  // Occasionally, an individual team member will have a status that
+  // the whole team lacks as a whole.
   override def resolveStatuses(): Unit = {
-    // Occasionally, an individual team member will have a status that
-    // the whole team lacks as a whole.
     team.foreach(_.resolveStatuses())
     super.resolveStatuses()
+  }
+
+  // Behaves consistently with hasStatus; we might change that one though.
+  // This should continue to behave consistently with it if it is changed.
+  override def cureStatus(func: StatusEffect => Boolean): Unit = {
+    super.cureStatus(func)
+    team.foreach(_.cureStatus(func))
   }
 
   // I'm hesitant about this one. The team reports that it has an effect if ANY

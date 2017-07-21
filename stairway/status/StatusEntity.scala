@@ -15,6 +15,10 @@ trait StatusEntity {
     _statuses = status :: _statuses
   }
 
+  def cureStatus(func: StatusEffect => Boolean): Unit = {
+    _statuses = _statuses.filterNot(func)
+  }
+
   def hasStatus(func: StatusEffect => Boolean): Boolean =
     !statuses.find(func).isEmpty
 

@@ -20,7 +20,7 @@ case object ChiliPepper extends Item {
 
   override def isPassive: Boolean = false
 
-  override def basePrice: Int = 16
+  override def basePrice: Int = 10
 
   override def use(player: Player): Unit = {
     player.afflictStatus(new SpicyEffect)

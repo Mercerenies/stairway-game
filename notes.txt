@@ -125,12 +125,14 @@ Ben Jammin' Franklin
  * End Event: +1 Strength, +0.2 Resilience
 
 == ERA V ==
- * Enemies: Birdbrain, <SOME NEW ENEMY>, Helmet Imp / Spider, Grumpy Cone (x2), Spider (x3)
+ * Enemies: Birdbrain, <SOME NEW BOMBER ENEMY>, Helmet Imp / Spider, Grumpy Cone (x2), Spider (x3)
  * Boss: Joan of Lark
  * Length: 170
  * Items: Anchor, Spearhead Arrow, Silver Feather, Chili Pepper
- * New Spaces: TBA
- * Special Spaces: TBA
- * Special Events: TBA
+ * New Spaces: <NO-ITEM SPACE>
+ * Special Spaces: Leap Space
+ * Special Events: <POSSIBLY SCROLL SET B>
  * Beginning Event: None
  * End Event: +1 Strength, +0.2 Resilience, +1 Inventory Slot
+
+///// Fill in the <PLACEHOLDER>'s in Era V.

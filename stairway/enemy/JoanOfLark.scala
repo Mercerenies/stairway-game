@@ -11,7 +11,8 @@ class JoanOfLark(master: StandardGame.Master)
 
   override def bossName: String = "Joan of Lark"
 
-  override def spoils: Spoils = Spoils.Money(115) + Spoils.Strength + Spoils.Resilience
+  override def spoils: Spoils =
+    Spoils.Money(115) + Spoils.Strength + Spoils.Resilience + Spoils.InvSlot
 
   override def startingHealth: Double = 130.0
 

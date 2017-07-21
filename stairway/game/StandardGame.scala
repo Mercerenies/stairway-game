@@ -86,9 +86,9 @@ object StandardGame {
         e <- b.enemy
       ) yield e
 
-    def stepForward(): Unit = {
+    def stepForward(n: Int = 1): Unit = {
       player.currentSpace onDepart this
-      belt.animatedShift(1) {
+      belt.animatedShift(n) {
         player.currentSpace onLand this
         player.resolveStatuses()
       }

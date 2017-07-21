@@ -331,7 +331,7 @@ class BeltSystem(
       case 2 => 25
       case 3 => 25
       case 4 => 23
-      case 5 => 21
+      case 5 => 19
       case _ => NoGenerate
     }
 
@@ -340,7 +340,7 @@ class BeltSystem(
       case 2 => List(Coffee, Sundae, ThrowingKnife)
       case 3 => List(Spikes, Sundae, Coffee, ThrowingKnife)
       case 4 => List(Spikes, Coffee, ThrowingKnife, ChiliPepper)
-      case 5 => List(Spikes) ////
+      case 5 => List(Anchor, SpearheadArrow, SilverFeather, ChiliPepper)
       case _ => List()
     }
 
@@ -651,7 +651,7 @@ class BeltSystem(
       case 2 => NeutralSpace
       case 3 => WebSpace
       case 4 => MilkGlassSpace(3)
-      case 5 => WebSpace ////
+      case 5 => LeapSpace()
       case _ => NeutralSpace
     }
 
@@ -692,7 +692,7 @@ class BeltSystem(
       new JoanOfLark(master)
     )
 
-    lazy val stoppingPoints: Seq[Int] = List(50, 80, 110, 140)
+    lazy val stoppingPoints: Seq[Int] = List(50, 80, 110, 140, 170)
 
     private var lastSwitch: util.Index = util.Index.Absolute(0)
 

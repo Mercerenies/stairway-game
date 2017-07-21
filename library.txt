@@ -19,22 +19,25 @@ Scroll Space        - Allows the player to select a scroll to apply
 Fruit Theft Space   - Takes a random fruit away
 Web Space           - Takes 150% energy away
 Spilled Milk Space  - Deals 3 damage
-Milk Glass Space    - Turns next 3 spaces into Spilled Milk Spaces
+Milk Glass Space    - Turns next N spaces into Spilled Milk Spaces
+Leap Space          - Leaps the player N spaces forward immediately
 
 === ITEMS ===
 
-Null Item      (XX) - N/A
-Smoke Bomb     (??) - Escape from a non-boss fight
-Spikes         (20) - Drop spikes, inflicting damage to the enemy each turn
-Sundae         (27) - Restore half a meter of health immediately
-Coffee         (18) - Restore a full meter of energy immediately
-Bowling Ball   (??) - Obliterate the next three spaces
-Throwing Knife ( 9) - Instantly deal damage equal to ATK power
-Holy Fire      (16) - Deal damage equal to ATK, +20 when used on undead
-Grab Bag       (??) - ???
-Divine Bolt    (XX) - Instantly deal 100 damage to non-boss enemy
-Chili Pepper   (10) - Spicy peppers that increase your strength for awhile
-Silver Feather
+Null Item       (XX) - N/A
+Smoke Bomb      (??) - Escape from a non-boss fight
+Spikes          (20) - Drop spikes, inflicting damage to the enemy each turn
+Sundae          (27) - Restore half a meter of health immediately
+Coffee          (18) - Restore a full meter of energy immediately
+Bowling Ball    (??) - Obliterate the next three spaces
+Throwing Knife  ( 9) - Instantly deal damage equal to ATK power
+Holy Fire       (16) - Deal damage equal to ATK, +20 when used on undead
+Grab Bag        (??) - ???
+Divine Bolt     (XX) - Instantly deal 100 damage to non-boss enemy
+Chili Pepper    (10) - Spicy peppers that increase your strength for awhile
+Silver Feather  (23) - Allows you to fly for a short period of time
+Spearhead Arrow (11) - Deal damage equal to ATK, doubled on flying enemies
+Anchor          (16) - All flying enemies are grounded
 
 === STATUSES ===
 

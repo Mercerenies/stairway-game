@@ -16,7 +16,7 @@ class GrumpyCone(master: StandardGame.Master, entropy: Enemy.Entropy)
   override def attackPower: Double = 4.0 + 1.0 * entropy.risk
 
   private def isOwnEnemySpace(space: Space) = space match {
-    case EnemySpace(box) if box.innerEnemy == this => true
+    case EnemySpace(box) if box.innerEnemy.hasEnemy(_ == this) => true
     case _ => false
   }
 

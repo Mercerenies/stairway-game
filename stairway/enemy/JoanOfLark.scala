@@ -18,7 +18,7 @@ class JoanOfLark(master: StandardGame.Master)
 
   override def attackPower: Double = 13.0
 
-  override def imageIndex: Int = 24
+  override def imageIndex: Int = 23
 
   private def spreadLength: Int = health match {
     case x if x < 25.0 => 8

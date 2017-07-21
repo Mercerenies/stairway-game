@@ -55,6 +55,9 @@ trait Enemy extends Drawable with StatusEntity {
     onDeath(player)
   }
 
+  def hasEnemy(func: Enemy => Boolean): Boolean =
+    func(this)
+
   def step(): Unit = {}
 
   def allStatuses: List[StatusEffect] =

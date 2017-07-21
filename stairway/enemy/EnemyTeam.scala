@@ -85,6 +85,9 @@ class EnemyTeam(override val master: StandardGame.Master, val fullTeam: Enemy*)
     super.instantKill(player)
   }
 
+  override def hasEnemy(func: Enemy => Boolean): Boolean =
+    super.hasEnemy(func) || team.exists(_.hasEnemy(func))
+
   fullTeam.foreach(_.doNotDrawStatuses()) // This is an incredibly messy hack. I know.
 
 }

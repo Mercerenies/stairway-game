@@ -10,6 +10,8 @@ abstract class SingleEnemy(override val master: StandardGame.Master)
     with HealthBased {
   import SingleEnemy._
 
+  var defeatText: String = "KO!"
+
   def attackPower: Double
 
   def netAttackPower: Double = {
@@ -18,7 +20,7 @@ abstract class SingleEnemy(override val master: StandardGame.Master)
 
   override def onDeath(player: Player): Unit = {
     super.onDeath(player)
-    master.particleText.addParticle("KO!", Enemy.particleColor, rect)
+    master.particleText.addParticle(defeatText, Enemy.particleColor, rect)
   }
 
   override def attack(player: Player): Unit = {

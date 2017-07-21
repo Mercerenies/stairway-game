@@ -8,7 +8,9 @@ import game.attack.PlayerAttack
 class UnspilledMilk(master: StandardGame.Master, entropy: Enemy.Entropy)
     extends SingleEnemy(master) {
 
-  override def spoils: Spoils = Spoils.Money(22)
+  private var _shattered = false
+
+  override def spoils: Spoils = if (_shattered) Spoils.None else Spoils.Money(22)
 
   override def startingHealth: Double = 7.0
 
@@ -22,8 +24,9 @@ class UnspilledMilk(master: StandardGame.Master, entropy: Enemy.Entropy)
       master.player nextNPositions 3 foreach { pos =>
         master.belt.feed.assignOverride(pos, space.SpilledMilkSpace)
       }
-      master.currentEnemyBox.foreach(_.instantKill(master.player, false))
-      master.particleText.addParticle("Shatter!", Enemy.particleColor, rect)
+      _shattered = true // Don't award the spoils for this kill
+      this.defeatText = "Shatter!"
+      this.instantKill(master.player)
     }
   }
 

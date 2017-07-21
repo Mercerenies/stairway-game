@@ -43,4 +43,6 @@ object Spoils {
 
   object Resilience extends Spoils({ player => player.master.stats.levels.resilience.buff() })
 
+  object InvSlot extends Spoils({ player => player.master.inventory.increaseCapacity() })
+
 }

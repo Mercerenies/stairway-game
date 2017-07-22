@@ -139,6 +139,7 @@ class BeltSystem(
     private def basicMilk() = new UnspilledMilk(master, Enemy.entropy(random))
     private def basicCone() = new GrumpyCone(master, Enemy.entropy(random))
     private def basicBird() = new Birdbrain(master, Enemy.entropy(random))
+    private def basicBomb() = new Kebomb(master, Enemy.entropy(random))
 
     private def ratTeam() = new EnemyTeam(master, basicRat(), basicRat())
     private def spiderTeam() = new EnemyTeam(master, basicSpider(), basicSpider())
@@ -151,7 +152,7 @@ class BeltSystem(
     private def impSpiderTeam() = new EnemyTeam(master, basicHelmetImp(), basicSpider())
     private def impPearTeam() = new EnemyTeam(master, basicHelmetImp(), basicPear())
     private def impMilkTeam() = new EnemyTeam(master, basicHelmetImp(), basicMilk())
-    private def coneTeam() = new EnemyTeam(master, basicCone(), basicCone())
+    private def coneTeam3() = new EnemyTeam(master, basicCone(), basicCone(), basicCone())
 
     private val eraSettings: Array[Seq[EnemySpawnArg]] = Array(
       List(
@@ -181,9 +182,9 @@ class BeltSystem(
       ),
       List(
         entry(basicBird(), 4, 5, 5),
-        ////
+        entry(basicBomb(), 3, 4, 4),
         entry(impSpiderTeam(), 5, 6, 6),
-        entry(coneTeam(), 5, 5, 6),
+        entry(coneTeam3(), 5, 5, 6),
         entry(spiderTeam3(), 3, 4, 4)
       )
     )

@@ -17,6 +17,9 @@ Milk Spaces that take 1 health; Glass of Milk Spaces that spill into several Mil
 Scrolls that get more powerful the longer you wait to get them
 Flying characters take half damage from any non-flying attack (both enemies and players can be flying)
 Item that makes the player fly briefly (Silver Feather)
+Item that grounds flying enemies (on Joan of Lark, it would be temporary, since she would have a secondary ability that allows her to take flight again)
+Item that shoots into the air, counting as a flying attack even when the player is not flying (like an arrow)
+Status effects apply to enemy groups right now, not individual enemies...
 
 WILL BE IMPLEMENTED
 Hm... what about an underwater space which sets you to being "underwater"
@@ -26,10 +29,6 @@ Hm... what about an underwater space which sets you to being "underwater"
 Ooh! Maybe a fire space that increases ATK as long as on fire but decreases HP every turn.
  * Only way to extinguish fire is to step on a water space
 Enemies need to not have their gimmick (spiders, pears, etc) apply if they miss their attack
-Status effects apply to enemy groups right now, not individual enemies...
-Item that grounds flying enemies (on Joan of Lark, it would be temporary, since she would have a secondary ability that allows her to take flight again)
-Item that shoots into the air, counting as a flying attack even when the player is not flying (like an arrow)
-Holy Fire might be too powerful against undeads; consider balancing
 Sign spaces to warn and advise
 Lottery spaces need to show the current sum, for convenience
 
@@ -38,6 +37,7 @@ CONSIDERING IMPLEMENTING
 "East Wind" that occurs periodically (with warning); a bunch of bad spaces in a row
 Item that shows enemy HP once it gets down to a certain point (passive)
 Rage Space that gives the player +N ATK modifier (lowers every time you move, as it's ATK modifier)
+Holy Fire might be too powerful against undeads; consider balancing
 
 DO NOT LOAD A SAVE FILE IF YOU ARE ALREADY ADVANCED PAST THAT POINT!!!!!!!
 
@@ -125,14 +125,14 @@ Ben Jammin' Franklin
  * End Event: +1 Strength, +0.2 Resilience
 
 == ERA V ==
- * Enemies: Birdbrain, <SOME NEW BOMBER ENEMY>, Helmet Imp / Spider, Grumpy Cone (x2), Spider (x3)
+ * Enemies: Birdbrain, Kebomb, Helmet Imp / Spider, Grumpy Cone (x3), Spider (x3)
  * Boss: Joan of Lark
  * Length: 170
  * Items: Anchor, Spearhead Arrow, Silver Feather, Chili Pepper
- * New Spaces: <NO-ITEM SPACE>
+ * New Spaces: Blocked Space
  * Special Spaces: Leap Space
  * Special Events: <POSSIBLY SCROLL SET B>
  * Beginning Event: None
  * End Event: +1 Strength, +0.2 Resilience, +1 Inventory Slot
 
-///// Fill in the <PLACEHOLDER>'s in Era V.
+///// Fill in the <PLACEHOLDER>'s in Era V. Also, code Joan of Lark's "Take Flight" action, starting with wings, and possible secondary attack

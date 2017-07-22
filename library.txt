@@ -56,6 +56,7 @@ Helmet Imp      (HP  26 ±  5 | ATK  2 ±  1 | $ 42 ±  4)
 Grumpy Cone     (HP  18 ±  3 | ATK  4 ±  1 | $ 36 ±  6) - Secondary attack creates Spilled Milk Space
 Unspilled Milk  (HP   7 ±  0 | ATK  4 ±  0 | $ 22 ±  0) - If attacked nonlethally, becomes Spilled Milk
 Birdbrain       (HP  20 ±  2 | ATK  4 ±  1 | $ 35 ±  4) - Starts the battle with Winged
+Kebomb          (HP  13 ±  1 | ATK 20 ±  1 | $ 33 ±  3) - Deals ATK to self when attacking
 Evil Face       (HP  50 ±  0 | ATK  2 ±  0 | $  0 ±  0)
 Ratticus Finch  (HP  35      | ATK  5      | $ 41     )
 W. Shakes Pear  (HP  60      | ATK  7      | $ 55     ) - Advances magic cycle on attack

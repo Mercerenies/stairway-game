@@ -17,7 +17,13 @@ abstract class Item extends Purchasable with Usable with Captioned {
   def description: String
 
   def fullDescription(player: Player): Seq[String] = {
-    val lmb = if (isPassive) "" else if (canBeUsed(player)) "LMB to use, " else "can't be used now, "
+    val lmb =
+      if (isPassive)
+        ""
+      else if (player.master.inventory.canUseItem(this))
+        "LMB to use, "
+      else
+        "can't be used now, "
     val rmb = "RMB to discard"
     List(name, description, s"($lmb$rmb)")
   }

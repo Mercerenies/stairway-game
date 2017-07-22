@@ -18,7 +18,7 @@ class Inventory(master: StandardGame.Master, val xPos: Double, val yPos: Double)
 
     override def leftMouseUp(x: Int, y: Int): Unit = {
       (highlightedPos, highlightedItem) match {
-        case (Some(pos), Some(item)) if item.canBeUsed(master.player) => {
+        case (Some(pos), Some(item)) if canUseItem(item) => {
           item.use(master.player)
           removeAt(pos)
         }
@@ -38,6 +38,9 @@ class Inventory(master: StandardGame.Master, val xPos: Double, val yPos: Double)
   private var _capacity: Int = 3
   private val contents: ArrayBuffer[Item] = new ArrayBuffer(_capacity)
   private val font: Font = Inventory.DefaultFont
+
+  def canUseItem(item: Item): Boolean =
+    master.player.canUseItems && item.canBeUsed(master.player)
 
   def isFull: Boolean = contents.size == _capacity
   def isEmpty: Boolean = contents.isEmpty

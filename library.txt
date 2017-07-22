@@ -21,6 +21,7 @@ Web Space           - Takes 150% energy away
 Spilled Milk Space  - Deals 3 damage
 Milk Glass Space    - Turns next N spaces into Spilled Milk Spaces
 Leap Space          - Leaps the player N spaces forward immediately
+Blocked Space       - Afflicts the player with Blocked effect
 
 === ITEMS ===
 
@@ -41,9 +42,10 @@ Anchor          (16) - All flying enemies are grounded
 
 === STATUSES ===
 
-Spikes - Damage taken each turn
-Spicy  - +N ATK, passive effect
-Winged - Effectee counts as flying
+Spikes  - Damage taken each turn
+Spicy   - +N ATK, passive effect
+Winged  - Effectee counts as flying
+Blocked - Cannot use any items
 
 === ENEMIES ===
 

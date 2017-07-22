@@ -35,6 +35,8 @@ abstract class StatusEffect(val length: Option[Int]) // If None, the effect does
 
   def isFlying: Boolean = false
 
+  def canUseItems: Boolean = true
+
   def perform(obj: Effectee): Unit = {
     onEffect(obj)
     turnCounter += 1

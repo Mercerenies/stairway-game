@@ -25,4 +25,7 @@ trait StatusEntity {
   def isFlying: Boolean =
     statuses.exists { _.isFlying }
 
+  def canUseItems: Boolean =
+    statuses.forall { _.canUseItems }
+
 }

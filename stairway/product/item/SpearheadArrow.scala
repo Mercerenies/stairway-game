@@ -14,7 +14,7 @@ case object SpearheadArrow extends Item {
 
   override def name: String = "Spearhead Arrow"
 
-  override def description: String = "Deal damage equal to ATK, doubled on flying enemies"
+  override def description: String = "Deal ATK in damage, doubled on flying enemies"
 
   override def index: Int = 12
 

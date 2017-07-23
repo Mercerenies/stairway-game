@@ -184,7 +184,7 @@ class BeltSystem(
         entry(basicBird(), 4, 5, 5),
         entry(basicBomb(), 3, 4, 4),
         entry(impSpiderTeam(), 5, 6, 6),
-        entry(coneTeam3(), 5, 5, 6),
+        entry(coneTeam3(), 6, 6, 7),
         entry(spiderTeam3(), 3, 4, 4)
       )
     )
@@ -341,7 +341,7 @@ class BeltSystem(
       case 2 => List(Coffee, Sundae, ThrowingKnife)
       case 3 => List(Spikes, Sundae, Coffee, ThrowingKnife)
       case 4 => List(Spikes, Coffee, ThrowingKnife, ChiliPepper)
-      case 5 => List(Anchor, SpearheadArrow, SilverFeather, ChiliPepper)
+      case 5 => List(Anchor, SpearheadArrow, ChiliPepper, Spikes, Coffee)
       case _ => List()
     }
 

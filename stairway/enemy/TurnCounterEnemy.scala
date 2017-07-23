@@ -17,4 +17,8 @@ trait TurnCounterEnemy extends Enemy {
     _counter += 1
   }
 
+  def resetCounter(): Unit = {
+    _counter = 0
+  }
+
 }

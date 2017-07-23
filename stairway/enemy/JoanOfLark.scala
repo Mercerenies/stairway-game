@@ -3,6 +3,7 @@ package com.mercerenies.stairway
 package enemy
 
 import game.{Player, StandardGame}
+import status.WingedEffect
 
 class JoanOfLark(master: StandardGame.Master)
     extends SingleEnemy(master)
@@ -20,19 +21,26 @@ class JoanOfLark(master: StandardGame.Master)
 
   override def imageIndex: Int = 23
 
-  private def spreadLength: Int = health match {
-    case x if x < 25.0 => 8
-    case x if x < 50.0 => 5
-    case _             => 4
-  }
-
   override def counterStart = 0
 
   override def attack(player: Player): Unit = {
-    //// TODO ALL OF THIS AND WINGED AND WHATNOT
-    super.attack(player)
-    advanceCounter()
+    if (hasStatus(_.isInstanceOf[WingedEffect])) {
+      resetCounter()
+      super.attack(player)
+    } else {
+      if (isEndOfCycle(JoanOfLark.attackCycle))
+        afflictStatus(new WingedEffect(None))
+      else
+        super.attack(player)
+      advanceCounter()
+    }
+    ///// Secondary attack? Or no?
   }
+
+  afflictStatus(new WingedEffect(None))
 
 }
 
+object JoanOfLark {
+  val attackCycle = 6
+}

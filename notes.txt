@@ -125,7 +125,7 @@ Ben Jammin' Franklin
  * End Event: +1 Strength, +0.2 Resilience
 
 == ERA V ==
- * Enemies: Birdbrain, Kebomb, Helmet Imp / Spider, Grumpy Cone (x3), Spider (x3)
+ * Enemies: Birdbrain, Kebomb, Helmet Imp / Spider, Grumpy Cone (x2), Spider (x3)
  * Boss: Joan of Lark
  * Length: 170
  * Items: Anchor, Spearhead Arrow, Chili Pepper, Spikes, Coffee

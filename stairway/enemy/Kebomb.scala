@@ -14,7 +14,7 @@ class Kebomb(master: StandardGame.Master, entropy: Enemy.Entropy)
 
   override def startingHealth: Double = 13 + 1.0 * entropy.risk
 
-  override def attackPower: Double = 20 + 1.0 * entropy.risk
+  override def attackPower: Double = 25 + 1.0 * entropy.risk
 
   override def imageIndex: Int = 32
 

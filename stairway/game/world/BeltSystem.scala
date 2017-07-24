@@ -46,7 +46,7 @@ class BeltSystem(
       case 2 => 40
       case 3 => 40
       case 4 => 20
-      case 5 => 20
+      case 5 => 10
       case _ => NoGenerate
     }
     def tripleFreq = master.era match {
@@ -152,7 +152,7 @@ class BeltSystem(
     private def impSpiderTeam() = new EnemyTeam(master, basicHelmetImp(), basicSpider())
     private def impPearTeam() = new EnemyTeam(master, basicHelmetImp(), basicPear())
     private def impMilkTeam() = new EnemyTeam(master, basicHelmetImp(), basicMilk())
-    private def coneTeam3() = new EnemyTeam(master, basicCone(), basicCone(), basicCone())
+    private def coneTeam() = new EnemyTeam(master, basicCone(), basicCone())
 
     private val eraSettings: Array[Seq[EnemySpawnArg]] = Array(
       List(
@@ -184,7 +184,7 @@ class BeltSystem(
         entry(basicBird(), 4, 5, 5),
         entry(basicBomb(), 3, 4, 4),
         entry(impSpiderTeam(), 5, 6, 6),
-        entry(coneTeam3(), 6, 6, 7),
+        entry(coneTeam(), 3, 4, 5),
         entry(spiderTeam3(), 3, 4, 4)
       )
     )

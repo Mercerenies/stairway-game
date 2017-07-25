@@ -82,6 +82,11 @@ Ben Jammin' Franklin
  * +10 Energy / +20 Energy / +50 Energy
  * +10% Luck  / +20% Luck  / +50% Luck
 
+== SCROLL SET B ==
+ * +1 Prsv    / +1 Vital   / +1 Metab
+ * +2 Prsv    / +2 Vital   / +2 Metab
+ * +5 Prsv    / +5 Vital   / +5 Metab
+
 == ERA I ==
  * Enemies: Rat
  * Boss: Ratticus Finch
@@ -136,4 +141,13 @@ Ben Jammin' Franklin
  * Beginning Event: None
  * End Event: +1 Strength, +0.2 Resilience, +1 Inventory Slot
 
-///// Era VI (Scroll Set B and new enemies, maybe? Smoke bomb? I dunno.)
+== ERA VI ==
+ * Enemies: <TREEANT>, <BURGLAR>, ...
+ * Boss: Robert E Tree
+ * Length: 200
+ * Items: ...
+ * New Spaces: ...
+ * Special Spaces: ...
+ * Special Events: Scroll Set B (1)
+ * Beginning Event: None
+ * End Event: +1 Strength, +0.2 Resilience

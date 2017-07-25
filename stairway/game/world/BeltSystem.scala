@@ -661,6 +661,58 @@ class BeltSystem(
 
   }
 
+  private object ScrollGeneratorB
+      extends AbstractGenerator(BaseFeed, random)
+      with FixedGenerator[GeneratorFeed]
+      with SimpleSpaceGenerator[GeneratorFeed]
+      with CounterGenerator[GeneratorFeed]
+      with EraLocalGenerator[GeneratorFeed] {
+
+    val scrolls = Array(
+       new Scroll(
+         Scroll.LevelEffect("+1 Prsv", _.perseverence.buffBy(1)),
+         Scroll.LevelEffect("+2 Prsv", _.perseverence.buffBy(2)),
+         Scroll.LevelEffect("+5 Prsv", _.perseverence.buffBy(5))
+       ),
+      new Scroll(
+        Scroll.LevelEffect("+1 Vital", _.vitality.buffBy(1)),
+        Scroll.LevelEffect("+2 Vital", _.vitality.buffBy(2)),
+        Scroll.LevelEffect("+5 Vital", _.vitality.buffBy(5))
+      ),
+      new Scroll(
+        Scroll.LevelEffect("+1 Metab", _.metabolism.buffBy(1)),
+        Scroll.LevelEffect("+2 Metab", _.metabolism.buffBy(2)),
+        Scroll.LevelEffect("+5 Metab", _.metabolism.buffBy(5))
+      )
+    )
+
+    override def fixedTimer = master.era match {
+      case 1 => NoGenerate
+      case 2 => NoGenerate
+      case 3 => NoGenerate
+      case 4 => NoGenerate
+      case 5 => NoGenerate
+      case _ => NoGenerate
+    }
+
+    override def nextSpace() =
+      ScrollSpace(counter, scrolls: _*)
+
+    def mirror: GameData.ScrollState =
+      GameData.ScrollState(
+        counter,
+        (scrolls(0).used, scrolls(1).used, scrolls(2).used)
+      )
+
+    def unmirror(arg: GameData.ScrollState) = {
+      counter = arg.age
+      scrolls(0).used = arg.used._1
+      scrolls(1).used = arg.used._2
+      scrolls(2).used = arg.used._3
+    }
+
+  }
+
   private object SpecialGenerator
       extends AbstractGenerator(BaseFeed, random)
       with TimedGenerator[GeneratorFeed]
@@ -706,7 +758,7 @@ class BeltSystem(
 
     override lazy val generators: Seq[Generator[GeneratorFeed]] =
       List(
-        ScrollGeneratorA, // Scrolls
+        ScrollGeneratorA, ScrollGeneratorB, // Scrolls
         RecoveryGenerator, // Recovery
         MysteryGenerator, LottoGenerator, // Gambling
         FruitGenerator, ItemGenerator, // Shopping

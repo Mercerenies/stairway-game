@@ -31,6 +31,7 @@ Ooh! Maybe a fire space that increases ATK as long as on fire but decreases HP e
 Enemies need to not have their gimmick (spiders, pears, etc) apply if they miss their attack
 Sign spaces to warn and advise
 Lottery spaces need to show the current sum, for convenience
+Burglar enemy that steals the fruit you have the most of on attack
 
 CONSIDERING IMPLEMENTING
 "Lightweight Shoes" that protect against certain spaces (like milk spaces)
@@ -134,3 +135,5 @@ Ben Jammin' Franklin
  * Special Events: None
  * Beginning Event: None
  * End Event: +1 Strength, +0.2 Resilience, +1 Inventory Slot
+
+///// Era VI (Scroll Set B and new enemies, maybe? Smoke bomb? I dunno.)

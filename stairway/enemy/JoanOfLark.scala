@@ -34,7 +34,6 @@ class JoanOfLark(master: StandardGame.Master)
         super.attack(player)
       advanceCounter()
     }
-    ///// Secondary attack? Or no?
   }
 
   afflictStatus(new WingedEffect(None))

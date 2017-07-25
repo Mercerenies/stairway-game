@@ -26,11 +26,11 @@ Blocked Space       - Afflicts the player with Blocked effect
 === ITEMS ===
 
 Null Item       (XX) - N/A
-Smoke Bomb      (??) - Escape from a non-boss fight
+Smoke Bomb      (25) - Escape from a non-boss fight
 Spikes          (20) - Drop spikes, inflicting damage to the enemy each turn
 Sundae          (27) - Restore half a meter of health immediately
 Coffee          (18) - Restore a full meter of energy immediately
-Bowling Ball    (??) - Obliterate the next three spaces
+Bowling Ball    (23) - Obliterate the next three spaces
 Throwing Knife  ( 9) - Instantly deal damage equal to ATK power
 Holy Fire       (16) - Deal damage equal to ATK, +20 when used on undead
 Grab Bag        (??) - ???
@@ -57,6 +57,9 @@ Grumpy Cone     (HP  18 ±  3 | ATK  4 ±  1 | $ 36 ±  6) - Secondary attack cr
 Unspilled Milk  (HP   7 ±  0 | ATK  4 ±  0 | $ 22 ±  0) - If attacked nonlethally, becomes Spilled Milk
 Birdbrain       (HP  20 ±  2 | ATK  4 ±  1 | $ 35 ±  4) - Starts the battle with Winged
 Kebomb          (HP  13 ±  1 | ATK 25 ±  1 | $ 33 ±  3) - Deals ATK to self when attacking
+Tree            (HP  70 ±  5 | ATK  5 ±  0 | $ 44 ±  3)
+Robot           (HP  30 ±  3 | ATK 15 ±  1 | $ 45 ±  2)
+Burglar         (HP  40 ±  4 | ATK  7 ±  1 | $ 42 ±  1) - Steals most owned fruit on attack
 Evil Face       (HP  50 ±  0 | ATK  2 ±  0 | $  0 ±  0)
 Ratticus Finch  (HP  35      | ATK  5      | $ 41     )
 W. Shakes Pear  (HP  60      | ATK  7      | $ 55     ) - Advances magic cycle on attack

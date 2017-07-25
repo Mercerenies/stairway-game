@@ -142,12 +142,14 @@ Ben Jammin' Franklin
  * End Event: +1 Strength, +0.2 Resilience, +1 Inventory Slot
 
 == ERA VI ==
- * Enemies: <TREEANT>, <BURGLAR>, ...
+ * Enemies: Tree, Robot, Burglar, Birdbrain / Grumpy Cone (x2), Kebomb / Unspilled Milk
  * Boss: Robert E Tree
  * Length: 200
- * Items: ...
+ * Items: Silver Feather / Throwing Knife / Sundae / Smoke Bomb / Bowling Ball
  * New Spaces: ...
  * Special Spaces: ...
  * Special Events: Scroll Set B (1)
  * Beginning Event: None
  * End Event: +1 Strength, +0.2 Resilience
+
+///// New / Special spaces for Era VI and also, I think I broke the game with my oranges strategy...

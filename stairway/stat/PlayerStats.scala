@@ -63,8 +63,8 @@ class PlayerStats(val master: StandardGame.Master, val moneyChanged: (Int) => Un
   def healthSpaceAmount: Double = 5.0
   def healthIncrease: Double = levels.resilience.value
 
-  def applePrice: Int  = math.max(15 - levels.mercantilism.value, 1)
-  def orangePrice: Int = math.max( 5 - levels.mercantilism.value, 1)
+  def applePrice: Int  = math.max(10 - levels.mercantilism.value, 1)
+  def orangePrice: Int = math.max(10 - levels.mercantilism.value, 1)
   def melonPrice: Int  = math.max(10 - levels.mercantilism.value, 1)
 
   def itemDiscount: Int = levels.mercantilism.value

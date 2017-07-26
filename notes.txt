@@ -152,4 +152,4 @@ Ben Jammin' Franklin
  * Beginning Event: None
  * End Event: +1 Strength, +0.2 Resilience
 
-///// New / Special spaces for Era VI and also, I think I broke the game with my oranges strategy...
+///// New / Special spaces for Era VI and also, I think I broke the game with my oranges strategy... (should apple/orange/melon all cost 10? then play the game again?)

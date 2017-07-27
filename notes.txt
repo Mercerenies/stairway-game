@@ -32,7 +32,7 @@ Enemies need to not have their gimmick (spiders, pears, etc) apply if they miss 
 Sign spaces to warn and advise
 Lottery spaces need to show the current sum, for convenience
 Burglar enemy that steals the fruit you have the most of on attack
-Root energy for trees /////
+Root energy for trees ///// (trees get root energy from Root Spaces (era-specific) and from some percentage of the damage they deal; regular trees heal every turn, Robert E Tree heals as a special attack every few turns)
 
 CONSIDERING IMPLEMENTING
 "Lightweight Shoes" that protect against certain spaces (like milk spaces)

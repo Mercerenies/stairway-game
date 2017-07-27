@@ -32,6 +32,7 @@ Enemies need to not have their gimmick (spiders, pears, etc) apply if they miss 
 Sign spaces to warn and advise
 Lottery spaces need to show the current sum, for convenience
 Burglar enemy that steals the fruit you have the most of on attack
+Root energy for trees /////
 
 CONSIDERING IMPLEMENTING
 "Lightweight Shoes" that protect against certain spaces (like milk spaces)

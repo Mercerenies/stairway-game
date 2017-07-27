@@ -39,7 +39,8 @@ case class GameData(
   playerSpace: Int,
   damageShift: Double,
   belt: GameData.Belt,
-  upgradeBuys: List[Int]
+  upgradeBuys: List[Int],
+  rootEnergy: Double
 )
 
 object GameData {
@@ -147,7 +148,7 @@ object GameData {
       IOFriendly.write(0, file)
       IOFriendly.write(0, file)
       IOFriendly.write(0, file)
-      IOFriendly.write(0.0, file)
+      IOFriendly.write(rootEnergy, file)
       IOFriendly.write(0.0, file)
       IOFriendly.write(0.0, file)
       IOFriendly.write("", file)
@@ -232,7 +233,7 @@ object GameData {
       IOFriendly.read[Int](file)
       IOFriendly.read[Int](file)
       IOFriendly.read[Int](file)
-      IOFriendly.read[Double](file)
+      val root = IOFriendly.read[Double](file)
       IOFriendly.read[Double](file)
       IOFriendly.read[Double](file)
       IOFriendly.read[String](file)
@@ -313,7 +314,8 @@ object GameData {
         playerSpace,
         damageShift,
         belt,
-        upgr
+        upgr,
+        root
       )
     }
   }

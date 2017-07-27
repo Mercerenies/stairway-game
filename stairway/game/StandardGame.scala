@@ -45,6 +45,7 @@ object StandardGame {
       new ConveyerBelt(this, system.belt, BeltRightMargin)
     val damage = new StandardDamage(this, Rectangle(BeltRightMargin + 10, 5, PlayerMeterX - 10, 50))
     val saveload = new SaveLoader(this)
+    val field = new FieldParams
 
     override lazy val objects = List(
       belt, contentArea,
@@ -171,7 +172,8 @@ object StandardGame {
         belt.bottomIndex + player.occupiedSpace,
         damage.horizontalShift,
         system.mirror,
-        stats.levels.standardUpgrades.map(_.timesBought)(breakOut)
+        stats.levels.standardUpgrades.map(_.timesBought)(breakOut),
+        field.rootEnergy
       )
 
     def unmirror(data: GameData) = {
@@ -213,6 +215,7 @@ object StandardGame {
       data.invData.foreach { inventory.addItem(_) }
       damage.horizontalShift = data.damageShift
       data.upgradeBuys zip stats.levels.standardUpgrades foreach { case (n, x) => x.timesBought = n }
+      field.rootEnergy = data.rootEnergy
     }
 
     inventory.addItem(DivineBolt)

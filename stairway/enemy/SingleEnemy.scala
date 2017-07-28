@@ -23,11 +23,19 @@ abstract class SingleEnemy(override val master: StandardGame.Master)
     master.particleText.addParticle(defeatText, Enemy.particleColor, rect)
   }
 
-  override def attack(player: Player): Unit = {
-    if (player.master.luck.evaluateLuck((LuckWeightMinus, LuckWeightPlus), master.stats.dodgeChance))
-      master.particleText.addParticle(f"MISS!", HealthBased.particleColor, player.drawRect, (-90.0, 45.0))
-    else
-      player.takeDamage(EnemyAttack(netAttackPower, AttackNature(FlightLevel(isFlying))))
+  override def attack(player: Player): Option[Double] = {
+    if (player.master.luck.evaluateLuck((LuckWeightMinus, LuckWeightPlus), master.stats.dodgeChance)) {
+      master.particleText.addParticle(
+        f"MISS!",
+        HealthBased.particleColor,
+        player.drawRect,
+        (-90.0, 45.0)
+      )
+      None
+    } else {
+      val dmg = player.takeDamage(EnemyAttack(netAttackPower, AttackNature(FlightLevel(isFlying))))
+      Some(dmg)
+    }
   }
 
 }

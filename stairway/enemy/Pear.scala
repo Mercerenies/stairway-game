@@ -1,7 +1,9 @@
 
-package com.mercerenies.stairway.enemy
+package com.mercerenies.stairway
+package enemy
 
-import com.mercerenies.stairway.game.{Player, StandardGame}
+import game.{Player, StandardGame}
+import util.tap._
 
 class Pear(master: StandardGame.Master, entropy: Enemy.Entropy)
     extends SingleEnemy(master) {
@@ -14,9 +16,12 @@ class Pear(master: StandardGame.Master, entropy: Enemy.Entropy)
 
   override def imageIndex: Int = 11
 
-  override def attack(player: Player): Unit = {
-    super.attack(player)
-    player.master.damage.advance(2.0)
+  override def attack(player: Player): Option[Double] = {
+    super.attack(player).tap { atk =>
+      atk.foreach { _ =>
+        player.master.damage.advance(2.0)
+      }
+    }
   }
 
 }

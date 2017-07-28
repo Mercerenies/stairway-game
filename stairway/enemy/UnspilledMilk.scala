@@ -4,6 +4,7 @@ package enemy
 
 import game.{Player, StandardGame}
 import game.attack.PlayerAttack
+import util.tap._
 
 class UnspilledMilk(master: StandardGame.Master, entropy: Enemy.Entropy)
     extends SingleEnemy(master) {

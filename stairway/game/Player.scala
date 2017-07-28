@@ -63,7 +63,7 @@ class Player(master: StandardGame.Master, val xPos: Int)
     }
   }
 
-  def takeDamage(attack: EnemyAttack): Unit = {
+  def takeDamage(attack: EnemyAttack): Double = {
     val dmg =
       if (this.isFlying && attack.nature.flight == FlightLevel.Grounded)
         attack.damage * FlightLevel.DamageFactor
@@ -71,6 +71,7 @@ class Player(master: StandardGame.Master, val xPos: Int)
         attack.damage
     master.meter.health.value -= dmg
     // TODO Check for survival
+    dmg
   }
 
   def resolveStatuses(): Unit = {

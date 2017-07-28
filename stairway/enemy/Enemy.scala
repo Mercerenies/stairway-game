@@ -39,7 +39,7 @@ trait Enemy extends Drawable with StatusEntity {
 
   def isAlive: Boolean
 
-  def attack(player: Player): Unit
+  def attack(player: Player): Option[Double]
 
   def takeDamage(attack: PlayerAttack): Unit = {
     if (!isAlive) {

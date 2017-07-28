@@ -4,6 +4,7 @@ package enemy
 
 import game.{Player, StandardGame}
 import space.SpilledMilkSpace
+import util.tap._
 
 class GenghisKone(master: StandardGame.Master)
     extends SingleEnemy(master)
@@ -28,7 +29,7 @@ class GenghisKone(master: StandardGame.Master)
 
   override def counterStart = GenghisKone.attackCycle / 2
 
-  override def attack(player: Player): Unit = {
+  override def attack(player: Player): Option[Double] = {
     if (isEndOfCycle(GenghisKone.attackCycle)) {
       // Use the ice cream attack
       val belt = master.belt
@@ -37,11 +38,13 @@ class GenghisKone(master: StandardGame.Master)
         belt.feed.assignOverride(idx, SpilledMilkSpace)
       }
       master.particleText.addParticle("Splash!", Enemy.particleColor, rect)
+      Some(0.0)
     } else {
       // Perform the standard attack
       super.attack(player)
+    } tap { _ =>
+      advanceCounter()
     }
-    advanceCounter()
   }
 
 }

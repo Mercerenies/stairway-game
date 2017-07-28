@@ -4,6 +4,7 @@ package enemy
 
 import game.{Player, StandardGame}
 import status.WingedEffect
+import util.tap._
 
 class JoanOfLark(master: StandardGame.Master)
     extends SingleEnemy(master)
@@ -23,16 +24,19 @@ class JoanOfLark(master: StandardGame.Master)
 
   override def counterStart = 0
 
-  override def attack(player: Player): Unit = {
+  override def attack(player: Player): Option[Double] = {
     if (hasStatus(_.isInstanceOf[WingedEffect])) {
       resetCounter()
       super.attack(player)
     } else {
-      if (isEndOfCycle(JoanOfLark.attackCycle))
+      if (isEndOfCycle(JoanOfLark.attackCycle)) {
         afflictStatus(new WingedEffect(None))
-      else
+        Some(0.0)
+      } else {
         super.attack(player)
-      advanceCounter()
+      } tap { _ =>
+        advanceCounter()
+      }
     }
   }
 

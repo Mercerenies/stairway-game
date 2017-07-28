@@ -20,6 +20,8 @@ Item that makes the player fly briefly (Silver Feather)
 Item that grounds flying enemies (on Joan of Lark, it would be temporary, since she would have a secondary ability that allows her to take flight again)
 Item that shoots into the air, counting as a flying attack even when the player is not flying (like an arrow)
 Status effects apply to enemy groups right now, not individual enemies...
+Burglar enemy that steals the fruit you have the most of on attack
+Enemies need to not have their gimmick (spiders, pears, etc) apply if they miss their attack
 
 WILL BE IMPLEMENTED
 Hm... what about an underwater space which sets you to being "underwater"
@@ -28,10 +30,8 @@ Hm... what about an underwater space which sets you to being "underwater"
  * We could have an era where most (all?) of the neutral spaces are underwater spaces
 Ooh! Maybe a fire space that increases ATK as long as on fire but decreases HP every turn.
  * Only way to extinguish fire is to step on a water space
-Enemies need to not have their gimmick (spiders, pears, etc) apply if they miss their attack
 Sign spaces to warn and advise
 Lottery spaces need to show the current sum, for convenience
-Burglar enemy that steals the fruit you have the most of on attack
 Root energy for trees ///// (trees get root energy from Root Spaces (era-specific) and from some percentage of the damage they deal; regular trees heal every turn, Robert E Tree heals as a special attack every few turns)
 
 CONSIDERING IMPLEMENTING

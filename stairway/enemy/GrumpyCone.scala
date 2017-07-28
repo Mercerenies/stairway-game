@@ -4,6 +4,7 @@ package enemy
 
 import space.{Space, EnemySpace, SpilledMilkSpace}
 import game.{Player, StandardGame}
+import util.tap._
 
 class GrumpyCone(master: StandardGame.Master, entropy: Enemy.Entropy)
     extends SingleEnemy(master)
@@ -22,7 +23,7 @@ class GrumpyCone(master: StandardGame.Master, entropy: Enemy.Entropy)
 
   override def imageIndex: Int = 5
 
-  override def attack(player: Player): Unit = {
+  override def attack(player: Player): Option[Double] = {
     if (isEndOfCycle(GrumpyCone.attackCycle)) {
       // Use the ice cream attack
       val belt = master.belt
@@ -33,12 +34,14 @@ class GrumpyCone(master: StandardGame.Master, entropy: Enemy.Entropy)
         case Some(idx) =>
           belt.feed.assignOverride(idx, SpilledMilkSpace)
           master.particleText.addParticle("Drip!", Enemy.particleColor, rect)
+          Some(0.0)
       }
     } else {
       // Perform the standard attack
       super.attack(player)
+    } tap { _ =>
+      advanceCounter()
     }
-    advanceCounter()
   }
 
 }

@@ -16,8 +16,10 @@ class EnemyTeam(override val master: StandardGame.Master, val fullTeam: Enemy*)
 
   def team: Seq[Enemy] = fullTeam.filter(_.isAlive)
 
-  override def attack(player: Player) = {
-    team.foreach(_.attack(player))
+  override def attack(player: Player): Option[Double] = {
+    team.map { _.attack(player) }.fold(None) { (a, b) =>
+      for { a1 <- a ; b1 <- b } yield { a1 + b1 }
+    }
   }
 
   override def isBoss: Boolean = fullTeam.exists(_.isBoss)

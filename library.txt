@@ -57,7 +57,7 @@ Grumpy Cone     (HP  18 ±  3 | ATK  4 ±  1 | $ 36 ±  6) - Secondary attack cr
 Unspilled Milk  (HP   7 ±  0 | ATK  4 ±  0 | $ 22 ±  0) - If attacked nonlethally, becomes Spilled Milk
 Birdbrain       (HP  20 ±  2 | ATK  4 ±  1 | $ 35 ±  4) - Starts the battle with Winged
 Kebomb          (HP  13 ±  1 | ATK 25 ±  1 | $ 33 ±  3) - Deals ATK to self when attacking
-Tree            (HP  70 ±  5 | ATK  5 ±  0 | $ 44 ±  3)
+Tree            (HP  70 ±  5 | ATK  5 ±  0 | $ 44 ±  3) - Recovers health from roots
 Robot           (HP  30 ±  3 | ATK 15 ±  1 | $ 45 ±  2)
 Burglar         (HP  40 ±  4 | ATK  7 ±  1 | $ 42 ±  1) - Steals most owned fruit on attack
 Evil Face       (HP  50 ±  0 | ATK  2 ±  0 | $  0 ±  0)
@@ -65,5 +65,6 @@ Ratticus Finch  (HP  35      | ATK  5      | $ 41     )
 W. Shakes Pear  (HP  60      | ATK  7      | $ 55     ) - Advances magic cycle on attack
 Count Arachula  (HP  95      | ATK  9      | $ 75     ) - Decreases energy on attack
 Genghis Kone    (HP 120      | ATK 11      | $ 90     ) - Secondary attack creates Spilled Milk Spaces
-Joan of Lark    (HP 130      | ATK 13      | $115     ) - TBA
+Joan of Lark    (HP 130      | ATK 13      | $115     ) - Is flying and restores flying if grounded
+Robert E Tree   (HP 165      | ATK 15      | $130     ) - Recovers w/ roots; secnd. atk creates roots
 Evil Face Boss  (HP 100      | ATK  2      | $  0     )

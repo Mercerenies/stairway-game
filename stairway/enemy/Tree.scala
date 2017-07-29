@@ -4,6 +4,7 @@ package enemy
 
 import space.{Space, EnemySpace, SpilledMilkSpace}
 import game.{Player, StandardGame}
+import util.tap._
 
 class Tree(master: StandardGame.Master, entropy: Enemy.Entropy)
     extends SingleEnemy(master) {
@@ -16,4 +17,25 @@ class Tree(master: StandardGame.Master, entropy: Enemy.Entropy)
 
   override def imageIndex: Int = 7
 
+  override def attack(player: Player): Option[Double] = {
+    super.attack(player).tap { atk =>
+      val field = player.master.field
+      atk.foreach { dmg =>
+        player.master.field.rootEnergy += dmg * Tree.damageMult
+      }
+      val heal = List(
+        field.rootEnergy,
+        healthBar.max.toDouble - healthBar.value.toDouble,
+        Tree.maxHeal
+      ).min
+      field.rootEnergy -= heal
+      healthBar.value += heal
+    }
+  }
+
+}
+
+object Tree {
+  val damageMult = 0.5
+  val maxHeal = 1.0
 }

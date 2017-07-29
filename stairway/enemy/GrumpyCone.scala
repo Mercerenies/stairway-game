@@ -24,7 +24,7 @@ class GrumpyCone(master: StandardGame.Master, entropy: Enemy.Entropy)
   override def imageIndex: Int = 5
 
   override def attack(player: Player): Option[Double] = {
-    if (isEndOfCycle(GrumpyCone.attackCycle)) {
+    (if (isEndOfCycle(GrumpyCone.attackCycle)) {
       // Use the ice cream attack
       val belt = master.belt
       val matching = player.nextPositions takeWhile { idx => isOwnEnemySpace(belt.getSpace(idx)) }
@@ -39,7 +39,7 @@ class GrumpyCone(master: StandardGame.Master, entropy: Enemy.Entropy)
     } else {
       // Perform the standard attack
       super.attack(player)
-    } tap { _ =>
+    }) tap { _ =>
       advanceCounter()
     }
   }

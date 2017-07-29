@@ -29,12 +29,12 @@ class JoanOfLark(master: StandardGame.Master)
       resetCounter()
       super.attack(player)
     } else {
-      if (isEndOfCycle(JoanOfLark.attackCycle)) {
+      (if (isEndOfCycle(JoanOfLark.attackCycle)) {
         afflictStatus(new WingedEffect(None))
         Some(0.0)
       } else {
         super.attack(player)
-      } tap { _ =>
+      }) tap { _ =>
         advanceCounter()
       }
     }

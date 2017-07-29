@@ -30,7 +30,7 @@ class GenghisKone(master: StandardGame.Master)
   override def counterStart = GenghisKone.attackCycle / 2
 
   override def attack(player: Player): Option[Double] = {
-    if (isEndOfCycle(GenghisKone.attackCycle)) {
+    (if (isEndOfCycle(GenghisKone.attackCycle)) {
       // Use the ice cream attack
       val belt = master.belt
       val matching = player.nextPositions.slice(3, 3 + spreadLength)
@@ -42,7 +42,7 @@ class GenghisKone(master: StandardGame.Master)
     } else {
       // Perform the standard attack
       super.attack(player)
-    } tap { _ =>
+    }) tap { _ =>
       advanceCounter()
     }
   }

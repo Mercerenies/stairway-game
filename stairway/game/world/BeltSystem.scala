@@ -48,7 +48,7 @@ class BeltSystem(
       case 3 => 40
       case 4 => 20
       case 5 => 10
-      case 6 => 5
+      case 6 => 3
       case _ => NoGenerate
     }
     def tripleFreq = master.era match {
@@ -804,7 +804,7 @@ class BeltSystem(
       case 3 => WebSpace
       case 4 => MilkGlassSpace(3)
       case 5 => LeapSpace()
-      case 6 => LeapSpace() ////
+      case 6 => RootSpace()
       case _ => NeutralSpace
     }
 
@@ -843,11 +843,11 @@ class BeltSystem(
       new ShakesPear(master),
       new Arachula(master),
       new GenghisKone(master),
-      new JoanOfLark(master)
-      ////
+      new JoanOfLark(master),
+      new RobertETree(master)
     )
 
-    lazy val stoppingPoints: Seq[Int] = List(50, 80, 110, 140, 170)
+    lazy val stoppingPoints: Seq[Int] = List(50, 80, 110, 140, 170, 200)
 
     private var lastSwitch: util.Index = util.Index.Absolute(0)
 

@@ -1,10 +1,11 @@
 
-package com.mercerenies.stairway.space
+package com.mercerenies.stairway
+package space
 
-import com.mercerenies.stairway.game.attack
-import com.mercerenies.stairway.game.StandardGame
-import com.mercerenies.stairway.game.content.EnemyContent
-import com.mercerenies.stairway.enemy.{EnemyBox, Enemy}
+import game.attack
+import game.StandardGame
+import game.content.EnemyContent
+import enemy.{EnemyBox, Enemy}
 
 case class EnemySpace(enemy: EnemyBox[Enemy]) extends ImageSpace {
 
@@ -50,6 +51,7 @@ case class EnemySpace(enemy: EnemyBox[Enemy]) extends ImageSpace {
         apples.count -= 1
       }
       enemy.innerEnemy.takeDamage(new attack.MagnifiedAttack(new attack.PhysicalAttack(master), 1.5))
+      enemy.refresh()
       enemy.innerEnemy.attack(master.player)
       enemy.refresh()
     }

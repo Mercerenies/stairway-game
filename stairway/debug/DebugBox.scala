@@ -8,7 +8,7 @@ import java.awt._
 
 class DebugBox(master: StandardGame.Master) extends GameEntity[StandardGame.Master](master) {
 
-  def text: String = "KARMA: " + master.luck.karma
+  def text: String = "ROOT: " + master.field.rootEnergy
 
   override def draw(graph: Graphics2D): Unit = {
     if ((DebugMode.enabled) && (text != "")) {

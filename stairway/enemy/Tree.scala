@@ -11,7 +11,7 @@ class Tree(master: StandardGame.Master, entropy: Enemy.Entropy)
 
   override def spoils: Spoils = Spoils.Money((44 + 3 * entropy.reward).toInt)
 
-  override def startingHealth: Double = 70.0 + 5.0 * entropy.risk
+  override def startingHealth: Double = 70.0 + 10.0 * entropy.risk
 
   override def attackPower: Double = 5.0
 
@@ -37,5 +37,5 @@ class Tree(master: StandardGame.Master, entropy: Enemy.Entropy)
 
 object Tree {
   val damageMult = 0.5
-  val maxHeal = 1.0
+  val maxHeal = 0.5
 }

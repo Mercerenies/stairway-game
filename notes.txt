@@ -33,6 +33,7 @@ Ooh! Maybe a fire space that increases ATK as long as on fire but decreases HP e
  * Only way to extinguish fire is to step on a water space
 Sign spaces to warn and advise
 Lottery spaces need to show the current sum, for convenience
+Shops should still tell you the cost of an item if inv is full (better information)
 
 CONSIDERING IMPLEMENTING
 "Lightweight Shoes" that protect against certain spaces (like milk spaces)
@@ -152,5 +153,3 @@ Ben Jammin' Franklin
  * Special Events: Scroll Set B (1)
  * Beginning Event: None
  * End Event: +1 Strength, +0.2 Resilience
-
-///// Balance Robert E Tree

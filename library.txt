@@ -39,6 +39,8 @@ Chili Pepper    (10) - Spicy peppers that increase your strength for awhile
 Silver Feather  (23) - Allows you to fly for a short period of time
 Spearhead Arrow (11) - Deal damage equal to ATK, doubled on flying enemies
 Anchor          (16) - All flying enemies are grounded
+Lesser Charm    (50) - Red and Double Red Spaces deal only 1 damage
+Greater Charm   (??) - All types of red spaces deal only 1 damage
 
 === STATUSES ===
 

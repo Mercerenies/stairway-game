@@ -1,7 +1,9 @@
 
-package com.mercerenies.stairway.space
+package com.mercerenies.stairway
+package space
 
-import com.mercerenies.stairway.game.StandardGame
+import game.StandardGame
+import game.Player
 
 case class RedSpace(severity: RedSpace.Severity) extends ImageSpace {
 
@@ -10,11 +12,21 @@ case class RedSpace(severity: RedSpace.Severity) extends ImageSpace {
   def damage: Double = severity.damage
 
   override def onLand(master: StandardGame.Master) = {
-    master.meter.health.value -= damage
+    val dmg =
+      if (master.player.isProtectedAgainst(severity))
+        1
+      else
+        damage
+    master.meter.health.value -= dmg
   }
 
   override def onEmulate(master: StandardGame.Master) = {
-    master.meter.health.value -= RedSpace.Single.damage
+    val dmg =
+      if (master.player.isProtectedAgainst(severity))
+        1
+      else
+        RedSpace.Single.damage
+    master.meter.health.value -= dmg
   }
 
 }

@@ -2,11 +2,12 @@
 package com.mercerenies.stairway
 package game
 
-import space.Space
+import space.{Space, RedSpace}
 import util.{Rectangle, Index}
 import game.belt.ConveyerBelt
 import status.StatusEntity
 import attack.{EnemyAttack, FlightLevel}
+import product.item.Charm
 import java.awt._
 import java.awt.geom.Ellipse2D
 
@@ -78,6 +79,12 @@ class Player(master: StandardGame.Master, val xPos: Int)
     statuses.foreach(_.perform(Left(this)))
     checkStatuses()
   }
+
+  def isProtectedAgainst(space: RedSpace.Severity): Boolean =
+    master.inventory.toList.exists {
+      case charm: Charm => charm.isProtectedAgainst(space)
+      case _ => false
+    }
 
 }
 

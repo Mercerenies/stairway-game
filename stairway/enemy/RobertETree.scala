@@ -14,7 +14,7 @@ class RobertETree(master: StandardGame.Master)
   override def bossName: String = "Robert E Tree"
 
   override def spoils: Spoils =
-    Spoils.Money(130) + Spoils.Strength + Spoils.Resilience
+    Spoils.Money(130) + Spoils.Strength + Spoils.Resilience + Spoils.Health(25) + Spoils.Energy(25)
 
   override def startingHealth: Double = 165.0
 

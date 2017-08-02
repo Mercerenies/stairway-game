@@ -152,4 +152,4 @@ Ben Jammin' Franklin
  * Special Spaces: ...
  * Special Events: Scroll Set B (1)
  * Beginning Event: None
- * End Event: +1 Strength, +0.2 Resilience
+ * End Event: +1 Strength, +0.2 Resilience, +25 Health, +25 Energy

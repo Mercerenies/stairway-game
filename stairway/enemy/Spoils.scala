@@ -33,6 +33,18 @@ object Spoils {
     }
   }
 
+  object Health {
+    def apply(n: Int) = Spoils { player =>
+      player.master.stats.levels.health.buffBy(n)
+    }
+  }
+
+  object Energy {
+    def apply(n: Int) = Spoils { player =>
+      player.master.stats.levels.energy.buffBy(n)
+    }
+  }
+
   object Apple extends Spoils({ player => Fruits.apple.giveTo(player) })
 
   object Orange extends Spoils({ player => Fruits.orange.giveTo(player) })

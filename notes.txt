@@ -66,9 +66,9 @@ DO NOT LOAD A SAVE FILE IF YOU ARE ALREADY ADVANCED PAST THAT POINT!!!!!!!
 
 ** Ratticus Finch
 ** Count Arachula
-Joan of Lark
+** Joan of Lark
 ** Genghis Kone
-Robert E Tree
+** Robert E Tree
 ** William Shakes Pear
 Pablo Pig Casso
 Andy Werehol
@@ -148,8 +148,21 @@ Ben Jammin' Franklin
  * Boss: Robert E Tree
  * Length: 200
  * Items: Silver Feather / Throwing Knife / Sundae / Smoke Bomb / Bowling Ball
- * New Spaces: ...
- * Special Spaces: ...
+ * New Spaces: None
+ * Special Spaces: Root Space
  * Special Events: Scroll Set B (1)
  * Beginning Event: None
  * End Event: +1 Strength, +0.2 Resilience, +25 Health, +25 Energy
+
+== ERA VII ==
+ * Enemies: <PORCUPINE>, <SLIME>, Tree, Robot, Burglar / Birdbrain
+ * Boss: Albert Einspine
+ * Length: 230
+ * Items: Lesser Talisman / ...
+ * New Spaces: ...
+ * Special Spaces: <SPIKED SPACE>
+ * Specials Events: Scroll Set B (2)
+ * Beginning Event: None
+ * End Event: +1 Strength, +0.2 Resilience
+
+///// Fill in the Era VII stuff and get started on it.

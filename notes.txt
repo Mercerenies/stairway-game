@@ -165,3 +165,5 @@ Ben Jammin' Franklin
  * Specials Events: Scroll Set B (2)
  * Beginning Event: None
  * End Event: +1 Strength, +0.2 Resilience
+
+///// robertetree save file is invalid (ScrollGeneratorB is wrong); either update it manually or redo the era

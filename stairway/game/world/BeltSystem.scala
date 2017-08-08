@@ -967,6 +967,7 @@ class BeltSystem(
     RedGenerator.unmirror((belt.double, belt.triple, belt.quadruple))
     DojoGenerator.advanceTo(belt.dojoIndex)
     ScrollGeneratorA.unmirror(belt.scrolls.applyOrElse(0, (_: Int) => GameData.ScrollState.Default))
+    ScrollGeneratorB.unmirror(belt.scrolls.applyOrElse(0, (_: Int) => GameData.ScrollState.Default))
     BossFeedSystem.lastBoss = belt.lastSwitch
   }
 

@@ -41,6 +41,7 @@ CONSIDERING IMPLEMENTING
 Item that shows enemy HP once it gets down to a certain point (passive)
 Rage Space that gives the player +N ATK modifier (lowers every time you move, as it's ATK modifier)
 Holy Fire might be too powerful against undeads; consider balancing
+Blocked effect currently does not block passive items; should we change that?
 
 DO NOT LOAD A SAVE FILE IF YOU ARE ALREADY ADVANCED PAST THAT POINT!!!!!!!
 
@@ -158,11 +159,9 @@ Ben Jammin' Franklin
  * Enemies: <PORCUPINE>, <SLIME>, Tree, Robot, Burglar / Birdbrain
  * Boss: Albert Einspine
  * Length: 230
- * Items: Lesser Talisman / ...
- * New Spaces: ...
- * Special Spaces: <SPIKED SPACE>
+ * Items: Lesser Charm / Silver Feather / Smoke Bomb / Bowling Ball / Spearhead Arrow
+ * New Spaces: None
+ * Special Spaces: Spike Space
  * Specials Events: Scroll Set B (2)
  * Beginning Event: None
  * End Event: +1 Strength, +0.2 Resilience
-
-///// Fill in the Era VII stuff and get started on it.

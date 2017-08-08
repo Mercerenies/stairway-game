@@ -62,6 +62,8 @@ Kebomb          (HP  13 ±  1 | ATK 25 ±  1 | $ 33 ±  3) - Deals ATK to self w
 Tree            (HP  70 ± 10 | ATK  5 ±  0 | $ 44 ±  3) - Recovers health from roots
 Robot           (HP  30 ±  3 | ATK 15 ±  1 | $ 45 ±  2)
 Burglar         (HP  40 ±  4 | ATK  7 ±  1 | $ 42 ±  1) - Steals most owned fruit on attack
+Porcupine       (HP  50 ±  3 | ATK  8 ±  1 | $ 39 ±  3) - Deals ATK damage when attacked
+Slime           (HP  42 ±  3 | ATK  ?      | $ 43 ±  5) - ATK increases (5→10→15→20) when attacked
 Evil Face       (HP  50 ±  0 | ATK  2 ±  0 | $  0 ±  0)
 Ratticus Finch  (HP  35      | ATK  5      | $ 41     )
 W. Shakes Pear  (HP  60      | ATK  7      | $ 55     ) - Advances magic cycle on attack

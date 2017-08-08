@@ -42,6 +42,7 @@ Item that shows enemy HP once it gets down to a certain point (passive)
 Rage Space that gives the player +N ATK modifier (lowers every time you move, as it's ATK modifier)
 Holy Fire might be too powerful against undeads; consider balancing
 Blocked effect currently does not block passive items; should we change that?
+FruitTheftSpace uses the util random generator, which means equivalent sequences could get different results
 
 DO NOT LOAD A SAVE FILE IF YOU ARE ALREADY ADVANCED PAST THAT POINT!!!!!!!
 

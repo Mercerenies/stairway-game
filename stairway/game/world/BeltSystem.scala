@@ -895,11 +895,11 @@ class BeltSystem(
       new Arachula(master),
       new GenghisKone(master),
       new JoanOfLark(master),
-      new RobertETree(master)
-      ////
+      new RobertETree(master),
+      new AlbertEinspine(master)
     )
 
-    lazy val stoppingPoints: Seq[Int] = List(50, 80, 110, 140, 170, 200) ////
+    lazy val stoppingPoints: Seq[Int] = List(50, 80, 110, 140, 170, 200, 230)
 
     private var lastSwitch: util.Index = util.Index.Absolute(0)
 

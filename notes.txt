@@ -156,7 +156,7 @@ Ben Jammin' Franklin
  * End Event: +1 Strength, +0.2 Resilience, +25 Health, +25 Energy
 
 == ERA VII ==
- * Enemies: <PORCUPINE>, <SLIME>, Tree, Robot, Burglar / Birdbrain
+ * Enemies: Porcupine, Slime, Tree, Robot, Burglar / Birdbrain
  * Boss: Albert Einspine
  * Length: 230
  * Items: Lesser Charm / Silver Feather / Smoke Bomb / Bowling Ball / Spearhead Arrow

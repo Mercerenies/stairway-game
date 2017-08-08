@@ -71,4 +71,5 @@ Count Arachula  (HP  95      | ATK  9      | $ 75     ) - Decreases energy on at
 Genghis Kone    (HP 120      | ATK 11      | $ 90     ) - Secondary attack creates Spilled Milk Spaces
 Joan of Lark    (HP 130      | ATK 13      | $115     ) - Is flying and restores flying if grounded
 Robert E Tree   (HP 165      | ATK 15      | $130     ) - Recovers w/ roots; secnd. atk creates roots
+Albert Einspine (HP 180      | ATK 17      | $177     ) - Deals dmg when attacked; makes spike spaces
 Evil Face Boss  (HP 100      | ATK  2      | $  0     )

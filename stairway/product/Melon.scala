@@ -1,9 +1,11 @@
 
-package com.mercerenies.stairway.product
+package com.mercerenies.stairway
+package product
 
-import com.mercerenies.stairway.game.Player
-import com.mercerenies.stairway.util.Rectangle
-import com.mercerenies.stairway.image.FruitsImage
+import game.Player
+import game.button.MelonButton
+import util.Rectangle
+import image.FruitsImage
 import java.awt._
 
 object Melon extends FruitProduct {
@@ -22,5 +24,7 @@ object Melon extends FruitProduct {
   override def image: Image = Fruits.image.melon
 
   override def toString(): String = "Melon"
+
+  override def tagText: Option[String] = Some(MelonButton.buttonDesc)
 
 }

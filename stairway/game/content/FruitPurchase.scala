@@ -1,16 +1,17 @@
 
-package com.mercerenies.stairway.game.content
+package com.mercerenies.stairway
+package game.content
 
-import com.mercerenies.stairway.ui.Drawable
-import com.mercerenies.stairway.util
-import com.mercerenies.stairway.util.Rectangle
-import com.mercerenies.stairway.image.FruitsImage
-import com.mercerenies.stairway.product.{Apple, Orange, Melon, Purchasable, Captioned}
+import ui.Drawable
+import util.Rectangle
+import game.tagline.Tagged
+import image.FruitsImage
+import product.{FruitProduct, Apple, Orange, Melon, Purchasable, Captioned}
 import java.awt.{List => _, _}
 
 class FruitPurchase(contentArea: ContentArea) extends PurchaseContent(contentArea) {
 
-  override lazy val items: Seq[PurchaseContentSlot[PurchaseContentSlot.Element]] = {
+  override lazy val items: Seq[PurchaseContentSlot[FruitProduct]] = {
     val rect = contentArea.rect
     val imgWidth = FruitsImage.Width
     val imgHeight = FruitsImage.Height
@@ -31,5 +32,8 @@ class FruitPurchase(contentArea: ContentArea) extends PurchaseContent(contentAre
     )
     List(apple, orange, melon)
   }
+
+  override def tagged: Option[Tagged] =
+    items find { _.isMouseOver } map { _.value }
 
 }

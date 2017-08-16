@@ -13,4 +13,6 @@ class MoveButton(pad: ButtonPad) extends Button(pad, 0, KeyboardKey(VK_Q)) {
       master.stepForward()
   }
 
+  override def buttonDesc = "Move\nMove forward one space"
+
 }

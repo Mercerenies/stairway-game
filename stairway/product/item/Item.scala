@@ -6,6 +6,7 @@ import product._
 import image.ItemsImage
 import game.Player
 import util.IOFriendly
+import game.tagline.Tagged
 import java.awt.Image
 
 abstract class Item extends Purchasable with Usable with Captioned {

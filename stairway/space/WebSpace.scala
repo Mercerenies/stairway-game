@@ -11,4 +11,8 @@ case object WebSpace extends ImageSpace {
     master.meter.energy.value -= 150
   }
 
+  override def name = "Web Space"
+
+  override def desc = "You lose a significant amount of energy if you land on this space"
+
 }

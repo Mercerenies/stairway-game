@@ -28,4 +28,8 @@ case class MysterySpace(val count: Int) extends ImageSpace {
     chosen.giveTo(master.player)
   }
 
+  override def name = "Mystery Space"
+
+  override def desc = "Open a mystery box for a chance to get a free fruit"
+
 }

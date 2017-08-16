@@ -29,6 +29,10 @@ case class RedSpace(severity: RedSpace.Severity) extends ImageSpace {
     master.meter.health.value -= dmg
   }
 
+  override def name = severity.name
+
+  override def desc = s"You take ${damage.toInt} damage if you land on this space"
+
 }
 
 object RedSpace {
@@ -36,11 +40,13 @@ object RedSpace {
   sealed trait Severity {
     def index: Int
     def damage: Double
+    def name: String = s"$toString Red Space"
   }
 
   case object Single extends Severity {
     override def index = 1
     override def damage = 6
+    override def name = "Red Space"
   }
 
   case object Double extends Severity {

@@ -19,4 +19,8 @@ case class DojoSpace(stats: ImprovableStats.UpgradeSlot[_]*) extends ImageSpace 
     master.contentArea.clear()
   }
 
+  override def name = "Dojo Space"
+
+  override def desc = "You can pay money to train your skills and level up here [Protected]"
+
 }

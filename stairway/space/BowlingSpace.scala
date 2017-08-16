@@ -9,4 +9,8 @@ case object BowlingSpace extends ImageSpace {
 
   override def onLand(master: StandardGame.Master) = {}
 
+  override def name = "Bowling Space"
+
+  override def desc = "No special effect"
+
 }

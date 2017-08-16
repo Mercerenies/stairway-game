@@ -18,4 +18,8 @@ case class SpikeSpace(damage: Double = 2.0, length: Int = 10) extends ImageSpace
     master.meter.health.value -= damage
   }
 
+  override def name = "Spike Space"
+
+  override def desc = "You are now walking on spikes and take damage with every movement for several turns"
+
 }

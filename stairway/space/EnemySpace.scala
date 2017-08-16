@@ -57,4 +57,8 @@ case class EnemySpace(enemy: EnemyBox[Enemy]) extends ImageSpace {
     }
   }
 
+  override def name = if (enemy.innerEnemy.isBoss) "Boss Space" else "Enemy Space"
+
+  override def desc = "Fight an enemy while you're on this sequence of spaces"
+
 }

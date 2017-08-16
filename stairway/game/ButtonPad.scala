@@ -1,11 +1,13 @@
 
-package com.mercerenies.stairway.game
+package com.mercerenies.stairway
+package game
 
-import com.mercerenies.stairway.image.ButtonsImage
-import com.mercerenies.stairway.event.StepEvent
-import com.mercerenies.stairway.action.KeyboardKey
-import com.mercerenies.stairway.game.button._
-import com.mercerenies.stairway.debug.EmulateButton
+import image.ButtonsImage
+import event.StepEvent
+import action.KeyboardKey
+import game.button._
+import debug.EmulateButton
+import util.PointImplicits._
 import scala.collection.immutable.Vector
 import java.awt.{Graphics2D, Font, Color}
 
@@ -29,6 +31,9 @@ class ButtonPad(master: StandardGame.Master, val upperLeft: (Int, Int))
     physicalAtkButton, magicalAtkButton, specialAtkButton,
     appleButton, orangeButton, melonButton
   )
+
+  def mouseOverButton: Option[Button] =
+    buttons find { b => master.state.mousePosition within b.bbox }
 
   override def draw(graph: Graphics2D): Unit = {
     buttons.foreach((button: Button) => button.draw(graph, button.bbox))

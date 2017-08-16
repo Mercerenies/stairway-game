@@ -11,4 +11,8 @@ case object EmptySpace extends Space {
 
   override def draw(graph: Graphics2D, rect: Rectangle): Unit = {}
 
+  override def name = "Empty Space"
+
+  override def desc = "No special effect"
+
 }

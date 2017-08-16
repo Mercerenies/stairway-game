@@ -16,4 +16,6 @@ class PhysicalButton(pad: ButtonPad) extends Button(pad, 3, KeyboardKey(VK_A)) {
     }
   }
 
+  override def buttonDesc = "Physical Attack\nDeal damage equal to ATK; chance of critical hit dealing triple damage"
+
 }

@@ -15,4 +15,8 @@ case object TaxSpace extends ImageSpace {
     master.stats.deductTax(master.stats.taxPercent / 4)
   }
 
+  override def name = "Tax Space"
+
+  override def desc = "Taxes are due; pay some percent of your money if you land here"
+
 }

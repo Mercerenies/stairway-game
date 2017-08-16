@@ -15,4 +15,8 @@ case class BlockedSpace(length: Int = 10) extends ImageSpace {
 
   override def onEmulate(master: StandardGame.Master) = {}
 
+  override def name = "Blocked Space"
+
+  override def desc = "Eliminates your ability to use items for several turns"
+
 }

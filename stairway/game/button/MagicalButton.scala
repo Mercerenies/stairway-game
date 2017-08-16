@@ -16,4 +16,6 @@ class MagicalButton(pad: ButtonPad) extends Button(pad, 4, KeyboardKey(VK_S)) {
     }
   }
 
+  override def buttonDesc = "Magical Attack\nDeal damage based on your magic meter; advances the magic meter"
+
 }

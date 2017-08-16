@@ -1,18 +1,24 @@
 
-package com.mercerenies.stairway.game.button
+package com.mercerenies.stairway
+package game.button
 
-import com.mercerenies.stairway.game.ButtonPad
-import com.mercerenies.stairway.image.ButtonsImage
-import com.mercerenies.stairway.event.StepEvent
-import com.mercerenies.stairway.action.KeyboardKey
-import com.mercerenies.stairway.ui.Drawable
-import com.mercerenies.stairway.util
-import com.mercerenies.stairway.util.Rectangle
+import game.ButtonPad
+import game.tagline.Tagged
+import image.ButtonsImage
+import event.StepEvent
+import action.KeyboardKey
+import ui.Drawable
+import util.Rectangle
 import java.awt.Graphics2D
 
-class Button(val pad: ButtonPad, val bbox: Rectangle, val imageIndex: Int, val hotkeys: Seq[KeyboardKey] = Nil)
+abstract class Button(
+  val pad: ButtonPad,
+  val bbox: Rectangle,
+  val imageIndex: Int,
+  val hotkeys: Seq[KeyboardKey] = Nil)
     extends Drawable
-    with StepEvent {
+    with StepEvent
+    with Tagged {
   import util.GraphicsImplicits._
   import util.PointImplicits._
 
@@ -45,6 +51,10 @@ class Button(val pad: ButtonPad, val bbox: Rectangle, val imageIndex: Int, val h
     _justReleased = ( lastPressState && !isPressed)
     lastPressState = isPressed
   }
+
+  override def tagText: Option[String] = Some(buttonDesc)
+
+  def buttonDesc: String
 
   override def draw(graph: Graphics2D, rect: Rectangle): Unit = {
     graph.drawImage(pad.imageResource.button(isPressed, imageIndex), rect)

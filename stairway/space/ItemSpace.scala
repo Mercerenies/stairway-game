@@ -17,4 +17,8 @@ case class ItemSpace(items: Item*) extends ImageSpace {
     master.contentArea.clear()
   }
 
+  override def name = "Item Space"
+
+  override def desc = "You can shop for items here"
+
 }

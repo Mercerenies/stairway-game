@@ -25,4 +25,8 @@ case class ScrollSpace(age: Int, scrolls: Scroll*) extends ImageSpace {
     scrolls.find(!_.used).foreach(_.click(master))
   }
 
+  override def name = "Scroll Space"
+
+  override def desc = "Select a scroll to gain stats [Protected]"
+
 }

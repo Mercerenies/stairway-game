@@ -16,4 +16,8 @@ case class TextualSpace(text: String) extends Space {
     graph.drawString(text, rect.centerX, rect.centerY)
   }
 
+  override def name = text
+
+  override def desc = "No special effect"
+
 }

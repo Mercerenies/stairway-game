@@ -14,4 +14,6 @@ class EmulateButton(pad: ButtonPad) extends Button(pad, 2, KeyboardKey(VK_E)) {
       master.leapForward()
   }
 
+  override def buttonDesc = "???\n???"
+
 }

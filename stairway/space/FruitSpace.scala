@@ -16,4 +16,8 @@ case object FruitSpace extends ImageSpace {
     master.contentArea.clear()
   }
 
+  override def name = "Fruit Space"
+
+  override def desc = "You can buy fruits on this space"
+
 }

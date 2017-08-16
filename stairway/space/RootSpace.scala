@@ -18,4 +18,8 @@ case class RootSpace(damage: Double = 10.0) extends ImageSpace {
     onLand(master)
   }
 
+  override def name = "Root Space"
+
+  override def desc = "You lose health and the tree roots gain that health"
+
 }

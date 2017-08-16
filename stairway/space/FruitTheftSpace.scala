@@ -32,4 +32,8 @@ case object FruitTheftSpace extends ImageSpace {
     }
   }
 
+  override def name = "Fruit Theft Space"
+
+  override def desc = "You lose a random fruit if you land on this space"
+
 }

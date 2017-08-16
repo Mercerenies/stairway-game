@@ -1,13 +1,15 @@
 
-package com.mercerenies.stairway.space
+package com.mercerenies.stairway
+package space
 
 import java.awt.{Graphics, Graphics2D, Color}
-import com.mercerenies.stairway.ui.Drawable
-import com.mercerenies.stairway.util.Rectangle
-import com.mercerenies.stairway.image.SpacesImage
-import com.mercerenies.stairway.game.StandardGame
+import ui.Drawable
+import util.Rectangle
+import image.SpacesImage
+import game.StandardGame
+import game.tagline.Tagged
 
-trait Space extends Drawable {
+trait Space extends Drawable with Tagged {
 
   def isOverridable: Boolean = true
 
@@ -26,6 +28,12 @@ trait Space extends Drawable {
     graph.setColor(Color.black)
     graph.draw(rect)
   }
+
+  override def tagText = Some(name + "\n" + desc)
+
+  def name: String
+
+  def desc: String
 
 }
 

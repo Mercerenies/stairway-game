@@ -4,6 +4,7 @@ package game.belt
 
 import game.{GameEntity, StandardGame}
 import util.{Index, Rectangle}
+import util.PointImplicits._
 import space.Space
 import event.AbstractStepEvent
 import java.awt._
@@ -77,6 +78,22 @@ class ConveyerBelt[+T <: ConveyerFeed](
       counter += 1
     }
   }
+
+  def positionOf(index: Index): Rectangle = {
+    val lhsX = (rightMargin - ConveyerBelt.SpaceDim.width) / 2
+    val lhsY = master.roomHeight + _bottomPosition
+    val base = Rectangle(lhsX, lhsY, lhsX + ConveyerBelt.SpaceDim.width, lhsY + ConveyerBelt.SpaceDim.height)
+    base.shift(0, - ConveyerBelt.SpaceDim.height * (index - RelativeIndex(0) + 1))
+  }
+
+  def mouseOver: Option[Index] =
+    Stream.
+      from(0).
+      map { RelativeIndex(_) }.
+      map { x => (x, positionOf(x)) }.
+      takeWhile { _._2.ymax > 0 }.
+      find { master.state.mousePosition within _._2 }.
+      map { _._1 }
 
 }
 

@@ -17,4 +17,8 @@ case object SpilledMilkSpace extends ImageSpace {
     master.meter.health.value -= damage
   }
 
+  override def name = "Spilled Milk Space"
+
+  override def desc = s"You take ${damage.toInt} damage if you land on this space"
+
 }

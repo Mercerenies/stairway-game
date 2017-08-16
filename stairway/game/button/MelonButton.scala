@@ -18,4 +18,6 @@ class MelonButton(pad: ButtonPad) extends FruitButton(pad, 8, KeyboardKey(VK_C))
     }
   }
 
+  override def buttonDesc = "Melon\nAdvance magic meter by your metabolism"
+
 }

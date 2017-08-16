@@ -9,4 +9,8 @@ case object NeutralSpace extends ImageSpace {
 
   override def onLand(master: StandardGame.Master) = {}
 
+  override def name = "Neutral Space"
+
+  override def desc = "No special effect"
+
 }

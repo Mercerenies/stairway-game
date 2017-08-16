@@ -17,4 +17,8 @@ case class MilkGlassSpace(distance: Int) extends ImageSpace {
     master.meter.health.value -= RedSpace.Single.damage
   }
 
+  override def name = "Milk Glass Space"
+
+  override def desc = "If you land here, the milk spills and overwrites the next few spaces"
+
 }

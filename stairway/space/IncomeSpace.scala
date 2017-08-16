@@ -11,4 +11,8 @@ case object IncomeSpace extends ImageSpace {
     master.stats.money += master.stats.incomeAmount
   }
 
+  override def name = "Income Space"
+
+  override def desc = "Gain a small amount of money"
+
 }

@@ -13,4 +13,6 @@ class FadeButton(pad: ButtonPad) extends Button(pad, 1, KeyboardKey(VK_W)) {
       master.fadeForward()
   }
 
+  override def buttonDesc = "Fade\nMove forward one space but ignore effects; costs energy"
+
 }

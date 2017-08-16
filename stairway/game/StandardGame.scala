@@ -13,6 +13,7 @@ import game.world._
 import space._
 import product.item._
 import enemy._
+import tagline.{Tagline, Tagged}
 import scala.util.control
 import scala.collection.breakOut
 import javax.swing.SwingUtilities
@@ -46,12 +47,21 @@ object StandardGame {
     val damage = new StandardDamage(this, Rectangle(BeltRightMargin + 10, 5, PlayerMeterX - 10, 50))
     val saveload = new SaveLoader(this)
     val field = new FieldParams
+    val tagline = new Tagline(this)
 
     override lazy val objects = List(
       belt, contentArea,
       player, inventory, damage, meter, buttonPad,
-      particleText, statusBar, saveload, debugger
+      particleText, statusBar, saveload, debugger,
+      tagline
     )
+
+    def mouseOver: Option[Tagged] =
+      List(
+        inventory.highlightedItem map { TaggedItem(_, player) },
+        buttonPad.mouseOverButton,
+        belt.mouseOver map { belt.getSpace(_) }
+      ) collectFirst { case Some(x) => x }
 
     private def moneyChanged(amount: Int): Unit = {
       val sign = if (amount >= 0) "+" else "-"

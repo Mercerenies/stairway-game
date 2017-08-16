@@ -17,4 +17,8 @@ case class LotterySpace(val diceCount: Int, val toBeat: DiceValue, val multiplie
     master.contentArea.clear()
   }
 
+  override def name = "Lottery Space"
+
+  override def desc = "You can wager money on dice games here"
+
 }

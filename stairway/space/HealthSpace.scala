@@ -11,4 +11,8 @@ case object HealthSpace extends ImageSpace {
     master.meter.health.value += master.stats.healthSpaceAmount
   }
 
+  override def name = "Health Space"
+
+  override def desc = "Restores a small amount of your health"
+
 }

@@ -19,4 +19,6 @@ class SpecialButton(pad: ButtonPad) extends Button(pad, 5, KeyboardKey(VK_D)) {
     }
   }
 
+  override def buttonDesc = "Special Attack\nDeal twice your ATK in damage; costs energy"
+
 }

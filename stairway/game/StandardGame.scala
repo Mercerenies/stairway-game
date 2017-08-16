@@ -61,9 +61,14 @@ object StandardGame {
     def tooltipObject: Option[Tagged] =
       if (state.isKeyDown(KeyboardKey(VK_CONTROL)))
         List(
+          // Inventory items
           inventory.highlightedItem map { TaggedItem(_, player) },
+          // Action buttons
           buttonPad.mouseOverButton,
-          belt.mouseOver map { belt.getSpace(_) }
+          // Spaces
+          belt.mouseOver map { belt.getSpace(_) },
+          // Content area elements
+          contentArea.taggedContent
         ) collectFirst { case Some(x) => x }
       else
         None

@@ -1,9 +1,11 @@
 
-package com.mercerenies.stairway.game.content
+package com.mercerenies.stairway
+package game.content
 
-import com.mercerenies.stairway.ui.Drawable
-import com.mercerenies.stairway.game.StandardGame
-import com.mercerenies.stairway.action.MouseClick
+import ui.Drawable
+import game.StandardGame
+import game.tagline.Tagged
+import action.MouseClick
 
 trait Content extends Drawable {
 
@@ -16,5 +18,7 @@ trait Content extends Drawable {
   def click(click: MouseClick): Unit = {}
 
   def isIdle: Boolean = true
+
+  def tagged: Option[Tagged] = None
 
 }

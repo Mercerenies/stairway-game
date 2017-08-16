@@ -18,6 +18,12 @@ class OrangeButton(pad: ButtonPad) extends FruitButton(pad, 7, KeyboardKey(VK_X)
     }
   }
 
-  override def buttonDesc = "Orange\nIncrease energy by your vitality"
+  override def buttonDesc = OrangeButton.buttonDesc
+
+}
+
+object OrangeButton {
+
+  val buttonDesc = "Orange\nIncrease energy by your vitality"
 
 }

@@ -5,6 +5,7 @@ package game.content
 import event.{StepEvent, ClickEvent}
 import action.MouseClick
 import game.{GameEntity, StandardGame}
+import game.tagline.Tagged
 import util.Rectangle
 import java.awt._
 
@@ -34,6 +35,12 @@ class ContentArea(master: StandardGame.Master, val rect: Rectangle)
   private var _content: Option[Content] = None
 
   def content: Option[Content] = _content
+
+  def taggedContent: Option[Tagged] =
+    for {
+      c <- content
+      t <- c.tagged
+    } yield t
 
   def put(obj: Content): Unit = {
     _content = Some(obj)

@@ -1,8 +1,10 @@
 
-package com.mercerenies.stairway.product.item
+package com.mercerenies.stairway
+package product.item
 
-import com.mercerenies.stairway.game.Player
-import com.mercerenies.stairway.product._
+import game.Player
+import game.tagline.Tagged
+import product._
 import java.awt.Image
 
 class ItemSlot(val item: Item) extends ConsumableSlot(item) with Captioned {

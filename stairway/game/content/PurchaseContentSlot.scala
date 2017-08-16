@@ -1,9 +1,10 @@
 
-package com.mercerenies.stairway.game.content
+package com.mercerenies.stairway
+package game.content
 
-import com.mercerenies.stairway.ui.{Drawable, SizedDrawable}
-import com.mercerenies.stairway.util.{Rectangle, GraphicsImplicits}
-import com.mercerenies.stairway.product.{Purchasable, Captioned}
+import ui.{Drawable, SizedDrawable}
+import util.Rectangle
+import product.{Purchasable, Captioned}
 import java.awt._
 
 class PurchaseContentSlot[+T <: PurchaseContentSlot.Element](
@@ -12,7 +13,8 @@ class PurchaseContentSlot[+T <: PurchaseContentSlot.Element](
   xy: (Double, Double),
   val font: Option[Font] = Some(PurchaseContentSlot.DefaultFont))
     extends Drawable {
-  import GraphicsImplicits._
+  import util.GraphicsImplicits._
+  import util.PointImplicits._
 
   val xPos = xy._1
   val yPos = xy._2
@@ -40,6 +42,9 @@ class PurchaseContentSlot[+T <: PurchaseContentSlot.Element](
       }
     }
   }
+
+  def isMouseOver: Boolean =
+    owner.master.state.mousePosition within rect
 
 }
 

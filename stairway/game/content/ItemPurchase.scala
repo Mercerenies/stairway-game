@@ -1,15 +1,17 @@
 
-package com.mercerenies.stairway.game.content
+package com.mercerenies.stairway
+package game.content
 
-import com.mercerenies.stairway.ui.Drawable
-import com.mercerenies.stairway.util
-import com.mercerenies.stairway.util.{Rectangle, PointImplicits, GraphicsImplicits}
-import com.mercerenies.stairway.image.ItemsImage
-import com.mercerenies.stairway.game.Inventory
-import com.mercerenies.stairway.product.item.{Item, ItemSlot}
+import ui.Drawable
+import util.{Rectangle, PointImplicits, GraphicsImplicits}
+import image.ItemsImage
+import game.Inventory
+import game.tagline.Tagged
+import product.item.{Item, ItemSlot, TaggedItemSlot}
 import java.awt.{List => _, _}
 
-class ItemPurchase(contentArea: ContentArea, private val _items: Seq[Item]) extends PurchaseContent(contentArea) {
+class ItemPurchase(contentArea: ContentArea, private val _items: Seq[Item])
+    extends PurchaseContent(contentArea) {
   import PointImplicits._
   import GraphicsImplicits._
 
@@ -51,7 +53,10 @@ class ItemPurchase(contentArea: ContentArea, private val _items: Seq[Item]) exte
 
   def highlightedItem: Option[Item] = {
     val pos = master.state.mousePosition
-    items find (pos within _.rect) map (_.value.item)
+    items find { _.isMouseOver } map { _.value.item }
   }
+
+  override def tagged: Option[Tagged] =
+    items find { _.isMouseOver } map { slot => TaggedItemSlot(slot.value, master.player) }
 
 }

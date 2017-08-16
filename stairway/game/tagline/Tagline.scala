@@ -10,7 +10,7 @@ class Tagline(master: StandardGame.Master) extends GameEntity[StandardGame.Maste
 
   private val font = new Font(Font.SERIF, Font.BOLD, 16)
 
-  def highlighted = master.mouseOver
+  def highlighted = master.tooltipObject
 
   def string = for { h <- highlighted ; t <- h.tagText } yield t
 

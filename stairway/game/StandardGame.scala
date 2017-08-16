@@ -14,10 +14,12 @@ import space._
 import product.item._
 import enemy._
 import tagline.{Tagline, Tagged}
+import action.KeyboardKey
 import scala.util.control
 import scala.collection.breakOut
 import javax.swing.SwingUtilities
 import java.awt.Color
+import java.awt.event.KeyEvent.VK_CONTROL
 
 object StandardGame {
 
@@ -56,12 +58,15 @@ object StandardGame {
       tagline
     )
 
-    def mouseOver: Option[Tagged] =
-      List(
-        inventory.highlightedItem map { TaggedItem(_, player) },
-        buttonPad.mouseOverButton,
-        belt.mouseOver map { belt.getSpace(_) }
-      ) collectFirst { case Some(x) => x }
+    def tooltipObject: Option[Tagged] =
+      if (state.isKeyDown(KeyboardKey(VK_CONTROL)))
+        List(
+          inventory.highlightedItem map { TaggedItem(_, player) },
+          buttonPad.mouseOverButton,
+          belt.mouseOver map { belt.getSpace(_) }
+        ) collectFirst { case Some(x) => x }
+      else
+        None
 
     private def moneyChanged(amount: Int): Unit = {
       val sign = if (amount >= 0) "+" else "-"

@@ -167,4 +167,5 @@ Ben Jammin' Franklin
  * Beginning Event: None
  * End Event: +1 Strength, +0.2 Resilience
 
+///// Content areas should be able to show help taglines as well (enemy and item shop definitely need it), then do the save file thing below
 ///// robertetree save file is invalid (ScrollGeneratorB is wrong); either update it manually or redo the era

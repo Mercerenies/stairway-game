@@ -27,4 +27,8 @@ class Arachula(master: StandardGame.Master)
     }
   }
 
+  override def name = bossName
+
+  override def desc = "Drains your energy on every attack"
+
 }

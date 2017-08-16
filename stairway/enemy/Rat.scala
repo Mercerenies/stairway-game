@@ -14,4 +14,8 @@ class Rat(master: StandardGame.Master, entropy: Enemy.Entropy)
 
   override def imageIndex: Int = 0
 
+  override def name = "Rat"
+
+  override def desc = "No special effect"
+
 }

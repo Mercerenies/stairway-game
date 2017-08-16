@@ -16,4 +16,8 @@ class Robot(master: StandardGame.Master, entropy: Enemy.Entropy)
 
   override def imageIndex: Int = 8
 
+  override def name = "Robot"
+
+  override def desc = "No special effect"
+
 }

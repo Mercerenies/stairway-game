@@ -24,4 +24,8 @@ class Spider(master: StandardGame.Master, entropy: Enemy.Entropy)
     }
   }
 
+  override def name = "Spider"
+
+  override def desc = "Drains your energy on every attack"
+
 }

@@ -40,4 +40,8 @@ class Burglar(master: StandardGame.Master, entropy: Enemy.Entropy)
 
   override def imageIndex: Int = 36
 
+  override def name = "Burglar"
+
+  override def desc = "Steals a fruit on every attack"
+
 }

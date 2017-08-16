@@ -40,6 +40,10 @@ class JoanOfLark(master: StandardGame.Master)
     }
   }
 
+  override def name = bossName
+
+  override def desc = "Begins the battle flying and can take flight during combat"
+
   afflictStatus(new WingedEffect(None))
 
 }

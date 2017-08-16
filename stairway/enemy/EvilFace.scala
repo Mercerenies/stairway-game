@@ -15,4 +15,8 @@ class EvilFace(master: StandardGame.Master)
 
   override def imageIndex: Int = 29
 
+  override def name = "Evil Face"
+
+  override def desc = "Mostly harmless"
+
 }

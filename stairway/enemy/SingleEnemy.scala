@@ -4,10 +4,13 @@ package enemy
 
 import game.{Player, StandardGame}
 import game.attack.{EnemyAttack, AttackNature, FlightLevel}
+import game.tagline.Tagged
+import util.PointImplicits._
 
 abstract class SingleEnemy(override val master: StandardGame.Master)
     extends ImageEnemy
-    with HealthBased {
+    with HealthBased
+    with Tagged {
   import SingleEnemy._
 
   var defeatText: String = "KO!"
@@ -37,6 +40,18 @@ abstract class SingleEnemy(override val master: StandardGame.Master)
       Some(dmg)
     }
   }
+
+  override def mouseOverHelp =
+    if (master.state.mousePosition within rect)
+      Some(this)
+    else
+      None
+
+  override def tagText = Some(s"$name\n$desc")
+
+  def name: String
+
+  def desc: String
 
 }
 

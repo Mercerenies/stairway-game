@@ -49,6 +49,10 @@ class AlbertEinspine(master: StandardGame.Master)
     super.takeDamage(attack)
   }
 
+  override def name = bossName
+
+  override def desc = "Deals damage to attacker when attacked; secondary attack creates Spike Spaces"
+
 }
 
 object AlbertEinspine {

@@ -17,4 +17,8 @@ class Ratticus(master: StandardGame.Master)
 
   override def imageIndex: Int = 21
 
+  override def name = bossName
+
+  override def desc = "No special effect"
+
 }

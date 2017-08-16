@@ -44,6 +44,10 @@ class GrumpyCone(master: StandardGame.Master, entropy: Enemy.Entropy)
     }
   }
 
+  override def name = "Grumpy Cone"
+
+  override def desc = "Secondary attack creates a Spilled Milk Space"
+
 }
 
 object GrumpyCone {

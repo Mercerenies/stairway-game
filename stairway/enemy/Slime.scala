@@ -24,6 +24,10 @@ class Slime(master: StandardGame.Master, entropy: Enemy.Entropy)
     super.takeDamage(attack)
   }
 
+  override def name = "Slime"
+
+  override def desc = "Becomes more powerful every time it is attacked"
+
 }
 
 object Slime {

@@ -22,4 +22,8 @@ class Porcupine(master: StandardGame.Master, entropy: Enemy.Entropy)
     super.takeDamage(attack)
   }
 
+  override def name = "Porcupine"
+
+  override def desc = "Deals damage to attacker when attacked"
+
 }

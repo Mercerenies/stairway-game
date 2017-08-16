@@ -20,5 +20,7 @@ class EnemyContent(contentArea: ContentArea, val enemy: EnemyBox[Enemy]) extends
     enemy.innerEnemy.step()
   }
 
+  override def tagged = enemy.innerEnemy.mouseOverHelp
+
 }
 

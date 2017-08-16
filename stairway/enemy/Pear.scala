@@ -24,4 +24,8 @@ class Pear(master: StandardGame.Master, entropy: Enemy.Entropy)
     }
   }
 
+  override def name = "Pear"
+
+  override def desc = "Advances your magic meter on every attack"
+
 }

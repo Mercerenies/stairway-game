@@ -31,4 +31,8 @@ class UnspilledMilk(master: StandardGame.Master, entropy: Enemy.Entropy)
     }
   }
 
+  override def name = "Unspilled Milk"
+
+  override def desc = "If attacked nonlethally, spills into Spilled Milk Spaces"
+
 }

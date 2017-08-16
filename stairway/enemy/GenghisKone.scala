@@ -47,6 +47,10 @@ class GenghisKone(master: StandardGame.Master)
     }
   }
 
+  override def name = bossName
+
+  override def desc = "Secondary attack creates several Spilled Milk Spaces"
+
 }
 
 object GenghisKone {

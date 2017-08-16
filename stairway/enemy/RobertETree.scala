@@ -61,6 +61,10 @@ class RobertETree(master: StandardGame.Master)
     }
   }
 
+  override def name = bossName
+
+  override def desc = "Heals from roots each turn; secondary attack creates Root Spaces"
+
 }
 
 object RobertETree {

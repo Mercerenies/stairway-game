@@ -33,6 +33,10 @@ class Tree(master: StandardGame.Master, entropy: Enemy.Entropy)
     }
   }
 
+  override def name = "Tree"
+
+  override def desc = "Heals from roots each turn; every successful attack fuels the tree's roots"
+
 }
 
 object Tree {

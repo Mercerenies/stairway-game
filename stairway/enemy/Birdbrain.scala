@@ -17,6 +17,10 @@ class Birdbrain(master: StandardGame.Master, entropy: Enemy.Entropy)
 
   override def imageIndex: Int = 4
 
+  override def name = "Birdbrain"
+
+  override def desc = "Begins the battle flying"
+
   afflictStatus(new WingedEffect(None))
 
 }

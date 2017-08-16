@@ -27,4 +27,8 @@ class Kebomb(master: StandardGame.Master, entropy: Enemy.Entropy)
     }
   }
 
+  override def name = "Kebomb"
+
+  override def desc = "Deals damage to self on each attack"
+
 }

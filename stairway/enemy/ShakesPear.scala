@@ -27,4 +27,8 @@ class ShakesPear(master: StandardGame.Master)
     }
   }
 
+  override def name = bossName
+
+  override def desc = "Advances your magic meter on every attack"
+
 }

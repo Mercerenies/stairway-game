@@ -4,6 +4,7 @@ package enemy
 
 import game.{Player, StandardGame}
 import game.attack.{PlayerAttack, FragmentedAttack}
+import game.tagline.Tagged
 import util.{Rectangle, GraphicsImplicits}
 import status.{StatusEffect, EffectPolicy}
 import java.awt.Graphics2D
@@ -89,6 +90,22 @@ class EnemyTeam(override val master: StandardGame.Master, val fullTeam: Enemy*)
 
   override def hasEnemy(func: Enemy => Boolean): Boolean =
     super.hasEnemy(func) || team.exists(_.hasEnemy(func))
+
+  override def mouseOverHelp: Option[Tagged] = {
+    val (x, y) = master.state.mousePosition
+    // TODO The bounds on this are a bit weird since the individual enemies have
+    //      an incorrect understanding of their own bounding boxes
+    if (team.isEmpty)
+      None
+    else
+      fullTeam
+        .zip(positions)
+        .map { case (e, (x, y)) => (e, e.rect.shift(x, y)) }
+        .filter { case (e, _) => e.isAlive }
+        .minBy { case (_, r) => math.max(math.abs(r.centerX - x), math.abs(r.centerY - y)) }
+        ._1
+        .mouseOverHelp
+  }
 
   fullTeam.foreach(_.doNotDrawStatuses()) // This is an incredibly messy hack. I know.
 

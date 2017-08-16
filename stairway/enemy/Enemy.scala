@@ -8,6 +8,7 @@ import ui.Drawable
 import game.{Player, StandardGame}
 import game.attack.PlayerAttack
 import game.content.ContentArea
+import game.tagline.Tagged
 import status.{StatusEntity, StatusEffect}
 import scala.util.Random
 import java.awt.{Graphics2D, Color}
@@ -82,6 +83,8 @@ trait Enemy extends Drawable with StatusEntity {
   def doNotDrawStatuses(): Unit = {
     _drawStatuses = false
   }
+
+  def mouseOverHelp: Option[Tagged]
 
 }
 

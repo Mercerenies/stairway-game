@@ -14,4 +14,8 @@ class HelmetImp(master: StandardGame.Master, entropy: Enemy.Entropy)
 
   override def imageIndex: Int = 3
 
+  override def name = "Helmet Imp"
+
+  override def desc = "No special effect"
+
 }

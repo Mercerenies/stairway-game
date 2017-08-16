@@ -18,4 +18,8 @@ class EvilFaceBoss(master: StandardGame.Master)
 
   override def imageIndex: Int = 30
 
+  override def name = bossName
+
+  override def desc = "Mostly harmless"
+
 }

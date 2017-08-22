@@ -15,7 +15,7 @@ class BarStat(
 
   object Draw extends Drawable {
 
-    private var speed: Double = 2.5
+    private val speed: Double = 2.5
 
     private var dValue = startValue
     private var dMax = _maxv

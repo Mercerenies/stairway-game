@@ -49,6 +49,13 @@ Spicy   - +N ATK, passive effect
 Winged  - Effectee counts as flying
 Blocked - Cannot use any items
 
+=== LUCK EVENTS ===
+
+Physical Attack - 0.090 | 0.001
+Lottery Content - 0.100 | 0.100
+Mystery Content - 0.010 | 0.010
+Single Enemy    - 0.090 | 0.001
+
 === ENEMIES ===
 
 Rat             (HP   5 ±  1 | ATK  3 ±  0 | $ 16 ±  2)

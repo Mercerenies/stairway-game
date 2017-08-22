@@ -60,6 +60,9 @@ class Inventory(master: StandardGame.Master, val xPos: Double, val yPos: Double)
     Rectangle(xCurr, yCurr, xCurr + ItemsImage.Width, yCurr + ItemsImage.Height)
   }
 
+  def bottomY: Double =
+    positionOf(0).ymax
+
   def textPos: (Double, Double) =
     (xPos + 2, yPos)
 

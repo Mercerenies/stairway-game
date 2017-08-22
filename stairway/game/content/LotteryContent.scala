@@ -1,12 +1,12 @@
 
-package com.mercerenies.stairway.game.content
+package com.mercerenies.stairway
+package game.content
 
-import com.mercerenies.stairway.luck._
-import com.mercerenies.stairway.ui.{Drawable, Triangle}
-import com.mercerenies.stairway.util
-import com.mercerenies.stairway.util.{PointImplicits, Rectangle, Numeral}
-import com.mercerenies.stairway.space.LotterySpace
-import com.mercerenies.stairway.action.{MouseClick, MouseButton, ActionType}
+import luck._
+import ui.{Drawable, Triangle}
+import util.{PointImplicits, Rectangle, Numeral}
+import space.LotterySpace
+import action.{MouseClick, MouseButton, ActionType}
 import java.awt.{List => _, _}
 
 class LotteryContent(contentArea: ContentArea, val space: LotterySpace)
@@ -129,6 +129,7 @@ class LotteryContent(contentArea: ContentArea, val space: LotterySpace)
     private var wager = 0
 
     def init(n: Int): Unit = {
+      master.karmaBar.freeze()
       val nums = DiceNumbers(space.diceCount)
       val odds = nums.satisfy(_.sum >= space.toBeat)
       val outcome = master.luck.evaluateLuck(LotteryContent.LuckWeight, odds)
@@ -149,6 +150,7 @@ class LotteryContent(contentArea: ContentArea, val space: LotterySpace)
           clearDice()
           if (n >= space.toBeat)
             master.stats.money += wager * space.multiplier
+          master.karmaBar.thaw()
           _state = FinishedState
         }
       }

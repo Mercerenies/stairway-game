@@ -3,7 +3,7 @@ package com.mercerenies.stairway
 package game
 
 import image.ButtonsImage
-import stat.PlayerStats
+import stat.{PlayerStats, KarmaBar, StatDrawParams}
 import util.{Rectangle, Index}
 import luck.{DiceValue, PlayerLuck}
 import debug.DebugBox
@@ -42,7 +42,7 @@ object StandardGame {
     val buttonPad = new ButtonPad(this, (BeltRightMargin + 20, 440 - ButtonsImage.Height * 3))
     val particleText = new ParticleText(this)
     val contentArea = new ContentArea(this, Rectangle(BeltRightMargin + 32, 40, 620, 370))
-    val inventory = new Inventory(this, BeltRightMargin + 180, 370)
+    val inventory = new Inventory(this, BeltRightMargin + 180, 360)
     val system = new BeltSystem(this)
     val belt: ConveyerBelt[OverrideConveyer[ConveyerFeed]] =
       new ConveyerBelt(this, system.belt, BeltRightMargin)
@@ -50,10 +50,15 @@ object StandardGame {
     val saveload = new SaveLoader(this)
     val field = new FieldParams
     val tagline = new Tagline(this)
+    val karmaBar =
+      new KarmaBar(this, Rectangle(
+        BeltRightMargin + 180, inventory.bottomY + 10,
+        BeltRightMargin + 360, inventory.bottomY + 10 + StatDrawParams.LineHeight
+      ))
 
     override lazy val objects = List(
       belt, contentArea,
-      player, inventory, damage, meter, buttonPad,
+      player, karmaBar, inventory, damage, meter, buttonPad,
       particleText, statusBar, saveload, debugger,
       tagline
     )

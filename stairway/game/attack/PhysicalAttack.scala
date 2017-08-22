@@ -26,6 +26,6 @@ class PhysicalAttack(master: StandardGame.Master) extends PlayerAttack(master) {
 }
 
 object PhysicalAttack {
-  val LuckWeightMinus = 0.09
+  val LuckWeightMinus = 0.002
   val LuckWeightPlus  = 0.001
 }

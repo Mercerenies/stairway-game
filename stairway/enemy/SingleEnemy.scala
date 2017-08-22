@@ -56,6 +56,6 @@ abstract class SingleEnemy(override val master: StandardGame.Master)
 }
 
 object SingleEnemy {
-  val LuckWeightMinus = 0.09
+  val LuckWeightMinus = 0.002
   val LuckWeightPlus = 0.001
 }

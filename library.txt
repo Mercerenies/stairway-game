@@ -41,7 +41,7 @@ Spearhead Arrow  (12 | 11) - Deal damage equal to ATK, doubled on flying enemies
 Anchor           (13 | 16) - All flying enemies are grounded
 Lesser Charm     (14 | 50) - Red and Double Red Spaces deal only 1 damage
 Greater Charm    (15 | ??) - All types of red spaces deal only 1 damage
-Four-Leaf Clover (16 | ??) - Increases karma instantly
+Four-Leaf Clover (16 | 17) - Increases karma instantly
 
 === STATUSES ===
 
@@ -52,10 +52,10 @@ Blocked - Cannot use any items
 
 === LUCK EVENTS ===
 
-Physical Attack - 0.002 | 0.001
-Lottery Content - 0.100 | 0.100
-Mystery Content - 0.010 | 0.010
-Single Enemy    - 0.002 | 0.001
+Physical Attack - 0.010 | 0.005
+Lottery Content - 0.200 | 0.200
+Mystery Content - 0.040 | 0.040
+Single Enemy    - 0.004 | 0.002
 
 === ENEMIES ===
 

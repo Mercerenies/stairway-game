@@ -200,5 +200,5 @@ class LotteryContent(contentArea: ContentArea, val space: LotterySpace)
 }
 
 object LotteryContent {
-  val LuckWeight = 0.1
+  val LuckWeight = 0.2
 }

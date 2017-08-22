@@ -127,7 +127,7 @@ Ben Jammin' Franklin
  * Enemies: Spider (x2), Pear (x3), Helmet Imp / Pear, Unspilled Milk, Grumpy Cone
  * Boss: Genghis Kone
  * Length: 140
- * Items: Spikes, Coffee, Throwing Knife, Chili Pepper
+ * Items: Spikes, Coffee, Throwing Knife, Chili Pepper, Four-Leaf Clover
  * New Spaces: None
  * Special Spaces: Milk Glass Space
  * Special Events: Scroll Set A (3)
@@ -138,7 +138,7 @@ Ben Jammin' Franklin
  * Enemies: Birdbrain, Kebomb, Helmet Imp / Spider, Grumpy Cone (x2), Spider (x3)
  * Boss: Joan of Lark
  * Length: 170
- * Items: Anchor, Spearhead Arrow, Chili Pepper, Spikes, Coffee
+ * Items: Anchor, Spearhead Arrow, Chili Pepper, Four-Leaf Clover, Coffee
  * New Spaces: Blocked Space
  * Special Spaces: Leap Space
  * Special Events: None
@@ -149,7 +149,7 @@ Ben Jammin' Franklin
  * Enemies: Tree, Robot, Burglar, Birdbrain / Grumpy Cone (x2), Kebomb / Unspilled Milk
  * Boss: Robert E Tree
  * Length: 200
- * Items: Silver Feather / Throwing Knife / Sundae / Smoke Bomb / Bowling Ball
+ * Items: Silver Feather, Throwing Knife, Sundae, Smoke Bomb, Bowling Ball
  * New Spaces: None
  * Special Spaces: Root Space
  * Special Events: Scroll Set B (1)
@@ -160,7 +160,7 @@ Ben Jammin' Franklin
  * Enemies: Porcupine, Slime, Tree, Robot, Burglar / Birdbrain
  * Boss: Albert Einspine
  * Length: 230
- * Items: Lesser Charm / Silver Feather / Smoke Bomb / Bowling Ball / Spearhead Arrow
+ * Items: Lesser Charm, Silver Feather, Smoke Bomb, Bowling Ball, Spearhead Arrow
  * New Spaces: None
  * Special Spaces: Spike Space
  * Specials Events: Scroll Set B (2)

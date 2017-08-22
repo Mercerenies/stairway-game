@@ -98,5 +98,5 @@ class MysteryContent(contentArea: ContentArea, val count: Int) extends AbstractC
 }
 
 object MysteryContent {
-  val LuckWeight = 0.01
+  val LuckWeight = 0.04
 }

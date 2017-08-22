@@ -52,14 +52,21 @@ object Item {
   val image = new ItemsImage
 
   def apply(n: Int) = n match {
-    case 1 => SmokeBomb
-    case 2 => Spikes
-    case 3 => Sundae
-    case 4 => Coffee
-    case 5 => BowlingBall
-    case 6 => ThrowingKnife
-    case 7 => HolyFire
-    case 9 => DivineBolt
+    case  1 => SmokeBomb
+    case  2 => Spikes
+    case  3 => Sundae
+    case  4 => Coffee
+    case  5 => BowlingBall
+    case  6 => ThrowingKnife
+    case  7 => HolyFire
+    case  9 => DivineBolt
+    case 10 => ChiliPepper
+    case 11 => SilverFeather
+    case 12 => SpearheadArrow
+    case 13 => Anchor
+    case 14 => LesserCharm
+    case 15 => GreaterCharm
+    case 16 => FourLeafClover
     case _ => sys.error("Invalid item index")
   }
 

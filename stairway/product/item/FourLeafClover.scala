@@ -20,7 +20,7 @@ case object FourLeafClover extends Item {
 
   override def isPassive: Boolean = false
 
-  override def basePrice: Int = 16 // TODO Price
+  override def basePrice: Int = 17
 
   override def use(player: Player): Unit = {
     player.master.luck.karma += 0.20

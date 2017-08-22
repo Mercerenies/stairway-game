@@ -168,3 +168,4 @@ Ben Jammin' Franklin
  * End Event: +1 Strength, +0.2 Resilience
 
 ///// Redo the save files (changed a bunch of luck-based factors)
+///// Increase chaos at some point in the existing eras

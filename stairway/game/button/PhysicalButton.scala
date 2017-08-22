@@ -1,9 +1,11 @@
 
-package com.mercerenies.stairway.game.button
+package com.mercerenies.stairway
+package game.button
 
-import com.mercerenies.stairway.game.ButtonPad
-import com.mercerenies.stairway.game.attack.PhysicalAttack
-import com.mercerenies.stairway.action.KeyboardKey
+import game.ButtonPad
+import game.attack.PhysicalAttack
+import action.KeyboardKey
+import luck.Probability
 import java.awt.event.KeyEvent.VK_A
 
 class PhysicalButton(pad: ButtonPad) extends Button(pad, 3, KeyboardKey(VK_A)) {
@@ -16,6 +18,8 @@ class PhysicalButton(pad: ButtonPad) extends Button(pad, 3, KeyboardKey(VK_A)) {
     }
   }
 
-  override def buttonDesc = "Physical Attack\nDeal damage equal to ATK; chance of critical hit dealing triple damage"
+  private def augmentedCrit = master.luck.augmentedOdds(master.stats.criticalChance)
+
+  override def buttonDesc = s"Physical Attack\nDeal damage equal to ATK; chance of critical hit dealing triple damage [Odds of Critical Hit: ${Probability(augmentedCrit)}]"
 
 }

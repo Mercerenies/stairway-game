@@ -13,6 +13,7 @@ class LotteryContent(contentArea: ContentArea, val space: LotterySpace)
     extends AbstractContent(contentArea) with DiceContainer with ContentHeader {
   import util.PointImplicits._
   import util.GraphicsImplicits._
+  import Ordering.Implicits._
 
   abstract class State extends Drawable {
     def step(): Unit
@@ -122,7 +123,6 @@ class LotteryContent(contentArea: ContentArea, val space: LotterySpace)
   }
 
   private object DiceState extends State {
-    import Ordering.Implicits._
     import util.RandomImplicits._
 
     private var timer = 60
@@ -131,7 +131,6 @@ class LotteryContent(contentArea: ContentArea, val space: LotterySpace)
     def init(n: Int): Unit = {
       master.karmaBar.freeze()
       val nums = DiceNumbers(space.diceCount)
-      val odds = nums.satisfy(_.sum >= space.toBeat)
       val outcome = master.luck.evaluateLuck(LotteryContent.LuckWeight, odds)
       val total = if (outcome) (space.toBeat) to (nums.maximum) else (nums.minimum) until (space.toBeat)
       val numbers = DiceWaterfall.getValues(space.diceCount, util.rand.nextOf(total: _*))
@@ -167,10 +166,11 @@ class LotteryContent(contentArea: ContentArea, val space: LotterySpace)
 
   private var _state: State = SliderState
 
-  private def phrase0: String = s"Place your wager and roll ${space.diceCount} dice."
-  private def phrase1: String = s"If the sum is greater than ${space.toBeat.value},"
-  private def phrase2: String = s"you win ${Numeral.times(space.multiplier)} your wager!"
+  private lazy val augmentedCrit = master.luck.augmentedOdds(odds)
 
+  private def phrase0: String = s"Place your wager and roll ${space.diceCount} dice."
+  private def phrase1: String = s"If the sum is at least ${space.toBeat.value},"
+  private def phrase2: String = s"you win ${Numeral.times(space.multiplier)} your wager! [Odds: ${Probability(augmentedCrit)}]"
   override def headerText: List[String] =
     if (_state.showHeader)
       List(phrase0, phrase1, phrase2)
@@ -194,6 +194,8 @@ class LotteryContent(contentArea: ContentArea, val space: LotterySpace)
   }
 
   override def isIdle: Boolean = !hasDice
+
+  def odds: Double = DiceNumbers(space.diceCount).satisfy(_.sum >= space.toBeat)
 
 }
 

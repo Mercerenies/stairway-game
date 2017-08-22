@@ -20,6 +20,8 @@ class PlayerLuck(val master: StandardGame.Master) {
 
   def luck: Double = math.max(baseLuck + karma * multiplier, 0.0)
 
+  def augmentedOdds(odds: Double) = odds * luck
+
   def evaluateLuck(weight: (Double, Double), odds: Double): Boolean = {
     // If an event was already determined conclusively without random chance,
     // go with that result without factoring in luck or karma.
@@ -30,7 +32,7 @@ class PlayerLuck(val master: StandardGame.Master) {
     } else {
       // This also adjusts the karma from the event
       // Both weight arguments should be nonnegative
-      val winner = (rand.nextDouble() <= odds * luck)
+      val winner = (rand.nextDouble() <= augmentedOdds(odds))
       if (winner)
         karma -= weight._1
       else

@@ -12,7 +12,7 @@ class Spider(master: StandardGame.Master, entropy: Enemy.Entropy)
 
   override def startingHealth: Double = 11.0 + 1.0 * entropy.risk
 
-  override def attackPower: Double = 7.0 + 1.0 * entropy.risk
+  override def attackPower: Double = 6.0 + 1.0 * entropy.risk
 
   override def imageIndex: Int = 2
 

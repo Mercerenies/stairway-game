@@ -199,7 +199,6 @@ class BeltSystem(
       ),
       List(
         entry(basicSpider(), 4, 5, 5),
-        entry(spiderTeam(), 5, 6, 6),
         entry(ratTeam3(), 4, 5, 5),
         entry(pearRatTeam(), 5, 5, 6),
         entry(pearTeam(), 4, 4, 5),

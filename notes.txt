@@ -113,7 +113,7 @@ Ben Jammin' Franklin
  * End Event: +1 Strength
 
 == ERA III ==
- * Enemies: Spider, Spider (x2), Rat (x3), Pear / Rat (x2), Pear (x2), Helmet Imp
+ * Enemies: Spider, Rat (x3), Pear / Rat (x2), Pear (x2), Helmet Imp
  * Boss: Count Arachula
  * Length: 110
  * Items: Spikes, Sundae, Coffee, Throwing Knife

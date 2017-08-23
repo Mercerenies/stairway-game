@@ -61,7 +61,7 @@ Single Enemy    - 0.004 | 0.002
 
 Rat             (HP   5 ±  1 | ATK  3 ±  0 | $ 16 ±  2)
 Pear            (HP  13 ±  4 | ATK  4 ±  1 | $ 28 ±  4) - Advances magic cycle on attack
-Spider          (HP  11 ±  1 | ATK  7 ±  1 | $ 33 ±  1) - Decreases energy on attack
+Spider          (HP  11 ±  1 | ATK  6 ±  1 | $ 33 ±  1) - Decreases energy on attack
 Helmet Imp      (HP  26 ±  5 | ATK  2 ±  1 | $ 42 ±  4)
 Grumpy Cone     (HP  18 ±  3 | ATK  4 ±  1 | $ 36 ±  6) - Secondary attack creates Spilled Milk Space
 Unspilled Milk  (HP   7 ±  0 | ATK  4 ±  0 | $ 22 ±  0) - If attacked nonlethally, becomes Spilled Milk

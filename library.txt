@@ -52,10 +52,10 @@ Blocked - Cannot use any items
 
 === LUCK EVENTS ===
 
-Physical Attack - 0.010 | 0.005
+Physical Attack - 0.020 | 0.005
 Lottery Content - 0.200 | 0.200
 Mystery Content - 0.040 | 0.040
-Single Enemy    - 0.004 | 0.002
+Single Enemy    - 0.008 | 0.002
 
 === ENEMIES ===
 

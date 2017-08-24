@@ -167,5 +167,6 @@ Ben Jammin' Franklin
  * Beginning Event: None
  * End Event: +1 Strength, +0.2 Resilience
 
+///// Karma still needs some balancing; it's too easy to max out right now
 ///// Redo the save files (changed a bunch of luck-based factors)
 ///// Increase chaos at some point in the existing eras

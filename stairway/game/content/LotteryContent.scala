@@ -9,6 +9,7 @@ import space.LotterySpace
 import action.{MouseClick, MouseButton, ActionType}
 import java.awt.{List => _, _}
 
+// TODO Using a Four-Leaf Clover while on a Lottery Space doesn't update the odds text.
 class LotteryContent(contentArea: ContentArea, val space: LotterySpace)
     extends AbstractContent(contentArea) with DiceContainer with ContentHeader {
   import util.PointImplicits._

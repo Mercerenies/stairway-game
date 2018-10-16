@@ -6,6 +6,15 @@ import com.mercerenies.stairway.event.{StepEvent, ClickEvent}
 import com.mercerenies.stairway.action.MouseClick
 import java.awt._
 
+/** A box for displaying debugging text.
+  *
+  * This relatively simple box occupies the upper-left corner of the
+  * screen and is used for printing simple debug strings. This box
+  * will always be empty in production.
+  *
+  * @constructor
+  * @param master the master game object
+  */
 class DebugBox(master: StandardGame.Master) extends GameEntity[StandardGame.Master](master) {
 
   //def text: String = "ROOT: " + master.field.rootEnergy

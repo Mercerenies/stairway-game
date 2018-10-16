@@ -6,8 +6,15 @@ import java.awt._
 import java.awt.event.{WindowAdapter, WindowEvent}
 import com.mercerenies.stairway.game.EventDispatch
 
+/** The frame containing the game's interface.
+  *
+  * @constructor
+  * @param _events the object to use for dispatching of events
+  */
 class Frame(private val _events: EventDispatch) extends JFrame("Stairway") {
 
+  /** The central panel containing the game contents.
+    */
   val pane = new Panel(_events)
   private var _closed = false
 
@@ -17,6 +24,8 @@ class Frame(private val _events: EventDispatch) extends JFrame("Stairway") {
     }
   }
 
+  /** Initializes and displays the game window.
+    */
   def initialize() = {
     add(pane)
     pack()
@@ -26,6 +35,9 @@ class Frame(private val _events: EventDispatch) extends JFrame("Stairway") {
     setVisible(true)
   }
 
+  /** Returns whether the frame has been closed, either by the user or
+    * the game.
+    */
   def isClosed = _closed
 
   addWindowListener(Listener)

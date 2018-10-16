@@ -10,7 +10,7 @@ import java.awt._
   *
   * This relatively simple box occupies the upper-left corner of the
   * screen and is used for printing simple debug strings. This box
-  * will always be empty in production.
+  * will always be empty in production, or if [[DebugMode]] is off.
   *
   * @constructor
   * @param master the master game object

@@ -59,6 +59,7 @@ trait StatusEntity {
     * items unless ''any'' of its statuses say otherwise.
     *
     * @return whether the entity can use items
+    */
   def canUseItems: Boolean =
     statuses.forall { _.canUseItems }
 
